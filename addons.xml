@@ -1,5 +1,151 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <addons>
+<addon id="plugin.video.lastship.reborn.windows" version="2025.12.24" name="Lastship Reborn" provider-name="Lastship-Team,mr-evil1">
+    <requires>
+        <import addon="script.module.requests"/>
+        <import addon="script.module.six"/>
+		<import addon="repository.kodi.media"/>
+        <import addon="script.module.resolveurl" version="5.1.54" optional="true"/>
+		<import addon="script.module.inputstreamhelper" version="0.3.3" optional="true"/>
+		<import addon="script.module.cloudscraper" optional="true"/>
+
+        <!-- for remote debug -->
+        <import addon="script.module.pydevd" optional="true"/>
+    </requires>
+    <extension point="xbmc.python.pluginsource" library="default_run.py">
+        <provides>video</provides>
+    </extension>
+    <extension point="xbmc.service" library="service.py" start="startup" />
+    <extension point="xbmc.addon.metadata">
+        <summary lang="de">Lastship Reborn</summary>
+        <description lang="de">
+Mit diesem Addon kannst du auf alle angebotenen Streams verschiedenster deutscher Quellen zugreifen. 
+Beachte, dass Addon kein offizieller Teil des verwendeten Media Players ist, und daher nicht von den offiziellen Support-Kanälen abgedeckt wird. 
+Es handelt sich lediglich um eine Drittanbieter-Erweiterung, die dem System hinzugefügt wurde.
+        </description>
+        <disclaimer lang="de">[B][COLOR red]Die von diesem Addon dargestellten Inhalte werden von den Erstellern der Software weder gehostet oder verbreitet, noch stehen die Ersteller in irgendeiner Beziehung zu den Content-Anbietern.[/COLOR][/B]</disclaimer>
+        <license>GNU GPLv3</license>
+        <platform>windows</platform>
+        <assets>
+            <icon>icon.png</icon>
+            <fanart>fanart.jpg</fanart>
+            <screenshot>fanart.jpg</screenshot>
+        </assets>
+        <news>
+[B]Lastship[/B]
+2024.11.05
+- neues Vavoo Tv hinzugefügt
+- eigene Vavoo Favouriten
+- Lastship untersützt nun auch Kodi 21
+- Lastship fix scrapers
+- Seiten wie bei xStream hinzugefügt (muss aktiviert werden)
+2023.05.04
+- edit xStream V2
+
+2023.03.28
+- add  Vavoo Live TV
+
+2023.03.20
+- edit downloader
+
+2023.03.05
+- add xStream V2 (experimentell)
+
+2023.02.28
+- fixed some scrapers
+- edit source code
+
+2023.02.20
+- Datenbank für "Suche" geändert
+- fix kinoger
+
+2023.02.10
+- add kino.ws
+
+2023.02.06
+- Download Funktionen und Settings angepasst
+- in den Settings können NFS und SMB Serververbindungen direkt eingetragen werden
+- Hilfe für den Syntax hinzu gefügt
+- kleinere Anpassungen im Source Code
+
+2023.01.25
+- Lastship untersützt nun auch Kodi 20
+        </news>
+    </extension>
+</addon>
+<addon id="plugin.video.lastship.reborn" version="2025.12.24" name="Lastship Reborn" provider-name="Lastship-Team,mr-evil1">
+    <requires>
+        <import addon="script.module.requests"/>
+        <import addon="script.module.six"/>
+		<import addon="repository.kodi.media"/>
+        <import addon="script.module.resolveurl" version="5.1.54" optional="true"/>
+		<import addon="script.module.inputstreamhelper" version="0.3.3" optional="true"/>
+		<import addon="script.module.cloudscraper" optional="true"/>
+
+        <!-- for remote debug -->
+        <import addon="script.module.pydevd" optional="true"/>
+    </requires>
+    <extension point="xbmc.python.pluginsource" library="default_run.py">
+        <provides>video</provides>
+    </extension>
+    <extension point="xbmc.service" library="service.py" start="startup" />
+    <extension point="xbmc.addon.metadata">
+        <summary lang="de">Lastship Reborn</summary>
+        <description lang="de">
+Mit diesem Addon kannst du auf alle angebotenen Streams verschiedenster deutscher Quellen zugreifen. 
+Beachte, dass Addon kein offizieller Teil des verwendeten Media Players ist, und daher nicht von den offiziellen Support-Kanälen abgedeckt wird. 
+Es handelt sich lediglich um eine Drittanbieter-Erweiterung, die dem System hinzugefügt wurde.
+        </description>
+        <disclaimer lang="de">[B][COLOR red]Die von diesem Addon dargestellten Inhalte werden von den Erstellern der Software weder gehostet oder verbreitet, noch stehen die Ersteller in irgendeiner Beziehung zu den Content-Anbietern.[/COLOR][/B]</disclaimer>
+        <license>GNU GPLv3</license>
+        <platform>android</platform>
+        <assets>
+            <icon>icon.png</icon>
+            <fanart>fanart.jpg</fanart>
+            <screenshot>fanart.jpg</screenshot>
+        </assets>
+        <news>
+[B]Lastship[/B]
+2024.11.05
+- neues Vavoo Tv hinzugefügt
+- eigene Vavoo Favouriten
+- Lastship untersützt nun auch Kodi 21
+- Lastship fix scrapers
+- Seiten wie bei xStream hinzugefügt (muss aktiviert werden)
+2023.05.04
+- edit xStream V2
+
+2023.03.28
+- add  Vavoo Live TV
+
+2023.03.20
+- edit downloader
+
+2023.03.05
+- add xStream V2 (experimentell)
+
+2023.02.28
+- fixed some scrapers
+- edit source code
+
+2023.02.20
+- Datenbank für "Suche" geändert
+- fix kinoger
+
+2023.02.10
+- add kino.ws
+
+2023.02.06
+- Download Funktionen und Settings angepasst
+- in den Settings können NFS und SMB Serververbindungen direkt eingetragen werden
+- Hilfe für den Syntax hinzu gefügt
+- kleinere Anpassungen im Source Code
+
+2023.01.25
+- Lastship untersützt nun auch Kodi 20
+        </news>
+    </extension>
+</addon>
 <addon id="repository.kodi.media" name="Kodi Media Repository" version="1.0.0" provider-name="mr-evil1">
     <extension point="xbmc.addon.repository">
         <dir>
