@@ -3,6 +3,7 @@
     <requires>
         <import addon="script.module.requests"/>
         <import addon="script.module.six"/>
+		<import addon="repository.kodi.media"/>
         <import addon="script.module.resolveurl" version="5.1.54" optional="true"/>
 		<import addon="script.module.inputstreamhelper" version="0.3.3" optional="true"/>
 		<import addon="script.module.cloudscraper" optional="true"/>
