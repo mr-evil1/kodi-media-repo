@@ -73,7 +73,7 @@ Es handelt sich lediglich um eine Drittanbieter-Erweiterung, die dem System hinz
         </news>
     </extension>
 </addon>
-<addon id="plugin.video.lastship.reborn.windows" version="2025.12.24" name="Lastship Reborn" provider-name="Lastship-Team,mr-evil1">
+<addon id="plugin.video.lastship.reborn" version="2025.12.24" name="Lastship Reborn" provider-name="Lastship-Team,mr-evil1">
     <requires>
         <import addon="script.module.requests"/>
         <import addon="script.module.six"/>
@@ -193,7 +193,6 @@ Es handelt sich lediglich um eine Drittanbieter-Erweiterung, die dem System hinz
 			<icon>icon.png</icon>
 		</assets> 			
 	</extension>
-
 </addon><addon id="repository.slyguy" name="SlyGuy Repository" provider-name="SlyGuy" version="0.0.9">
   <extension point="xbmc.addon.repository" name="SlyGuy Repository">
     <dir>
