@@ -1,0 +1,46 @@
+name: Kodi Repo Builder
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch: # Erlaubt es dir, den Prozess manuell unter dem Reiter "Actions" zu starten
+
+permissions:
+  contents: write  # Behebt den Permission denied (403) Fehler
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Generate addons.xml
+      run: |
+        echo '<?xml version="1.0" encoding="UTF-8"?>' > addons.xml
+        echo '<addons>' >> addons.xml
+        # Sucht in Unterordnern nach addon.xml Dateien
+        for d in */ ; do
+          if [ -f "$d/addon.xml" ]; then
+            # Entfernt die erste Zeile (XML-Header) der einzelnen Dateien für die Zusammenführung
+            sed '1d' "$d/addon.xml" >> addons.xml
+          fi
+        done
+        echo '</addons>' >> addons.xml
+
+    - name: Generate MD5
+      run: |
+        md5sum addons.xml | awk '{ print $1 }' > addons.xml.md5
+
+    - name: Commit changes
+      run: |
+        git config user.name github-actions
+        git config user.email actions@github.com
+        git add addons.xml addons.xml.md5
+        # Nur committen und pushen, wenn sich tatsächlich etwas geändert hat
+        if git diff --staged --quiet; then
+          echo "Keine Änderungen an addons.xml festgestellt."
+        else
+          git commit -m "Auto update addons.xml [skip ci]"
+          git push
+        fi
