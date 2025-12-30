@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<addon id="plugin.program.ftp" name="[COLORblue]Ftp Server[/COLOR]" version="2.0.0" provider-name="mr-evil1">
+  <extension point="xbmc.python.script" library="script.py">
+    <provides>executable</provides>
+  </extension>
+  <extension point="xbmc.service" library="service.py"/>
+
+  <extension point="xbmc.addon.metadata">
+    <platform>android</platform>
+    <language></language>
+    <summary lang="en">Use Kodi as Ftp Server</summary>
+    <assets>
+      <icon>resources/icon.png</icon>
+      <fanart>resources/icon.jpg</fanart>
+    </assets>
+  </extension>
+</addon>

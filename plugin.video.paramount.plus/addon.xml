@@ -10,7 +10,7 @@
     <description lang="en">Watch thousands of episodes of your favorite shows on any device. Paramount+ includes on-demand and live content from CBS, BET, Comedy Central, Nickelodeon, MTV, VH1, Paramount, and more.
 
 Subscription required.</description>
-    <platform>android</platform
+    <platform>android</platform>
     <reuselanguageinvoker>true</reuselanguageinvoker>
     <license></license>
     <language></language>
