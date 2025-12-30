@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<addon id="plugin.video.megakino" name="Megakino" version="2.0.1" provider-name="mr-evil1">
+  <requires>
+    <import addon="xbmc.python" version="3.0.0"/>
+    <import addon="script.module.resolveurl"/>
+    <import addon="script.module.requests"/>
+  </requires>
+  <extension point="xbmc.python.pluginsource" library="addon.py">
+    <provides>video</provides>
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <summary lang="de_DE">Megakino Addon</summary>
+    <description lang="de_DE">Ein eigenständiges Addon für Megakino.</description>
+    <disclaimer lang="de_DE">Inhalte werden von externen Webseiten bereitgestellt.</disclaimer>
+    <platform>all</platform>
+    <license>GPL-2.0-only</license>
+    <assets>
+        <icon>resources/icon.jpg</icon>
+		<fanart>resources/fanart.jpg</fanart>
+    </assets>
+  </extension>
+</addon>
