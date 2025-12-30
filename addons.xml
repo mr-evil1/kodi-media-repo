@@ -183,6 +183,29 @@ Es handelt sich lediglich um eine Drittanbieter-Erweiterung, die dem System hinz
     </assets>
   </extension>
 </addon>
+<addon id="plugin.video.paramount.plus" name="Paramount+ Mod" provider-name="SlyGuy,mr-evil1" version="0.9.11">
+  <requires>
+    <import addon="script.module.slyguy" version="0.84.39"/>
+  </requires>
+  <extension point="xbmc.python.pluginsource" library="default.py" provides="video">
+    <provides>video</provides>
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <description lang="en">Watch thousands of episodes of your favorite shows on any device. Paramount+ includes on-demand and live content from CBS, BET, Comedy Central, Nickelodeon, MTV, VH1, Paramount, and more.
+
+Subscription required.</description>
+    <platform>android</platform
+    <reuselanguageinvoker>true</reuselanguageinvoker>
+    <license></license>
+    <language></language>
+    <website></website>
+    <news>Fix some movie art work. Thanks @tchebb</news>
+    <assets>
+      <icon>icon.png</icon>
+      <fanart>fanart.jpg</fanart>
+    </assets>
+  </extension>
+</addon>
 <addon id="repository.kodi.media" name="Kodi Media Repository" version="1.0.0" provider-name="mr-evil1">
     <extension point="xbmc.addon.repository">
         <dir>
