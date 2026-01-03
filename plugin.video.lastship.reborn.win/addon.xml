@@ -1,14 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<addon id="plugin.video.lastship.reborn" version="2025.12.30w" name="Lastship Reborn" provider-name="Lastship-Team,mr-evil1">
+<addon id="plugin.video.lastship.reborn" version="2026.01.03w" name="Lastship Reborn" provider-name="Lastship-Team,mr-evil1">
     <requires>
         <import addon="script.module.requests"/>
         <import addon="script.module.six"/>
 	<import addon="repository.kodi.media"/>
         <import addon="script.module.resolveurl"/>
 	<import addon="script.module.inputstreamhelper"/>
-	<import addon="script.module.cloudscraper" optional="true"/>
-
-        <!-- for remote debug -->
+	<import addon="script.module.cloudscraper"/>
         <import addon="script.module.pydevd" optional="true"/>
     </requires>
     <extension point="xbmc.python.pluginsource" library="default_run.py">
@@ -32,7 +30,10 @@ Es handelt sich lediglich um eine Drittanbieter-Erweiterung, die dem System hinz
         </assets>
         <news>
 [B]Lastship[/B]
-2024.11.05
+2026.01.03
+-Requesthandler überabeitet
+
+2025.11.05
 - neues Vavoo Tv hinzugefügt
 - eigene Vavoo Favouriten
 - Lastship untersützt nun auch Kodi 21
