@@ -22,7 +22,7 @@ Es handelt sich lediglich um eine Drittanbieter-Erweiterung, die dem System hinz
         </description>
         <disclaimer lang="de">[B][COLOR red]Die von diesem Addon dargestellten Inhalte werden von den Erstellern der Software weder gehostet oder verbreitet, noch stehen die Ersteller in irgendeiner Beziehung zu den Content-Anbietern.[/COLOR][/B]</disclaimer>
         <license>GNU GPLv3</license>
-        <platform>windows</platform>
+        <platform>android</platform>
         <assets>
             <icon>icon.png</icon>
             <fanart>fanart.jpg</fanart>
