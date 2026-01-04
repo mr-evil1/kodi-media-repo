@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<addon id="plugin.video.lastship.reborn" version="2026.01.04" name="Lastship Reborn" provider-name="Lastship-Team,mr-evil1">
+<addon id="plugin.video.lastship.reborn" version="2026.01.03w" name="Lastship Reborn" provider-name="Lastship-Team,mr-evil1">
     <requires>
         <import addon="script.module.requests"/>
         <import addon="script.module.six"/>
@@ -22,7 +22,7 @@ Es handelt sich lediglich um eine Drittanbieter-Erweiterung, die dem System hinz
         </description>
         <disclaimer lang="de">[B][COLOR red]Die von diesem Addon dargestellten Inhalte werden von den Erstellern der Software weder gehostet oder verbreitet, noch stehen die Ersteller in irgendeiner Beziehung zu den Content-Anbietern.[/COLOR][/B]</disclaimer>
         <license>GNU GPLv3</license>
-        <platform>android</platform>
+        <platform>windows</platform>
         <assets>
             <icon>icon.png</icon>
             <fanart>fanart.jpg</fanart>
