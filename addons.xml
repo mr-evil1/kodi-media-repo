@@ -93,7 +93,7 @@ Es handelt sich lediglich um eine Drittanbieter-Erweiterung, die dem System hinz
         </news>
     </extension>
 </addon>
-<addon id="plugin.video.lastship.reborn" version="2026.01.04" name="Lastship Reborn" provider-name="Lastship-Team,mr-evil1">
+<addon id="plugin.video.lastship.reborn" version="2026.01.0" name="Lastship Reborn" provider-name="Lastship-Team,mr-evil1">
     <requires>
         <import addon="script.module.requests"/>
         <import addon="script.module.six"/>
