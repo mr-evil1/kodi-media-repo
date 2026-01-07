@@ -15,8 +15,8 @@
     <platform>all</platform>
     <license>GPL-2.0-only</license>
     <assets>
-        <icon>resources/icon.jpg</icon>
-		<fanart>resources/fanart.jpg</fanart>
+        <icon>icon.jpg</icon>
+		<fanart>fanart.jpg</fanart>
     </assets>
   </extension>
 </addon>
