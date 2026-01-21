@@ -16,7 +16,7 @@
     </assets>
   </extension>
 </addon>
-<addon id="plugin.video.lastship.reborn" version="2026.01.05w" name="Lastship Reborn" provider-name="Lastship-Team,mr-evil1">
+<addon id="plugin.video.lastship.reborn" version="2026.01.21w" name="Lastship Reborn" provider-name="Lastship-Team,mr-evil1">
     <requires>
         <import addon="script.module.requests"/>
         <import addon="script.module.six"/>
