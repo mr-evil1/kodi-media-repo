@@ -93,7 +93,7 @@ Es handelt sich lediglich um eine Drittanbieter-Erweiterung, die dem System hinz
         </news>
     </extension>
 </addon>
-<addon id="plugin.video.lastship.reborn" version="2026.01.21" name="Lastship Reborn" provider-name="Lastship-Team,mr-evil1">
+<addon id="plugin.video.lastship.reborn" version="2026.02.03" name="Lastship Reborn" provider-name="Lastship-Team,mr-evil1">
     <requires>
         <import addon="script.module.requests"/>
         <import addon="script.module.six"/>
@@ -123,7 +123,14 @@ Es handelt sich lediglich um eine Drittanbieter-Erweiterung, die dem System hinz
             <screenshot>fanart.jpg</screenshot>
         </assets>
         <news>
+
+
+
 [B]Lastship[/B]
+2026.02.03
+-Scraper Loader überarbeitet
+-Doppelte Scrapper Anzeige entfernt
+
 2026.01.03
 -Requesthandler überabeitet
 
