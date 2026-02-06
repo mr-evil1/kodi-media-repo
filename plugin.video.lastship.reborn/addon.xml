@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<addon id="plugin.video.lastship.reborn" version="2026.02.03" name="Lastship Reborn" provider-name="Lastship-Team,mr-evil1">
+<addon id="plugin.video.lastship.reborn" version="2026.02.06" name="Lastship Reborn" provider-name="Lastship-Team,mr-evil1">
     <requires>
-        <import addon="script.module.requests"/>
-        <import addon="script.module.six"/>
-	<import addon="repository.kodi.media"/>
-        <import addon="script.module.resolveurl"/>
-	<import addon="script.module.inputstreamhelper"/>
-	<import addon="script.module.cloudscraper"/>
-        <import addon="script.module.pydevd" optional="true"/>
+		<import addon="script.module.requests"/>
+		<import addon="script.module.six"/>
+		<import addon="repository.kodi.media"/>
+		<import addon="script.module.resolveurl"/>
+		<import addon="script.module.inputstreamhelper"/>
+		<import addon="script.module.cloudscraper"/>
+		<import addon="script.module.cloudscraper2" optional="true"/> />
+		<import addon="script.module.pydevd" optional="true"/>
     </requires>
     <extension point="xbmc.python.pluginsource" library="default_run.py">
         <provides>video</provides>
