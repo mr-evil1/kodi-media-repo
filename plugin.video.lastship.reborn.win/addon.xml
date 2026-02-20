@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<addon id="plugin.video.lastship.reborn" version="2026.02.06w" name="Lastship Reborn" provider-name="Lastship-Team,mr-evil1">
+<addon id="plugin.video.lastship.reborn" version="2026.02.20w" name="Lastship Reborn" provider-name="Lastship-Team,mr-evil1">
     <requires>
+		<import addon="xbmc.python" version="3.0.0"/>
 		<import addon="script.module.requests"/>
 		<import addon="script.module.six"/>
 		<import addon="repository.kodi.media"/>
