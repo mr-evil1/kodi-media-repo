@@ -668,7 +668,7 @@ v0.5.9 (2022-03-22)
 - Fix non-UTF-8 byte string decoding in Python 2.</news>
   </extension>
 </addon>
-<addon id="plugin.video.streams" version="2026.03.08" name="Streams" provider-name="mr-evil1">
+<addon id="plugin.video.streams" version="2026.03.07" name="Streams" provider-name="mr-evil1">
     <requires>
         <import addon="xbmc.python" version="3.0.0"/>
         <import addon="script.module.requests"/>
