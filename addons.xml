@@ -311,7 +311,7 @@ Addon für DE Streaming-Seiten..
         </news>
     </extension>
 </addon>
-<addon id="plugin.video.streams" version="2026.03.07" name="Streams" provider-name="mr-evil1">
+<addon id="plugin.video.streams" version="2026.03.08" name="Streams" provider-name="mr-evil1">
     <requires>
         <import addon="xbmc.python" version="3.0.0"/>
         <import addon="script.module.requests"/>
@@ -404,7 +404,6 @@ Addon für DE Streaming-Seiten..
 			<icon>icon.png</icon>
 		</assets> 			
 	</extension>
-
 </addon><addon id="repository.slyguy" name="SlyGuy Repository" provider-name="SlyGuy" version="0.0.9">
   <extension point="xbmc.addon.repository" name="SlyGuy Repository">
     <dir>
