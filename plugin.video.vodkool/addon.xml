@@ -10,6 +10,7 @@
     <provides>video</provides>
   </extension>
   <extension point="xbmc.addon.metadata">
+    <platform>android</platform>
     <assets>
       <icon>icon.png</icon>
     </assets>
