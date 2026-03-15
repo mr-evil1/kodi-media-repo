@@ -516,7 +516,22 @@ Major Update:
     </assets>
   </extension>
 </addon>
-<addon id="repository.seizu" name="seizu Repo" version="1.7.12" provider-name="seizu">
+<addon id="plugin.video.vodkool" name="KOOL.TO" version="1.0.2" provider-name="Kato14,mr-evil1">
+  <requires>
+    <import addon="script.module.requests"/>
+    <import addon="inputstream.ffmpegdirect" optional="true"/>
+    <import addon="script.module.resolveurl" optional="true"/>
+    <import addon="script.module.urlresolver" optional="true"/>
+  </requires>
+  <extension point="xbmc.python.pluginsource" library="default_run.py">
+    <provides>video</provides>
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <assets>
+      <icon>icon.png</icon>
+    </assets>
+  </extension>
+</addon><addon id="repository.seizu" name="seizu Repo" version="1.7.12" provider-name="seizu">
 	<extension point="xbmc.addon.repository" name="seizu Repository">
         <dir>
            <info compressed="false">https://raw.githubusercontent.com/seizu/seizuRepo/master/docs/addons.xml</info>
