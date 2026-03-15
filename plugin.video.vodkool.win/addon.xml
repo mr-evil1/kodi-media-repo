@@ -1,1 +1,18 @@
-
+<?xml version="1.0" encoding="UTF-8"?>
+<addon id="plugin.video.vodkool" name="KOOL.TO" version="1.0.2w" provider-name="Kato14,mr-evil1">
+  <requires>
+    <import addon="script.module.requests"/>
+    <import addon="inputstream.ffmpegdirect" optional="true"/>
+    <import addon="script.module.resolveurl" optional="true"/>
+    <import addon="script.module.urlresolver" optional="true"/>
+  </requires>
+  <extension point="xbmc.python.pluginsource" library="default_run.py">
+    <provides>video</provides>
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <platform>windows</platform>
+    <assets>
+      <icon>icon.png</icon>
+    </assets>
+  </extension>
+</addon>
