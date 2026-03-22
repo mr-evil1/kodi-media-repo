@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<addon id="plugin.video.stbplus" name="STB Plus TV" version="2026.03.17" provider-name="titan-team,mr-evil1">
+<addon id="plugin.video.stbplus" name="STB Plus TV" version="2026.03.22" provider-name="titan-team,mr-evil1">
 	<requires>
 		<import addon="xbmc.python" version="3.0.1"/>
 		<import addon="script.module.requests" version="2.27.1"/>
