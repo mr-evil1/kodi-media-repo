@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<addon id="plugin.video.lastship.reborn" version="2026.02.20w" name="Lastship Reborn" provider-name="Lastship-Team,mr-evil1">
+<addon id="plugin.video.lastship.reborn" version="2026.04.01w" name="Lastship Reborn" provider-name="Lastship-Team,mr-evil1">
     <requires>
 		<import addon="xbmc.python" version="3.0.0"/>
 		<import addon="script.module.requests"/>
@@ -33,7 +33,14 @@ Es handelt sich lediglich um eine Drittanbieter-Erweiterung, die dem System hinz
         <news>
 [B]Lastship[/B]
 
+
+
+
 [B]Lastship[/B]
+2026.04.01
+-Fix TMDB
+
+
 2026.02.03
 -Scraper Loader überarbeitet
 -Doppelte Scrapper Anzeige entfernt
