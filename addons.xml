@@ -1,36 +1,201 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <addons>
-<addon id="plugin.video.streams" version="2026.03.11" name="Streams" provider-name="mr-evil1">
+<addon id="plugin.program.ftp" name="[COLORblue]Ftp Server[/COLOR]" version="2.0.0" provider-name="mr-evil1">
+  <extension point="xbmc.python.script" library="script.py">
+    <provides>executable</provides>
+  </extension>
+  <extension point="xbmc.service" library="service.py"/>
+
+  <extension point="xbmc.addon.metadata">
+    <platform>android</platform>
+    <language></language>
+    <summary lang="en">Use Kodi as Ftp Server</summary>
+    <assets>
+      <icon>resources/icon.png</icon>
+      <fanart>resources/icon.jpg</fanart>
+    </assets>
+  </extension>
+</addon>
+<addon id="script.module.certifi" name="certifi" version="2023.5.7" provider-name="Certifi">
+  <requires>
+    <import addon="xbmc.python" version="3.0.0"/>
+  </requires>
+  <extension point="xbmc.python.module" library="lib" />
+  <extension point="xbmc.addon.metadata">
+    <summary lang="en_GB">Certifi: Python SSL Certificates</summary>
+    <description lang="en_GB">Certifi is a carefully curated collection of Root Certificates for validating the trustworthiness of SSL certificates while verifying the identity of TLS hosts. It has been extracted from the Requests project.</description>
+    <license>MPL-2.0</license>
+    <website>https://github.com/certifi/python-certifi</website>
+    <source>https://github.com/certifi/python-certifi</source>
+    <assets>
+      <icon>resources/icon.png</icon>
+    </assets>
+  </extension>
+</addon>
+<addon id="plugin.video.lastship.reborn" version="2026.04.01" name="Lastship Reborn" provider-name="Lastship-Team,mr-evil1">
     <requires>
-        <import addon="xbmc.python" version="3.0.0"/>
-        <import addon="script.module.requests"/>
-        <import addon="script.module.six"/>
-        <import addon="script.module.resolveurl"/>
-        <import addon="script.module.inputstreamhelper"/>
-        <import addon="script.module.cloudscraper"/>
-        <import addon="script.module.cloudscraper2" optional="true"/>
-        <import addon="repository.kodi.media"/>
+		<import addon="xbmc.python" version="3.0.0"/>
+		<import addon="script.module.requests"/>
+		<import addon="script.module.six"/>
+		<import addon="repository.kodi.media"/>
+		<import addon="script.module.resolveurl"/>
+		<import addon="script.module.inputstreamhelper"/>
+		<import addon="script.module.cloudscraper"/>
+		<import addon="script.module.cloudscraper2" optional="true"/> />
+		<import addon="script.module.pydevd" optional="true"/>
     </requires>
     <extension point="xbmc.python.pluginsource" library="default_run.py">
         <provides>video</provides>
     </extension>
-    <extension point="xbmc.service" library="service_run.py" start="startup"/>
+    <extension point="xbmc.service" library="service.py" start="startup" />
     <extension point="xbmc.addon.metadata">
-        <summary lang="de">Streams - Stream Seiten Addon</summary>
+        <summary lang="de">Lastship Reborn</summary>
         <description lang="de">
-Addon für DE Streaming-Seiten..
+Mit diesem Addon kannst du auf alle angebotenen Streams verschiedenster deutscher Quellen zugreifen. 
+Beachte, dass Addon kein offizieller Teil des verwendeten Media Players ist, und daher nicht von den offiziellen Support-Kanälen abgedeckt wird. 
+Es handelt sich lediglich um eine Drittanbieter-Erweiterung, die dem System hinzugefügt wurde.
         </description>
-        <disclaimer lang="de">[B][COLOR red]Die von diesem Addon dargestellten Inhalte werden von den Erstellern weder gehostet noch verbreitet.[/COLOR][/B]</disclaimer>
+        <disclaimer lang="de">[B][COLOR red]Die von diesem Addon dargestellten Inhalte werden von den Erstellern der Software weder gehostet oder verbreitet, noch stehen die Ersteller in irgendeiner Beziehung zu den Content-Anbietern.[/COLOR][/B]</disclaimer>
         <license>GNU GPLv3</license>
         <platform>android</platform>
         <assets>
             <icon>icon.png</icon>
             <fanart>fanart.jpg</fanart>
+            <screenshot>fanart.jpg</screenshot>
         </assets>
         <news>
-2026.02.25
+[B]Lastship[/B]
+
+
+
+
+[B]Lastship[/B]
+2026.04.01
+-Fix TMDB
+
+
+2026.02.03
+-Scraper Loader überarbeitet
+-Doppelte Scrapper Anzeige entfernt
+
+
+2026.01.05
+-Requesthandler überabeitet
+2026.01.03
+-Requesthandler überabeitet
+
+2025.11.05
+- neues Vavoo Tv hinzugefügt
+- eigene Vavoo Favouriten
+- Lastship untersützt nun auch Kodi 21
+- Lastship fix scrapers
+- Seiten wie bei xStream hinzugefügt (muss aktiviert werden)
+2023.05.04
+- edit xStream V2
+
+2023.03.28
+- add  Vavoo Live TV
+
+2023.03.20
+- edit downloader
+
+2023.03.05
+- add xStream V2 (experimentell)
+
+2023.02.28
+- fixed some scrapers
+- edit source code
+
+2023.02.20
+- Datenbank für "Suche" geändert
+- fix kinoger
+
+2023.02.10
+- add kino.ws
+
+2023.02.06
+- Download Funktionen und Settings angepasst
+- in den Settings können NFS und SMB Serververbindungen direkt eingetragen werden
+- Hilfe für den Syntax hinzu gefügt
+- kleinere Anpassungen im Source Code
+
+2023.01.25
+- Lastship untersützt nun auch Kodi 20
         </news>
     </extension>
+</addon>
+<addon id="script.module.six" name="six" version="1.16.0+matrix.1" provider-name="Benjamin Peterson">
+  <requires>
+    <import addon="xbmc.python" version="3.0.0" />
+  </requires>
+  <extension point="xbmc.python.module" library="lib" />
+  <extension point="xbmc.addon.metadata">
+    <summary lang="en_GB">Python 2 and 3 compatibility utilities</summary>
+    <description lang="en_GB">Python 2 and 3 compatibility utilities</description>
+    <license>MIT</license>
+    <platform>all</platform>
+    <website>https://github.com/benjaminp/six</website>
+    <source>https://github.com/benjaminp/six</source>
+    <assets>
+      <icon>resources/icon.png</icon>
+    </assets>
+  </extension>
+</addon>
+<addon id="script.module.idna" name="idna" version="3.10.0" provider-name="Kim Davies">
+  <requires>
+    <import addon="xbmc.python" version="3.0.0"/>
+  </requires>
+  <extension point="xbmc.python.module" library="lib" />
+  <extension point="xbmc.addon.metadata">
+    <summary lang="en_GB">Internationalized Domain Names for Python</summary>
+    <description lang="en_GB">Internationalized Domain Names for Python</description>
+    <license>BSD-3-Clause</license>
+    <platform>all</platform>
+    <website>https://github.com/kjd/idna</website>
+    <source>https://github.com/kjd/idna</source>
+    <assets>
+      <icon>resources/icon.png</icon>
+    </assets>
+  </extension>
+</addon>
+<addon id="plugin.video.vodkool" name="KOOL.TO (Ultimate)" version="2.0.0" provider-name="Kato14,mr-evil1">
+  <requires>
+    <import addon="script.module.requests"/>
+    <import addon="inputstream.ffmpegdirect"/>
+    <import addon="inputstream.adaptive" optional="true"/>
+    <import addon="script.module.resolveurl" optional="true"/>
+    <import addon="script.module.urlresolver" optional="true"/>
+  </requires>
+  <extension point="xbmc.python.pluginsource" library="default_run.py">
+    <provides>video</provides>
+  </extension>
+  <extension point="xbmc.service" library="service_run.py" start="login">
+    <provides>executable</provides>
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <platform>android</platform>
+    <assets>
+      <icon>icon.png</icon>
+    </assets>
+  </extension>
+</addon><addon id="plugin.video.vav" name="VAVOO Live 2" version="4.0" provider-name="mr-evil1">
+	<requires>
+		<import addon="xbmc.python" version="3.0.0"/>
+		<import addon="script.module.requests"/>
+	</requires>
+	<extension point="xbmc.python.pluginsource" library="plugin.py">
+		<provides>video</provides>
+	</extension>
+	<extension point="xbmc.addon.metadata">
+		<summary lang="de">VAVOO Live-TV Streams</summary>
+		<summary lang="en">VAVOO Live TV Streams</summary>
+		<description lang="de">Streamt Live-TV-Kanäle via VAVOO (mediahubmx API).</description>
+		<description lang="en">Stream live TV channels via VAVOO (mediahubmx API).</description>
+		<platform>all</platform>
+		<assets>
+			<icon>icon.png</icon>
+		</assets>
+	</extension>
 </addon>
 <addon id="plugin.video.streams" version="2026.03.11w" name="Streams" provider-name="mr-evil1">
     <requires>
@@ -64,22 +229,33 @@ Addon für DE Streaming-Seiten..
         </news>
     </extension>
 </addon>
-<addon id="script.module.six" name="six" version="1.16.0+matrix.1" provider-name="Benjamin Peterson">
-  <requires>
-    <import addon="xbmc.python" version="3.0.0" />
-  </requires>
-  <extension point="xbmc.python.module" library="lib" />
-  <extension point="xbmc.addon.metadata">
-    <summary lang="en_GB">Python 2 and 3 compatibility utilities</summary>
-    <description lang="en_GB">Python 2 and 3 compatibility utilities</description>
-    <license>MIT</license>
-    <platform>all</platform>
-    <website>https://github.com/benjaminp/six</website>
-    <source>https://github.com/benjaminp/six</source>
-    <assets>
-      <icon>resources/icon.png</icon>
-    </assets>
-  </extension>
+<addon id="script.module.resolveurl" name="ResolveURL" version="5.1.189" provider-name="gujal">
+    <requires>
+        <!-- <import addon="xbmc.python" version="3.0.0" /> -->
+        <import addon="script.module.six" />
+        <import addon="script.module.kodi-six" />
+        <import addon="plugin.video.youtube" optional="true" />
+        <import addon="script.module.python.twitch" optional="true" />
+        <import addon="plugin.googledrive" optional="true" />
+    </requires>
+    <extension point="xbmc.python.module" library="lib" />
+    <extension point="xbmc.python.pluginsource" library="lib/default.py" />
+    <extension point="xbmc.addon.metadata">
+        <platform>all</platform>
+        <summary lang="en_GB">Resolve common video host URL's to be playable in XBMC/Kodi.</summary>
+        <summary lang="es_ES">Resolver enlaces a videos de sitios populares para poder reproducirlos en XBMC/Kodi.</summary>
+        <summary lang="hr_HR">Prilagodi najčešće URL-ove video izvora kako bi radili u XBMC/Kodiju.</summary>
+        <summary lang="el_GR">Επίλυση συνδέσμων κοινών εξυπηρετητών σε μορφή βίντεο ικανό για αναπαραγωγή στο XBMC/Kodi.</summary>
+        <description lang="en_GB">Resolve common video host URL's to be playable in XBMC/Kodi, simplify addon development of video plugins requiring multi video hosts.</description>
+        <description lang="el_GR">Επίλυση συνδέσμων κοινών εξυπηρετητών σε μορφή βίντεο ικανό για αναπαραγωγή στο XBMC/Kodi, απλοποίηση της ανάπτυξης των προσθέτων που χρησιμοποιούν πολλαπλούς εξυπηρετητές για υλικό βίντεο</description>
+        <description lang="hr_HR">Prilagodi najčešće URL-ove video izvora kako bi radili u XBMC/Kodiju, pojednostavnjuje razvoj priključaka za video dodatke koji zahtjevaju višestruke video izvore.</description>
+        <disclaimer lang="en_GB">This script only resolves video content from legitimate file lockers without prejudice. If this script is being used by 3rd parties to resolve content that you feel infringes upon your Intellectual Property then please take your complaints to the actual website or developer linking to such content and not here. This script in no way searches for any content whatsoever.</disclaimer>
+        <disclaimer lang="el_GR">Το ανωτέρο σενάριο το μόνο που κάνει είναι να επιλύει οπτικοακουστικό περιεχόμενο από νόμιμες πηγές χωρίς προκατάληψη. Εάν το ανωτέρο σενάριο χρησιμοποιηθεί από τρίτους ώστε να επιλύσει περιεχόμενο το οποίο σας προκαλεί αντίδραση ότι παραβιάζει την πνευματική σας ιδιοκτησία παρακαλώ μεταφέρετε τα παραπονά σας στον ιστότοπο τον οποίο βρίσκεται το εν λόγω περιεχόμενο η τον δημιουργό ο οποίος πραγματοποιεί την σύνδεση και όχι εδω. Το σενάριο αυτό ουδεμία περίπτωση πραγματοποιεί αναζήτηση περιεχομένου.</disclaimer>
+        <assets>
+            <icon>icon.png</icon>
+            <fanart>fanart.jpg</fanart>
+        </assets>
+    </extension>
 </addon>
 <addon id="repository.slyguy" name="SlyGuy Repository" provider-name="SlyGuy" version="0.0.9">
   <extension point="xbmc.addon.repository" name="SlyGuy Repository">
@@ -101,118 +277,6 @@ Addon für DE Streaming-Seiten..
       <fanart>fanart.jpg</fanart>
     </assets>
   </extension>
-</addon>
-<addon id="plugin.video.vodkool" name="KOOL.TO (Ultimate)" version="2.0.0" provider-name="Kato14,mr-evil1">
-  <requires>
-    <import addon="script.module.requests"/>
-    <import addon="inputstream.ffmpegdirect"/>
-    <import addon="inputstream.adaptive" optional="true"/>
-    <import addon="script.module.resolveurl" optional="true"/>
-    <import addon="script.module.urlresolver" optional="true"/>
-  </requires>
-  <extension point="xbmc.python.pluginsource" library="default_run.py">
-    <provides>video</provides>
-  </extension>
-  <extension point="xbmc.service" library="service_run.py" start="login">
-    <provides>executable</provides>
-  </extension>
-  <extension point="xbmc.addon.metadata">
-    <platform>android</platform>
-    <assets>
-      <icon>icon.png</icon>
-    </assets>
-  </extension>
-</addon><addon id="plugin.video.lastship.reborn" version="2026.04.01w" name="Lastship Reborn" provider-name="Lastship-Team,mr-evil1">
-    <requires>
-		<import addon="xbmc.python" version="3.0.0"/>
-		<import addon="script.module.requests"/>
-		<import addon="script.module.six"/>
-		<import addon="repository.kodi.media"/>
-		<import addon="script.module.resolveurl"/>
-		<import addon="script.module.inputstreamhelper"/>
-		<import addon="script.module.cloudscraper"/>
-		<import addon="script.module.cloudscraper2" optional="true"/> />
-		<import addon="script.module.pydevd" optional="true"/>
-    </requires>
-    <extension point="xbmc.python.pluginsource" library="default_run.py">
-        <provides>video</provides>
-    </extension>
-    <extension point="xbmc.service" library="service.py" start="startup" />
-    <extension point="xbmc.addon.metadata">
-        <summary lang="de">Lastship Reborn</summary>
-        <description lang="de">
-Mit diesem Addon kannst du auf alle angebotenen Streams verschiedenster deutscher Quellen zugreifen. 
-Beachte, dass Addon kein offizieller Teil des verwendeten Media Players ist, und daher nicht von den offiziellen Support-Kanälen abgedeckt wird. 
-Es handelt sich lediglich um eine Drittanbieter-Erweiterung, die dem System hinzugefügt wurde.
-        </description>
-        <disclaimer lang="de">[B][COLOR red]Die von diesem Addon dargestellten Inhalte werden von den Erstellern der Software weder gehostet oder verbreitet, noch stehen die Ersteller in irgendeiner Beziehung zu den Content-Anbietern.[/COLOR][/B]</disclaimer>
-        <license>GNU GPLv3</license>
-        <platform>windows</platform>
-        <assets>
-            <icon>icon.png</icon>
-            <fanart>fanart.jpg</fanart>
-            <screenshot>fanart.jpg</screenshot>
-        </assets>
-        <news>
-[B]Lastship[/B]
-
-
-
-
-[B]Lastship[/B]
-2026.04.01
--Fix TMDB
-
-
-2026.02.03
--Scraper Loader überarbeitet
--Doppelte Scrapper Anzeige entfernt
-
-
-2026.01.05
--Requesthandler überabeitet
-2026.01.03
--Requesthandler überabeitet
-
-2025.11.05
-- neues Vavoo Tv hinzugefügt
-- eigene Vavoo Favouriten
-- Lastship untersützt nun auch Kodi 21
-- Lastship fix scrapers
-- Seiten wie bei xStream hinzugefügt (muss aktiviert werden)
-2023.05.04
-- edit xStream V2
-
-2023.03.28
-- add  Vavoo Live TV
-
-2023.03.20
-- edit downloader
-
-2023.03.05
-- add xStream V2 (experimentell)
-
-2023.02.28
-- fixed some scrapers
-- edit source code
-
-2023.02.20
-- Datenbank für "Suche" geändert
-- fix kinoger
-
-2023.02.10
-- add kino.ws
-
-2023.02.06
-- Download Funktionen und Settings angepasst
-- in den Settings können NFS und SMB Serververbindungen direkt eingetragen werden
-- Hilfe für den Syntax hinzu gefügt
-- kleinere Anpassungen im Source Code
-
-2023.01.25
-- Lastship untersützt nun auch Kodi 20
-        </news>
-    </extension>
 </addon>
 <addon id="repository.seizu" name="seizu Repo" version="1.7.12" provider-name="seizu">
 	<extension point="xbmc.addon.repository" name="seizu Repository">
@@ -243,156 +307,7 @@ Es handelt sich lediglich um eine Drittanbieter-Erweiterung, die dem System hinz
 			<icon>icon.png</icon>
 		</assets> 			
 	</extension>
-</addon><addon id="plugin.video.vodkool" name="KOOL.TO (Ultimate)" version="2.0.0w" provider-name="Kato14,mr-evil1">
-  <requires>
-    <import addon="script.module.requests"/>
-    <import addon="inputstream.ffmpegdirect"/>
-    <import addon="inputstream.adaptive" optional="true"/>
-    <import addon="script.module.resolveurl" optional="true"/>
-    <import addon="script.module.urlresolver" optional="true"/>
-  </requires>
-  <extension point="xbmc.python.pluginsource" library="default_run.py">
-    <provides>video</provides>
-  </extension>
-  <extension point="xbmc.service" library="service_run.py" start="login">
-    <provides>executable</provides>
-  </extension>
-  <extension point="xbmc.addon.metadata">
-    <platform>windows</platform>
-    <assets>
-      <icon>icon.png</icon>
-    </assets>
-  </extension>
-</addon><addon id="plugin.video.lastship.reborn" version="2026.04.01" name="Lastship Reborn" provider-name="Lastship-Team,mr-evil1">
-    <requires>
-		<import addon="xbmc.python" version="3.0.0"/>
-		<import addon="script.module.requests"/>
-		<import addon="script.module.six"/>
-		<import addon="repository.kodi.media"/>
-		<import addon="script.module.resolveurl"/>
-		<import addon="script.module.inputstreamhelper"/>
-		<import addon="script.module.cloudscraper"/>
-		<import addon="script.module.cloudscraper2" optional="true"/> />
-		<import addon="script.module.pydevd" optional="true"/>
-    </requires>
-    <extension point="xbmc.python.pluginsource" library="default_run.py">
-        <provides>video</provides>
-    </extension>
-    <extension point="xbmc.service" library="service.py" start="startup" />
-    <extension point="xbmc.addon.metadata">
-        <summary lang="de">Lastship Reborn</summary>
-        <description lang="de">
-Mit diesem Addon kannst du auf alle angebotenen Streams verschiedenster deutscher Quellen zugreifen. 
-Beachte, dass Addon kein offizieller Teil des verwendeten Media Players ist, und daher nicht von den offiziellen Support-Kanälen abgedeckt wird. 
-Es handelt sich lediglich um eine Drittanbieter-Erweiterung, die dem System hinzugefügt wurde.
-        </description>
-        <disclaimer lang="de">[B][COLOR red]Die von diesem Addon dargestellten Inhalte werden von den Erstellern der Software weder gehostet oder verbreitet, noch stehen die Ersteller in irgendeiner Beziehung zu den Content-Anbietern.[/COLOR][/B]</disclaimer>
-        <license>GNU GPLv3</license>
-        <platform>android</platform>
-        <assets>
-            <icon>icon.png</icon>
-            <fanart>fanart.jpg</fanart>
-            <screenshot>fanart.jpg</screenshot>
-        </assets>
-        <news>
-[B]Lastship[/B]
-
-
-
-
-[B]Lastship[/B]
-2026.04.01
--Fix TMDB
-
-
-2026.02.03
--Scraper Loader überarbeitet
--Doppelte Scrapper Anzeige entfernt
-
-
-2026.01.05
--Requesthandler überabeitet
-2026.01.03
--Requesthandler überabeitet
-
-2025.11.05
-- neues Vavoo Tv hinzugefügt
-- eigene Vavoo Favouriten
-- Lastship untersützt nun auch Kodi 21
-- Lastship fix scrapers
-- Seiten wie bei xStream hinzugefügt (muss aktiviert werden)
-2023.05.04
-- edit xStream V2
-
-2023.03.28
-- add  Vavoo Live TV
-
-2023.03.20
-- edit downloader
-
-2023.03.05
-- add xStream V2 (experimentell)
-
-2023.02.28
-- fixed some scrapers
-- edit source code
-
-2023.02.20
-- Datenbank für "Suche" geändert
-- fix kinoger
-
-2023.02.10
-- add kino.ws
-
-2023.02.06
-- Download Funktionen und Settings angepasst
-- in den Settings können NFS und SMB Serververbindungen direkt eingetragen werden
-- Hilfe für den Syntax hinzu gefügt
-- kleinere Anpassungen im Source Code
-
-2023.01.25
-- Lastship untersützt nun auch Kodi 20
-        </news>
-    </extension>
-</addon>
-<addon id="script.module.idna" name="idna" version="3.10.0" provider-name="Kim Davies">
-  <requires>
-    <import addon="xbmc.python" version="3.0.0"/>
-  </requires>
-  <extension point="xbmc.python.module" library="lib" />
-  <extension point="xbmc.addon.metadata">
-    <summary lang="en_GB">Internationalized Domain Names for Python</summary>
-    <description lang="en_GB">Internationalized Domain Names for Python</description>
-    <license>BSD-3-Clause</license>
-    <platform>all</platform>
-    <website>https://github.com/kjd/idna</website>
-    <source>https://github.com/kjd/idna</source>
-    <assets>
-      <icon>resources/icon.png</icon>
-    </assets>
-  </extension>
-</addon>
-<addon id="script.module.cloudscraper" name="CloudScraper2" version="1.2.60" provider-name="venomous">
-  <requires>
-    <!-- <import addon="xbmc.python" version="3.0.0"/> -->
-    <import addon="script.module.requests" />
-  </requires>
-  <extension point="xbmc.python.module" library="lib" />
-  <extension point="xbmc.python.pluginsource" library="lib" />
-  <extension point="xbmc.addon.metadata">
-    <summary lang="en_gb">cloudscraper</summary>
-    <description lang="en_gb">cloudscraper</description>
-    <disclaimer lang="en_gb"></disclaimer>
-    <language></language>
-    <platform>all</platform>
-    <license></license>
-    <forum></forum>
-    <website></website>
-    <email></email>
-    <source></source>
-  </extension>
-</addon>
-<addon id="script.module.requests" name="requests" version="2.31.0" provider-name="Python Software Foundation">
+</addon><addon id="script.module.requests" name="requests" version="2.31.0" provider-name="Python Software Foundation">
   <requires>
     <import addon="xbmc.python" version="3.0.0"/>
     <import addon="script.module.certifi" version="2023.5.7"/>
@@ -433,23 +348,6 @@ Es handelt sich lediglich um eine Drittanbieter-Erweiterung, die dem System hinz
     <source></source>
   </extension>
 </addon>
-<addon id="script.module.urllib3" name="urllib3" version="2.2.3" provider-name="urllib3">
-  <requires>
-    <import addon="xbmc.python" version="3.0.0" />
-  </requires>
-  <extension point="xbmc.python.module" library="lib" />
-  <extension point="xbmc.addon.metadata">
-    <summary lang="en_GB">urllib3 is a powerful, user-friendly HTTP client for Python</summary>
-    <description lang="en_GB">urllib3 is a powerful, user-friendly HTTP client for Python. Much of the Python ecosystem already uses urllib3 and you should too. urllib3 brings many critical features that are missing from the Python standard libraries</description>
-    <license>MIT</license>
-    <platform>all</platform>
-    <website>https://urllib3.readthedocs.io/</website>
-    <source>https://github.com/urllib3/urllib3</source>
-    <assets>
-      <icon>resources/icon.png</icon>
-    </assets>
-  </extension>
-</addon>
 <addon id="repository.kodi.media" name="Kodi Media Repository" version="1.0.0" provider-name="mr-evil1">
     <extension point="xbmc.addon.repository">
         <dir>
@@ -468,43 +366,140 @@ Es handelt sich lediglich um eine Drittanbieter-Erweiterung, die dem System hinz
         </assets>
     </extension>
 </addon>
-<addon id="plugin.video.stbplus" name="STB Plus TV" version="2026.03.22w" provider-name="mr-evil1">
-	<requires>
-		<import addon="xbmc.python" version="3.0.1"/>
-		<import addon="script.module.requests" version="2.27.1"/>
-	</requires>
-	<extension point="xbmc.python.pluginsource" library="addon_entry.py">
-		<provides>video</provides>
-	</extension>
-	<extension point="xbmc.service" library="service_entry.py" start="startup"/>
-	<extension point="xbmc.addon.metadata">
-		<reuselanguageinvoker>true</reuselanguageinvoker>
-		<platform>windows</platform>
-		<summary lang="de_de">STB Plus</summary>
-        <description lang="de">STB Plus für den Zugriff auf Videos und Vod-Demand-Kanäle und -Serien[B]Hinweis:[/B] Wir weisen darauf hin, dass die Nutzung von mancher Addons in bestimmten Ländern gegen geltendes Recht verstoßen kann und strafbar ist. Die Verantwortung für die Anwendung dieser Addons liegt ausschließlich beim jeweiligen Benutzer. Wir übernimmt daher keinerlei Haftung für etwaige rechtliche Konsequenzen. Eine Weitergabe der Addons an Dritte oder nicht autorisierte Personen ist strengstens untersagt. Vielen Dank für Ihr Verständnis!!!!</description>
-		<license>GPL-3.0-or-later</license>
-		<language>en</language>
-		<assets>
-		<icon>resources/media/icon.png</icon>
-		<icon>icon.png</icon>
-        <fanart>fanart.jpg</fanart>
+<addon id="plugin.video.lastship.reborn" version="2026.04.01w" name="Lastship Reborn" provider-name="Lastship-Team,mr-evil1">
+    <requires>
+		<import addon="xbmc.python" version="3.0.0"/>
+		<import addon="script.module.requests"/>
+		<import addon="script.module.six"/>
+		<import addon="repository.kodi.media"/>
+		<import addon="script.module.resolveurl"/>
+		<import addon="script.module.inputstreamhelper"/>
+		<import addon="script.module.cloudscraper"/>
+		<import addon="script.module.cloudscraper2" optional="true"/> />
+		<import addon="script.module.pydevd" optional="true"/>
+    </requires>
+    <extension point="xbmc.python.pluginsource" library="default_run.py">
+        <provides>video</provides>
+    </extension>
+    <extension point="xbmc.service" library="service.py" start="startup" />
+    <extension point="xbmc.addon.metadata">
+        <summary lang="de">Lastship Reborn</summary>
+        <description lang="de">
+Mit diesem Addon kannst du auf alle angebotenen Streams verschiedenster deutscher Quellen zugreifen. 
+Beachte, dass Addon kein offizieller Teil des verwendeten Media Players ist, und daher nicht von den offiziellen Support-Kanälen abgedeckt wird. 
+Es handelt sich lediglich um eine Drittanbieter-Erweiterung, die dem System hinzugefügt wurde.
+        </description>
+        <disclaimer lang="de">[B][COLOR red]Die von diesem Addon dargestellten Inhalte werden von den Erstellern der Software weder gehostet oder verbreitet, noch stehen die Ersteller in irgendeiner Beziehung zu den Content-Anbietern.[/COLOR][/B]</disclaimer>
+        <license>GNU GPLv3</license>
+        <platform>windows</platform>
+        <assets>
+            <icon>icon.png</icon>
+            <fanart>fanart.jpg</fanart>
+            <screenshot>fanart.jpg</screenshot>
+        </assets>
+        <news>
+[B]Lastship[/B]
 
-		</assets>
-		<news>
-Major Update:
-- Zappen nun möglich
-– Neues STB Plus-Hauptmenü
-– Download von Filme und Serien
-– Erweiterte EPG-Darstellung inkl. Auto-Refresh beim Start
-– DACH-Filter für gezielte Sender- und Inhaltsauswahl
-– Optimierte Navigation und Caching
-         </news>
-	</extension>
+
+
+
+[B]Lastship[/B]
+2026.04.01
+-Fix TMDB
+
+
+2026.02.03
+-Scraper Loader überarbeitet
+-Doppelte Scrapper Anzeige entfernt
+
+
+2026.01.05
+-Requesthandler überabeitet
+2026.01.03
+-Requesthandler überabeitet
+
+2025.11.05
+- neues Vavoo Tv hinzugefügt
+- eigene Vavoo Favouriten
+- Lastship untersützt nun auch Kodi 21
+- Lastship fix scrapers
+- Seiten wie bei xStream hinzugefügt (muss aktiviert werden)
+2023.05.04
+- edit xStream V2
+
+2023.03.28
+- add  Vavoo Live TV
+
+2023.03.20
+- edit downloader
+
+2023.03.05
+- add xStream V2 (experimentell)
+
+2023.02.28
+- fixed some scrapers
+- edit source code
+
+2023.02.20
+- Datenbank für "Suche" geändert
+- fix kinoger
+
+2023.02.10
+- add kino.ws
+
+2023.02.06
+- Download Funktionen und Settings angepasst
+- in den Settings können NFS und SMB Serververbindungen direkt eingetragen werden
+- Hilfe für den Syntax hinzu gefügt
+- kleinere Anpassungen im Source Code
+
+2023.01.25
+- Lastship untersützt nun auch Kodi 20
+        </news>
+    </extension>
 </addon>
-
-
-
-
+<addon id="script.module.kodi-six"
+       name="Kodi Six"
+       version="0.1.3.1"
+       provider-name="Roman V.M.">
+  <requires>
+    <import addon="xbmc.python" version="3.0.0"/>
+  </requires>
+  <extension point="xbmc.python.module" library="libs" />
+  <extension point="xbmc.addon.metadata">
+    <summary lang="en_GB">Wrappers around Kodi Python API for seamless Python 2/3 compatibility</summary>
+    <description lang="en_GB">Wrappers around Kodi Python API that normalize handling of textual and byte strings in Python 2 and 3.</description>
+    <platform>all</platform>
+    <license>GPL v.3</license>
+    <forum>https://forum.kodi.tv/showthread.php?tid=327883</forum>
+    <source>https://github.com/romanvm/kodi.six</source>
+    <assets>
+      <icon>icon.png</icon>
+    </assets>
+    <news>0.1.3:
+- Fix non-UTF-8 byte string decoding in Python 2.</news>
+  </extension>
+</addon>
+<addon id="script.module.cloudscraper" name="CloudScraper2" version="1.2.60" provider-name="venomous">
+  <requires>
+    <!-- <import addon="xbmc.python" version="3.0.0"/> -->
+    <import addon="script.module.requests" />
+  </requires>
+  <extension point="xbmc.python.module" library="lib" />
+  <extension point="xbmc.python.pluginsource" library="lib" />
+  <extension point="xbmc.addon.metadata">
+    <summary lang="en_gb">cloudscraper</summary>
+    <description lang="en_gb">cloudscraper</description>
+    <disclaimer lang="en_gb"></disclaimer>
+    <language></language>
+    <platform>all</platform>
+    <license></license>
+    <forum></forum>
+    <website></website>
+    <email></email>
+    <source></source>
+  </extension>
+</addon>
 <addon id="plugin.video.stbplus" name="STB Plus TV" version="2026.03.22" provider-name="titan-team,mr-evil1">
 	<requires>
 		<import addon="xbmc.python" version="3.0.1"/>
@@ -542,77 +537,6 @@ Major Update:
 
 
 
-<addon id="plugin.program.ftp" name="[COLORblue]Ftp Server[/COLOR]" version="2.0.0" provider-name="mr-evil1">
-  <extension point="xbmc.python.script" library="script.py">
-    <provides>executable</provides>
-  </extension>
-  <extension point="xbmc.service" library="service.py"/>
-
-  <extension point="xbmc.addon.metadata">
-    <platform>android</platform>
-    <language></language>
-    <summary lang="en">Use Kodi as Ftp Server</summary>
-    <assets>
-      <icon>resources/icon.png</icon>
-      <fanart>resources/icon.jpg</fanart>
-    </assets>
-  </extension>
-</addon>
-<addon id="script.module.certifi" name="certifi" version="2023.5.7" provider-name="Certifi">
-  <requires>
-    <import addon="xbmc.python" version="3.0.0"/>
-  </requires>
-  <extension point="xbmc.python.module" library="lib" />
-  <extension point="xbmc.addon.metadata">
-    <summary lang="en_GB">Certifi: Python SSL Certificates</summary>
-    <description lang="en_GB">Certifi is a carefully curated collection of Root Certificates for validating the trustworthiness of SSL certificates while verifying the identity of TLS hosts. It has been extracted from the Requests project.</description>
-    <license>MPL-2.0</license>
-    <website>https://github.com/certifi/python-certifi</website>
-    <source>https://github.com/certifi/python-certifi</source>
-    <assets>
-      <icon>resources/icon.png</icon>
-    </assets>
-  </extension>
-</addon>
-<addon id="script.module.chardet" name="chardet" version="5.1.0" provider-name="Character Encoding Detector">
-  <requires>
-    <import addon="xbmc.python" version="3.0.0"/>
-  </requires>
-  <extension point="xbmc.python.module" library="lib" />
-  <extension point="xbmc.addon.metadata">
-    <summary lang="en_GB">The Universal Character Encoding Detector</summary>
-    <description lang="en_GB">The Universal Character Encoding Detector</description>
-    <license>LGPL-2.1</license>
-    <platform>all</platform>
-    <website>https://chardet.readthedocs.io/</website>
-    <source>https://github.com/chardet/chardet</source>
-    <assets>
-      <icon>resources/icon.png</icon>
-    </assets>
-  </extension>
-</addon>
-<addon id="script.module.kodi-six"
-       name="Kodi Six"
-       version="0.1.3.1"
-       provider-name="Roman V.M.">
-  <requires>
-    <import addon="xbmc.python" version="3.0.0"/>
-  </requires>
-  <extension point="xbmc.python.module" library="libs" />
-  <extension point="xbmc.addon.metadata">
-    <summary lang="en_GB">Wrappers around Kodi Python API for seamless Python 2/3 compatibility</summary>
-    <description lang="en_GB">Wrappers around Kodi Python API that normalize handling of textual and byte strings in Python 2 and 3.</description>
-    <platform>all</platform>
-    <license>GPL v.3</license>
-    <forum>https://forum.kodi.tv/showthread.php?tid=327883</forum>
-    <source>https://github.com/romanvm/kodi.six</source>
-    <assets>
-      <icon>icon.png</icon>
-    </assets>
-    <news>0.1.3:
-- Fix non-UTF-8 byte string decoding in Python 2.</news>
-  </extension>
-</addon>
 <addon id="plugin.video.megakino" name="Megakino" version="2.0.3" provider-name="mr-evil1">
   <requires>
     <import addon="xbmc.python" version="3.0.0"/>
@@ -634,52 +558,37 @@ Major Update:
     </assets>
   </extension>
 </addon>
-<addon id="script.module.resolveurl" name="ResolveURL" version="5.1.189" provider-name="gujal">
+<addon id="plugin.video.streams" version="2026.03.11" name="Streams" provider-name="mr-evil1">
     <requires>
-        <!-- <import addon="xbmc.python" version="3.0.0" /> -->
-        <import addon="script.module.six" />
-        <import addon="script.module.kodi-six" />
-        <import addon="plugin.video.youtube" optional="true" />
-        <import addon="script.module.python.twitch" optional="true" />
-        <import addon="plugin.googledrive" optional="true" />
+        <import addon="xbmc.python" version="3.0.0"/>
+        <import addon="script.module.requests"/>
+        <import addon="script.module.six"/>
+        <import addon="script.module.resolveurl"/>
+        <import addon="script.module.inputstreamhelper"/>
+        <import addon="script.module.cloudscraper"/>
+        <import addon="script.module.cloudscraper2" optional="true"/>
+        <import addon="repository.kodi.media"/>
     </requires>
-    <extension point="xbmc.python.module" library="lib" />
-    <extension point="xbmc.python.pluginsource" library="lib/default.py" />
+    <extension point="xbmc.python.pluginsource" library="default_run.py">
+        <provides>video</provides>
+    </extension>
+    <extension point="xbmc.service" library="service_run.py" start="startup"/>
     <extension point="xbmc.addon.metadata">
-        <platform>all</platform>
-        <summary lang="en_GB">Resolve common video host URL's to be playable in XBMC/Kodi.</summary>
-        <summary lang="es_ES">Resolver enlaces a videos de sitios populares para poder reproducirlos en XBMC/Kodi.</summary>
-        <summary lang="hr_HR">Prilagodi najčešće URL-ove video izvora kako bi radili u XBMC/Kodiju.</summary>
-        <summary lang="el_GR">Επίλυση συνδέσμων κοινών εξυπηρετητών σε μορφή βίντεο ικανό για αναπαραγωγή στο XBMC/Kodi.</summary>
-        <description lang="en_GB">Resolve common video host URL's to be playable in XBMC/Kodi, simplify addon development of video plugins requiring multi video hosts.</description>
-        <description lang="el_GR">Επίλυση συνδέσμων κοινών εξυπηρετητών σε μορφή βίντεο ικανό για αναπαραγωγή στο XBMC/Kodi, απλοποίηση της ανάπτυξης των προσθέτων που χρησιμοποιούν πολλαπλούς εξυπηρετητές για υλικό βίντεο</description>
-        <description lang="hr_HR">Prilagodi najčešće URL-ove video izvora kako bi radili u XBMC/Kodiju, pojednostavnjuje razvoj priključaka za video dodatke koji zahtjevaju višestruke video izvore.</description>
-        <disclaimer lang="en_GB">This script only resolves video content from legitimate file lockers without prejudice. If this script is being used by 3rd parties to resolve content that you feel infringes upon your Intellectual Property then please take your complaints to the actual website or developer linking to such content and not here. This script in no way searches for any content whatsoever.</disclaimer>
-        <disclaimer lang="el_GR">Το ανωτέρο σενάριο το μόνο που κάνει είναι να επιλύει οπτικοακουστικό περιεχόμενο από νόμιμες πηγές χωρίς προκατάληψη. Εάν το ανωτέρο σενάριο χρησιμοποιηθεί από τρίτους ώστε να επιλύσει περιεχόμενο το οποίο σας προκαλεί αντίδραση ότι παραβιάζει την πνευματική σας ιδιοκτησία παρακαλώ μεταφέρετε τα παραπονά σας στον ιστότοπο τον οποίο βρίσκεται το εν λόγω περιεχόμενο η τον δημιουργό ο οποίος πραγματοποιεί την σύνδεση και όχι εδω. Το σενάριο αυτό ουδεμία περίπτωση πραγματοποιεί αναζήτηση περιεχομένου.</disclaimer>
+        <summary lang="de">Streams - Stream Seiten Addon</summary>
+        <description lang="de">
+Addon für DE Streaming-Seiten..
+        </description>
+        <disclaimer lang="de">[B][COLOR red]Die von diesem Addon dargestellten Inhalte werden von den Erstellern weder gehostet noch verbreitet.[/COLOR][/B]</disclaimer>
+        <license>GNU GPLv3</license>
+        <platform>android</platform>
         <assets>
             <icon>icon.png</icon>
             <fanart>fanart.jpg</fanart>
         </assets>
+        <news>
+2026.02.25
+        </news>
     </extension>
-</addon>
-<addon id="plugin.video.vav" name="VAVOO Live 2" version="4.0" provider-name="mr-evil1">
-	<requires>
-		<import addon="xbmc.python" version="3.0.0"/>
-		<import addon="script.module.requests"/>
-	</requires>
-	<extension point="xbmc.python.pluginsource" library="plugin.py">
-		<provides>video</provides>
-	</extension>
-	<extension point="xbmc.addon.metadata">
-		<summary lang="de">VAVOO Live-TV Streams</summary>
-		<summary lang="en">VAVOO Live TV Streams</summary>
-		<description lang="de">Streamt Live-TV-Kanäle via VAVOO (mediahubmx API).</description>
-		<description lang="en">Stream live TV channels via VAVOO (mediahubmx API).</description>
-		<platform>all</platform>
-		<assets>
-			<icon>icon.png</icon>
-		</assets>
-	</extension>
 </addon>
 <addon id="script.module.inputstreamhelper" name="InputStream Helper" version="0.8.4" provider-name="emilsvennesson, dagwieers, mediaminister, horstle">
   <requires>
@@ -761,4 +670,95 @@ v0.5.9 (2022-03-22)
     </assets>
   </extension>
 </addon>
-</addons>
+<addon id="script.module.urllib3" name="urllib3" version="2.2.3" provider-name="urllib3">
+  <requires>
+    <import addon="xbmc.python" version="3.0.0" />
+  </requires>
+  <extension point="xbmc.python.module" library="lib" />
+  <extension point="xbmc.addon.metadata">
+    <summary lang="en_GB">urllib3 is a powerful, user-friendly HTTP client for Python</summary>
+    <description lang="en_GB">urllib3 is a powerful, user-friendly HTTP client for Python. Much of the Python ecosystem already uses urllib3 and you should too. urllib3 brings many critical features that are missing from the Python standard libraries</description>
+    <license>MIT</license>
+    <platform>all</platform>
+    <website>https://urllib3.readthedocs.io/</website>
+    <source>https://github.com/urllib3/urllib3</source>
+    <assets>
+      <icon>resources/icon.png</icon>
+    </assets>
+  </extension>
+</addon>
+<addon id="script.module.chardet" name="chardet" version="5.1.0" provider-name="Character Encoding Detector">
+  <requires>
+    <import addon="xbmc.python" version="3.0.0"/>
+  </requires>
+  <extension point="xbmc.python.module" library="lib" />
+  <extension point="xbmc.addon.metadata">
+    <summary lang="en_GB">The Universal Character Encoding Detector</summary>
+    <description lang="en_GB">The Universal Character Encoding Detector</description>
+    <license>LGPL-2.1</license>
+    <platform>all</platform>
+    <website>https://chardet.readthedocs.io/</website>
+    <source>https://github.com/chardet/chardet</source>
+    <assets>
+      <icon>resources/icon.png</icon>
+    </assets>
+  </extension>
+</addon>
+<addon id="plugin.video.stbplus" name="STB Plus TV" version="2026.03.22w" provider-name="mr-evil1">
+	<requires>
+		<import addon="xbmc.python" version="3.0.1"/>
+		<import addon="script.module.requests" version="2.27.1"/>
+	</requires>
+	<extension point="xbmc.python.pluginsource" library="addon_entry.py">
+		<provides>video</provides>
+	</extension>
+	<extension point="xbmc.service" library="service_entry.py" start="startup"/>
+	<extension point="xbmc.addon.metadata">
+		<reuselanguageinvoker>true</reuselanguageinvoker>
+		<platform>windows</platform>
+		<summary lang="de_de">STB Plus</summary>
+        <description lang="de">STB Plus für den Zugriff auf Videos und Vod-Demand-Kanäle und -Serien[B]Hinweis:[/B] Wir weisen darauf hin, dass die Nutzung von mancher Addons in bestimmten Ländern gegen geltendes Recht verstoßen kann und strafbar ist. Die Verantwortung für die Anwendung dieser Addons liegt ausschließlich beim jeweiligen Benutzer. Wir übernimmt daher keinerlei Haftung für etwaige rechtliche Konsequenzen. Eine Weitergabe der Addons an Dritte oder nicht autorisierte Personen ist strengstens untersagt. Vielen Dank für Ihr Verständnis!!!!</description>
+		<license>GPL-3.0-or-later</license>
+		<language>en</language>
+		<assets>
+		<icon>resources/media/icon.png</icon>
+		<icon>icon.png</icon>
+        <fanart>fanart.jpg</fanart>
+
+		</assets>
+		<news>
+Major Update:
+- Zappen nun möglich
+– Neues STB Plus-Hauptmenü
+– Download von Filme und Serien
+– Erweiterte EPG-Darstellung inkl. Auto-Refresh beim Start
+– DACH-Filter für gezielte Sender- und Inhaltsauswahl
+– Optimierte Navigation und Caching
+         </news>
+	</extension>
+</addon>
+
+
+
+
+<addon id="plugin.video.vodkool" name="KOOL.TO (Ultimate)" version="2.0.0w" provider-name="Kato14,mr-evil1">
+  <requires>
+    <import addon="script.module.requests"/>
+    <import addon="inputstream.ffmpegdirect"/>
+    <import addon="inputstream.adaptive" optional="true"/>
+    <import addon="script.module.resolveurl" optional="true"/>
+    <import addon="script.module.urlresolver" optional="true"/>
+  </requires>
+  <extension point="xbmc.python.pluginsource" library="default_run.py">
+    <provides>video</provides>
+  </extension>
+  <extension point="xbmc.service" library="service_run.py" start="login">
+    <provides>executable</provides>
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <platform>windows</platform>
+    <assets>
+      <icon>icon.png</icon>
+    </assets>
+  </extension>
+</addon></addons>
