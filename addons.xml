@@ -366,7 +366,7 @@ Addon für DE Streaming-Seiten..
         </assets>
     </extension>
 </addon>
-<addon id="plugin.video.lastship.reborn" version="2026.04.01w" name="Lastship Reborn" provider-name="Lastship-Team,mr-evil1">
+<addon id="plugin.video.lastship.reborn" version="2026.05.02w" name="Lastship Reborn" provider-name="Lastship-Team,mr-evil1">
     <requires>
 		<import addon="xbmc.python" version="3.0.0"/>
 		<import addon="script.module.requests"/>
