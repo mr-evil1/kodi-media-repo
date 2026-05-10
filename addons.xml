@@ -1,5 +1,39 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <addons>
+<addon id="plugin.video.rtlplus" name="RTL+" version="2026.05.10" provider-name="mr-evil1">
+	<requires>
+		<import addon="xbmc.python" version="3.0.0"/>
+        <import addon="repository.kodi.media" version="1.0.0"/>
+		<import addon="script.module.requests" version="2.31.0"/>
+		<import addon="inputstream.adaptive" version="21.5.18"/>
+		<import addon="script.module.inputstreamhelper" version="0.8.5"/>
+	</requires>
+	<extension point="xbmc.python.pluginsource" library="default.py">
+		<provides>video</provides>
+	</extension>
+	<extension point="xbmc.addon.metadata">
+		<summary lang="de_DE">RTL+ Streaming (Bedrock API)</summary>
+		<summary lang="en_GB">RTL+ Streaming (Bedrock API)</summary>
+		<description lang="de_DE">RTL+ Serien, Shows, Filme und Live-TV. Vollständig auf Bedrock API aufgebaut.</description>
+		<description lang="en_GB">RTL+ series, shows, movies and live TV. Fully rebuilt on Bedrock API.</description>
+		<platform>all</platform>
+		<license>GNU GENERAL PUBLIC LICENSE. Version 3, June 2007</license>
+		<assets>
+			<icon>resources/media/icon.png</icon>
+			<fanart>resources/media/fanart.jpg</fanart>
+		</assets>
+		<news>
+[B][COLOR red]Version (10.05.2026) - KOMPLETTER NEUBAU[/COLOR][/B]
+- Komplett neu geschrieben basierend auf Web-Analyse
+- Korrekte Auth: Keycloak OIDC + Bedrock front-auth Token
+- Korrekte API: video.id aus itemContent.video, nicht ucid
+- VOD: assets[0].path direkt als MPD-URL
+- LIVE: assets-Format analog VOD, serviceCode=rtlplus_root
+- DRM: drm.rtlde.bedrock.tech upfront-token, x-dt-auth-token für lic.drmtoday.com
+- Navigation aus /navigation/desktop
+		</news>
+	</extension>
+</addon>
 <addon id="plugin.program.ftp" name="[COLORblue]Ftp Server[/COLOR]" version="2.0.0" provider-name="mr-evil1">
   <extension point="xbmc.python.script" library="script.py">
     <provides>executable</provides>
