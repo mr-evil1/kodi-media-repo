@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<addon id="plugin.video.rtlplus" name="RTL+" version="2026.05.10" provider-name="mr-evil1">
+<addon id="plugin.video.rtlplus" name="RTL+" version="2026.05.11" provider-name="mr-evil1">
 	<requires>
 		<import addon="xbmc.python" version="3.0.0"/>
         <import addon="repository.kodi.media" version="1.0.0"/>
