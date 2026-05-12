@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <addons>
-<addon id="plugin.video.rtlplus" name="RTL+" version="2026.05.11" provider-name="mr-evil1">
+<addon id="plugin.video.rtlplus" name="RTL+" version="2026.05.12" provider-name="mr-evil1">
 	<requires>
 		<import addon="xbmc.python" version="3.0.0"/>
         <import addon="repository.kodi.media" version="1.0.0"/>
@@ -23,6 +23,13 @@
 			<fanart>resources/media/fanart.jpg</fanart>
 		</assets>
 		<news>
+
+[B][COLOR red]Version (12.05.2026) - Erweiterung[/COLOR][/B]
+- Möglichkeit Angefangene Filme später weiter zu sehen integriert.In Settings aktivierbar(thx Zusatzmetall)
+- Online Merkliste hinzugefügt
+- Weitere Menüpunkte hinzugefügt
+- Livetv stabilisiert
+
 [B][COLOR red]Version (10.05.2026) - KOMPLETTER NEUBAU[/COLOR][/B]
 - Komplett neu geschrieben basierend auf Web-Analyse
 - Korrekte Auth: Keycloak OIDC + Bedrock front-auth Token
