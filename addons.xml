@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <addons>
-<addon id="plugin.video.rtlplus" name="RTL+" version="2026.05.13" provider-name="mr-evil1">
+<addon id="plugin.video.rtlplus" name="RTL+" version="2026.05.14" provider-name="mr-evil1">
 	<requires>
 		<import addon="xbmc.python" version="3.0.0"/>
         <import addon="repository.kodi.media" version="1.0.0"/>
@@ -23,6 +23,16 @@
 			<fanart>resources/media/fanart.jpg</fanart>
 		</assets>
 		<news>
+
+
+[B][COLOR red]Version (14.05.2026) - Erweiterung[/COLOR][/B]
+- Fast Channels erweitert
+- RTL Crime, Living und Passion repariert
+- Thumb und BG Bilder in gemerkte Inhalte angepasst
+- Sportbereich überarbeitet
+- Specials wenn vorhanden bei Staffeln hinzugefügt
+- Gast Modus ohne Login Hinzugefügt
+- Ordner Struktur bei Mein RTL+
 
 [B][COLOR red]Version (13.05.2026) - Erweiterung[/COLOR][/B]
 - Rechtskonform gemacht (Free Acc nur 576p Streams)
