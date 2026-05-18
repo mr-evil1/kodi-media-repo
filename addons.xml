@@ -513,7 +513,7 @@ v0.5.9 (2022-03-22)
     </assets>
   </extension>
 </addon>
-<addon id="plugin.video.rtlplus" name="RTL+" version="2026.05.17" provider-name="mr-evil1">
+<addon id="plugin.video.rtlplus" name="RTL+" version="2026.05.18" provider-name="mr-evil1">
 	<requires>
 		<import addon="xbmc.python" version="3.0.0"/>
         <import addon="repository.kodi.media" version="1.0.0"/>
@@ -536,6 +536,11 @@ v0.5.9 (2022-03-22)
 			<fanart>resources/media/fanart.jpg</fanart>
 		</assets>
 		<news>
+[B][COLOR red]Version (18.05.2026) - Erweiterung[/COLOR][/B]
+- Probleme Anzeigen aller Folgen (BL Highlights) gefixt
+- Einstellungen für Stream Qualität hinzugefügt
+- Suchverlauf hinzugefügt
+
 [B][COLOR red]Version (17.05.2026) - Erweiterung[/COLOR][/B]
 - Timeshift auf 15 Min erweitert
 - Neue Logout Funktion (löscht User und Pass nicht)
