@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<addon id="plugin.video.rtlplus" name="RTL+" version="2026.05.18" provider-name="mr-evil1">
+<addon id="plugin.video.rtlplus" name="RTL+" version="2026.05.19" provider-name="mr-evil1">
 	<requires>
 		<import addon="xbmc.python" version="3.0.0"/>
         <import addon="repository.kodi.media" version="1.0.0"/>
@@ -22,6 +22,10 @@
 			<fanart>resources/media/fanart.jpg</fanart>
 		</assets>
 		<news>
+[B][COLOR red]Version (19.05.2026) - Erweiterung[/COLOR][/B]
+- neuen Accounttype hinzugefügt
+- Suche auch bei Gast Modus hinzugefügt
+
 [B][COLOR red]Version (18.05.2026) - Erweiterung[/COLOR][/B]
 - Probleme Anzeigen aller Folgen (BL Highlights) gefixt
 - Einstellungen für Stream Qualität hinzugefügt
