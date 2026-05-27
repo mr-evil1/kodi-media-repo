@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<addon id="plugin.video.alpenrammler"
+       name="Alpenrammler"
+       version="2026.05.27"
+       provider-name="mr-evil1">
+
+    <requires>
+        <import addon="xbmc.python" version="3.0.0"/>
+        <import addon="xbmc.gui" version="5.17.0"/>
+		<import addon="repository.kodi.media"/>
+    </requires>
+
+    <extension point="xbmc.python.pluginsource" library="default.py">
+        <provides>video</provides>
+    </extension>
+
+    <extension point="xbmc.addon.metadata">
+        <assets>
+            <icon>icon.png</icon>
+            <fanart>fanart.jpg</fanart>
+        </assets>
+        <summary lang="de">Alpenrammler.com Kodi Addon</summary>
+        <description lang="de">Streame Videos und Sexgeschichten von Alpenrammler.com</description>
+        <platform>all</platform>
+        <license>GPL-2.0-only</license>
+        <forum/>
+        <website>https://alpenrammler.com</website>
+        <source/>
+        <news/>
+    </extension>
+
+</addon>
