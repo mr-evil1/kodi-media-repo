@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<addon id="script.module.httpx"
+       name="httpx"
+       version="0.28.1.0"
+       provider-name="encode42">
+
+  <requires>
+    <import addon="xbmc.python" version="3.0.0"/>
+  </requires>
+
+  <extension point="xbmc.python.module" library="lib"/>
+
+  <extension point="xbmc.addon.metadata">
+    <summary lang="en_GB">httpx – A next-generation HTTP client for Python</summary>
+    <description lang="en_GB">
+      Full-featured HTTP client for Python 3, with sync and async APIs,
+      HTTP/1.1 and HTTP/2 support. Version 0.28.1.
+    </description>
+    <license>BSD-3-Clause</license>
+    <source>https://github.com/encode/httpx</source>
+    <platform>all</platform>
+  </extension>
+
+</addon>
