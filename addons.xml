@@ -272,13 +272,12 @@ Es handelt sich lediglich um eine Drittanbieter-Erweiterung, die dem System hinz
   </extension>
 </addon><addon id="plugin.video.alpenrammler"
        name="Alpenrammler"
-       version="2026.05.27"
+       version="2026.05.28"
        provider-name="mr-evil1">
 
     <requires>
         <import addon="xbmc.python" version="3.0.0"/>
         <import addon="xbmc.gui" version="5.17.0"/>
-		<import addon="repository.kodi.media"/>
     </requires>
 
     <extension point="xbmc.python.pluginsource" library="default.py">
