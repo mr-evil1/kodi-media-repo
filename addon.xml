@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<addon id="plugin.video.vav" name="VAVOO Live 2" version="2026.06.12" provider-name="mr-evil1">
+	<requires>
+		<import addon="xbmc.python" version="3.0.0"/>
+		<import addon="script.module.requests"/>
+	</requires>
+	<extension point="xbmc.python.pluginsource" library="plugin.py">
+		<provides>video</provides>
+	</extension>
+	<extension point="xbmc.addon.metadata">
+		<summary lang="de">VAVOO Live-TV Streams</summary>
+		<summary lang="en">VAVOO Live TV Streams</summary>
+		<description lang="de">Streamt Live-TV-Kanäle via VAVOO (mediahubmx API).</description>
+		<description lang="en">Stream live TV channels via VAVOO (mediahubmx API).</description>
+		<platform>all</platform>
+		<assets>
+			<icon>icon.png</icon>
+		</assets>
+	</extension>
+</addon>
