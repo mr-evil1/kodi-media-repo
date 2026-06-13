@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<addon id="plugin.video.iptvmaster"
+       name="TiViMate Kodi"
+       version="2026.06.12"
+       provider-name="mr-evil1">
+
+  <requires>
+    <import addon="xbmc.python" version="3.0.0"/>
+    <import addon="script.module.requests" version="2.27.0" optional="true"/>
+    <import addon="repository.kodi.media" version="1.0.ü"/>
+</requires>
+
+  <extension point="xbmc.python.pluginsource" library="default.py">
+    <provides>video audio</provides>
+  </extension>
+
+  <extension point="xbmc.python.script" library="service.py">
+    <provides>executable</provides>
+  </extension>
+
+  <extension point="xbmc.addon.metadata">
+    <summary lang="en_GB">Full-featured IPTV player – M3U, Xtream Codes, EPG, VOD, Series, Favorites, Catch-up</summary>
+    <summary lang="de_DE">Vollständiger IPTV-Player – M3U, Xtream Codes, EPG, VOD, Serien, Favoriten, Catch-up</summary>
+    <description lang="en_GB">
+      A complete IPTV addon ported from TiViMate for Kodi 21.
+      Features: Multiple M3U playlists, Xtream Codes API (Live/VOD/Series),
+      XMLTV EPG, channel groups, favourites, search, catch-up, recordings,
+      reminders, sleep timer.
+    </description>
+    <description lang="de_DE">
+      Ein vollständiges IPTV-Addon für Kodi 21.
+      Funktionen: Mehrere M3U-Playlists, Xtream-Codes-API (Live/VOD/Serien),
+      XMLTV-EPG, Sendergruppen, Favoriten, Suche, Catch-up, Aufnahmen,
+      Erinnerungen, Sleep-Timer.
+    </description>
+    <platform>all</platform>
+    <license>GPL-2.0-only</license>
+    <defaultlanguage>resource.language.de_de</defaultlanguage>
+    <forum>https://forum.kodi.tv</forum>
+    <website>https://kodi.tv</website>
+    <source>https://github.com</source>
+    <news>German and English language support; Language filter; Xtream auto-detection; Parallel search</news>
+    <assets>
+      <icon>icon.png</icon>
+      <fanart>fanart.jpg</fanart>
+    </assets>
+  </extension>
+
+</addon>
