@@ -41,7 +41,7 @@
     <source></source>
   </extension>
 </addon>
-<addon id="plugin.video.lastship.reborn" version="2026.05.31" name="Lastship Reborn" provider-name="Lastship-Team,mr-evil1">
+<addon id="plugin.video.lastship.reborn" version="2026.06.13" name="Lastship Reborn" provider-name="Lastship-Team,mr-evil1">
     <requires>
 		<import addon="xbmc.python" version="3.0.0"/>
 		<import addon="script.module.requests"/>
@@ -74,11 +74,10 @@ Es handelt sich lediglich um eine Drittanbieter-Erweiterung, die dem System hinz
         </assets>
         <news>
 [B]Lastship[/B]
+2026.06.13
+-Scraper Code Fixes
 
 
-
-
-[B]Lastship[/B]
 2026.04.01
 -Fix TMDB
 
