@@ -331,7 +331,7 @@ v0.5.9 (2022-03-22)
     </assets>
   </extension>
 </addon>
-<addon id="plugin.video.lastship.reborn" version="2026.05.02w" name="Lastship Reborn" provider-name="Lastship-Team,mr-evil1">
+<addon id="plugin.video.lastship.reborn" version="2026.06.13w" name="Lastship Reborn" provider-name="Lastship-Team,mr-evil1">
     <requires>
 		<import addon="xbmc.python" version="3.0.0"/>
 		<import addon="script.module.requests"/>
@@ -339,8 +339,9 @@ v0.5.9 (2022-03-22)
 		<import addon="repository.kodi.media"/>
 		<import addon="script.module.resolveurl"/>
 		<import addon="script.module.inputstreamhelper"/>
-		<import addon="script.module.cloudscraper"/>
-		<import addon="script.module.cloudscraper2" optional="true"/> />
+		<import addon="script.module.cloudscraper" optional="true"/>
+		<import addon="script.module.cloudscraper2" optional="true"/>
+		<import addon="script.module.cloudrequest" optional="true"/>
 		<import addon="script.module.pydevd" optional="true"/>
     </requires>
     <extension point="xbmc.python.pluginsource" library="default_run.py">
