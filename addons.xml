@@ -692,15 +692,16 @@ Major Update:
     </assets>
   </extension>
 </addon>
-<addon id="plugin.video.streams" version="2026.03.11w" name="Streams" provider-name="mr-evil1">
+<addon id="plugin.video.streams" version="2026.06.13w" name="Streams" provider-name="mr-evil1">
     <requires>
         <import addon="xbmc.python" version="3.0.0"/>
         <import addon="script.module.requests"/>
         <import addon="script.module.six"/>
         <import addon="script.module.resolveurl"/>
         <import addon="script.module.inputstreamhelper"/>
-        <import addon="script.module.cloudscraper"/>
+        <import addon="script.module.cloudscraper" optional="true"/>
         <import addon="script.module.cloudscraper2" optional="true"/>
+		<import addon="script.module.cloudrequest" optional="true"/>
         <import addon="repository.kodi.media"/>
     </requires>
     <extension point="xbmc.python.pluginsource" library="default_run.py">
