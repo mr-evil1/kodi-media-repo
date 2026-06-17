@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kodi Media Repo</title>
+    <style>
+        :root {
+            --mac-bg: radial-gradient(circle at 0% 0%, #3b2d54, transparent 55%), 
+                      radial-gradient(circle at 100% 0%, #1d3d54, transparent 55%), 
+                      #0f111a;
+            --glass-bg: rgba(255, 255, 255, 0.06);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --text-main: #ffffff;
+            --text-sub: #a0aec0;
+            --apple-blue: #007aff;
+            --apple-blue-hover: #1485ff;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background: var(--mac-bg);
+            background-attachment: fixed;
+            color: var(--text-main);
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .mac-menu-bar {
+            background: rgba(15, 17, 26, 0.75);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            padding: 0.4rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.85rem;
+            font-weight: 500;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+        }
+
+        .menu-left span { margin-right: 1.5rem; cursor: default; }
+        .menu-left .apple-logo { font-size: 1rem; }
+
+        header { text-align: center; padding: 7rem 1rem 3rem 1rem; }
+        header h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            letter-spacing: -0.05rem;
+            margin: 0 0 0.5rem 0;
+            background: linear-gradient(180deg, #fff 0%, #a5a5a5 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .repo-url-box {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid var(--glass-border);
+            padding: 0.6rem 1.2rem;
+            border-radius: 20px;
+            display: inline-flex;
+            align-items: center;
+            font-family: monospace;
+            font-size: 0.95rem;
+            color: #34c759;
+            margin-top: 1rem;
+        }
+
+        main { max-width: 1100px; margin: 0 auto; padding: 2rem 1rem 6rem 1rem; }
+        .addon-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(450px, 1fr)); gap: 2.5rem; }
+
+        .mac-window {
+            background: var(--glass-bg);
+            backdrop-filter: blur(30px);
+            -webkit-backdrop-filter: blur(30px);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+        }
+
+        .mac-window:hover { transform: scale(1.02); box-shadow: 0 35px 60px -10px rgba(0, 0, 0, 0.7); }
+        .window-header { background: rgba(0, 0, 0, 0.2); padding: 0.8rem 1rem; display: flex; align-items: center; position: relative; border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
+        .traffic-lights { display: flex; gap: 8px; }
+        .dot { width: 12px; height: 12px; border-radius: 50%; }
+        .dot.red { background: #ff5f56; }
+        .dot.yellow { background: #ffbd2e; }
+        .dot.green { background: #27c93f; }
+        .window-title { position: absolute; left: 50%; transform: translateX(-50%); font-size: 0.85rem; font-weight: 600; color: var(--text-sub); letter-spacing: 0.02rem; }
+
+        .addon-gallery { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; background: rgba(0,0,0,0.2); height: 200px; }
+        .addon-gallery img { width: 100%; height: 100%; object-fit: cover; }
+
+        .window-content { padding: 1.5rem; display: flex; flex-direction: column; flex-grow: 1; }
+        .addon-name { margin: 0 0 0.75rem 0; font-size: 1.6rem; font-weight: 600; letter-spacing: -0.02rem; }
+        .addon-desc { color: var(--text-sub); font-size: 0.95rem; line-height: 1.5; margin-bottom: 2rem; flex-grow: 1; }
+
+        .mac-btn {
+            display: inline-block;
+            text-align: center;
+            background: var(--apple-blue);
+            color: white;
+            text-decoration: none;
+            padding: 0.6rem 1.2rem;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+            transition: background 0.15s ease, transform 0.1s ease;
+            align-self: flex-start;
+        }
+        .mac-btn:hover { background: var(--apple-blue-hover); }
+        .mac-btn:active { transform: scale(0.98); }
+
+        @media (max-width: 600px) {
+            .addon-grid { grid-template-columns: 1fr; }
+            .mac-menu-bar { display: none; }
+            header { padding-top: 3rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="mac-menu-bar">
+        <div class="menu-left">
+            <span class="apple-logo"></span>
+            <strong>Finder</strong>
+            <span>Ablage</span>
+            <span>Bearbeiten</span>
+            <span>Addons</span>
+        </div>
+        <div class="menu-right">
+            <span>Repo OS v1.4</span>
+        </div>
+    </div>
+
+    <header>
+        <h1>Kodi Media Repo</h1>
+        <p style="color: var(--text-sub); margin-bottom: 0.5rem;">Füge diese Source in Kodi hinzu:</p>
+        <div class="repo-url-box">
+            <span>https://mr-evil1.github.io/kodi-media-repo/</span>
+        </div>
+    </header>
+
+    <main>
+        <div class="addon-grid">
+            
+            <div class="mac-window">
+                <div class="window-header">
+                    <div class="traffic-lights">
+                        <div class="dot red"></div>
+                        <div class="dot yellow"></div>
+                        <div class="dot green"></div>
+                    </div>
+                    <div class="window-title">script.module.cloudscraper2 v1.2.60</div>
+                </div>
+                
+                <div class="addon-gallery">
+                    <img src="https://raw.githubusercontent.com/mr-evil1/kodi-media-repo/refs/heads/main/_generated_assets/script.module.cloudscraper2/fanart.jpg" alt="Fanart">
+                    <img src="https://raw.githubusercontent.com/mr-evil1/kodi-media-repo/refs/heads/main/_generated_assets/script.module.cloudscraper2/icon.png" alt="Icon" style="object-fit: contain; background: rgba(0,0,0,0.4); padding: 10px;">
+                </div>
+
+                <div class="window-content">
+                    <h2 class="addon-name">CloudScraper2</h2>
+                    <p class="addon-desc">cloudscraper</p>
+                    <a href="https://github.com/mr-evil1/kodi-media-repo/raw/refs/heads/main/script.module.cloudscraper2/script.module.cloudscraper2-1.2.60.zip" class="mac-btn">Download ZIP (v1.2.60)</a>
+                </div>
+            </div>
+        
+            <div class="mac-window">
+                <div class="window-header">
+                    <div class="traffic-lights">
+                        <div class="dot red"></div>
+                        <div class="dot yellow"></div>
+                        <div class="dot green"></div>
+                    </div>
+                    <div class="window-title">plugin.video.lastship.reborn v2026.06.16</div>
+                </div>
+                
+                <div class="addon-gallery">
+                    <img src="https://raw.githubusercontent.com/mr-evil1/kodi-media-repo/refs/heads/main/plugin.video.lastship.reborn/fanart.jpg" alt="Fanart">
+                    <img src="https://raw.githubusercontent.com/mr-evil1/kodi-media-repo/refs/heads/main/plugin.video.lastship.reborn/icon.png" alt="Icon" style="object-fit: contain; background: rgba(0,0,0,0.4); padding: 10px;">
+                </div>
+
+                <div class="window-content">
+                    <h2 class="addon-name">Lastship Reborn</h2>
+                    <p class="addon-desc">
+Mit diesem Addon kannst du auf alle angebotenen Streams verschiedenster deutscher Quellen zugreifen. 
+Beachte, dass Addon kein offizieller Teil des verwendeten Media Players ist, und daher nicht von den offiziellen Support-Kanälen abgedeckt wird. 
+Es handelt sich lediglich um eine Drittanbieter-Erweiterung, die dem System hinzugefügt wurde.
+        </p>
+                    <a href="https://github.com/mr-evil1/kodi-media-repo/raw/refs/heads/main/plugin.video.lastship.reborn/plugin.video.lastship.reborn-2026.06.16.zip" class="mac-btn">Download ZIP (v2026.06.16)</a>
+                </div>
+            </div>
+        
+            <div class="mac-window">
+                <div class="window-header">
+                    <div class="traffic-lights">
+                        <div class="dot red"></div>
+                        <div class="dot yellow"></div>
+                        <div class="dot green"></div>
+                    </div>
+                    <div class="window-title">plugin.program.ftp v2.0.0</div>
+                </div>
+                
+                <div class="addon-gallery">
+                    <img src="https://raw.githubusercontent.com/mr-evil1/kodi-media-repo/refs/heads/main/_generated_assets/plugin.program.ftp/fanart.jpg" alt="Fanart">
+                    <img src="https://raw.githubusercontent.com/mr-evil1/kodi-media-repo/refs/heads/main/plugin.program.ftp/icon.png" alt="Icon" style="object-fit: contain; background: rgba(0,0,0,0.4); padding: 10px;">
+                </div>
+
+                <div class="window-content">
+                    <h2 class="addon-name">[COLORblue]Ftp Server[/COLOR]</h2>
+                    <p class="addon-desc">Use Kodi as Ftp Server</p>
+                    <a href="https://github.com/mr-evil1/kodi-media-repo/raw/refs/heads/main/plugin.program.ftp/plugin.program.ftp-2.0.0.zip" class="mac-btn">Download ZIP (v2.0.0)</a>
+                </div>
+            </div>
+        
+            <div class="mac-window">
+                <div class="window-header">
+                    <div class="traffic-lights">
+                        <div class="dot red"></div>
+                        <div class="dot yellow"></div>
+                        <div class="dot green"></div>
+                    </div>
+                    <div class="window-title">plugin.video.vodkool v2.0.0</div>
+                </div>
+                
+                <div class="addon-gallery">
+                    <img src="https://raw.githubusercontent.com/mr-evil1/kodi-media-repo/refs/heads/main/_generated_assets/plugin.video.vodkool/fanart.jpg" alt="Fanart">
+                    <img src="https://raw.githubusercontent.com/mr-evil1/kodi-media-repo/refs/heads/main/plugin.video.vodkool/icon.png" alt="Icon" style="object-fit: contain; background: rgba(0,0,0,0.4); padding: 10px;">
+                </div>
+
+                <div class="window-content">
+                    <h2 class="addon-name">KOOL.TO (Ultimate)</h2>
+                    <p class="addon-desc">Keine Beschreibung verfügbar.</p>
+                    <a href="https://github.com/mr-evil1/kodi-media-repo/raw/refs/heads/main/plugin.video.vodkool/plugin.video.vodkool-2.0.0.zip" class="mac-btn">Download ZIP (v2.0.0)</a>
+                </div>
+            </div>
+        
+            <div class="mac-window">
+                <div class="window-header">
+                    <div class="traffic-lights">
+                        <div class="dot red"></div>
+                        <div class="dot yellow"></div>
+                        <div class="dot green"></div>
+                    </div>
+                    <div class="window-title">script.module.six v1.16.0+matrix.1</div>
+                </div>
+                
+                <div class="addon-gallery">
+                    <img src="https://raw.githubusercontent.com/mr-evil1/kodi-media-repo/refs/heads/main/_generated_assets/script.module.six/fanart.jpg" alt="Fanart">
+                    <img src="https://raw.githubusercontent.com/mr-evil1/kodi-media-repo/refs/heads/main/_generated_assets/script.module.six/icon.png" alt="Icon" style="object-fit: contain; background: rgba(0,0,0,0.4); padding: 10px;">
+                </div>
+
+                <div class="window-content">
+                    <h2 class="addon-name">six</h2>
+                    <p class="addon-desc">Python 2 and 3 compatibility utilities</p>
+                    <a href="https://github.com/mr-evil1/kodi-media-repo/raw/refs/heads/main/script.module.six/script.module.six-1.16.0+matrix.1.zip" class="mac-btn">Download ZIP (v1.16.0+matrix.1)</a>
+                </div>
+            </div>
+        
+            <div class="mac-window">
+                <div class="window-header">
+                    <div class="traffic-lights">
+                        <div class="dot red"></div>
+                        <div class="dot yellow"></div>
+                        <div class="dot green"></div>
+                    </div>
+                    <div class="window-title">script.module.cloudscraper v1.2.60</div>
+                </div>
+                
+                <div class="addon-gallery">
+                    <img src="https://raw.githubusercontent.com/mr-evil1/kodi-media-repo/refs/heads/main/_generated_assets/script.module.cloudscraper/fanart.jpg" alt="Fanart">
+                    <img src="https://raw.githubusercontent.com/mr-evil1/kodi-media-repo/refs/heads/main/_generated_assets/script.module.cloudscraper/icon.png" alt="Icon" style="object-fit: contain; background: rgba(0,0,0,0.4); padding: 10px;">
+                </div>
+
+                <div class="window-content">
+                    <h2 class="addon-name">CloudScraper2</h2>
+                    <p class="addon-desc">cloudscraper</p>
+                    <a href="https://github.com/mr-evil1/kodi-media-repo/raw/refs/heads/main/script.module.cloudscraper/script.module.cloudscraper-1.2.60.zip" class="mac-btn">Download ZIP (v1.2.60)</a>
+                </div>
+            </div>
+        
+            <div class="mac-window">
+                <div class="window-header">
+                    <div class="traffic-lights">
+                        <div class="dot red"></div>
+                        <div class="dot yellow"></div>
+                        <div class="dot green"></div>
+                    </div>
+                    <div class="window-title">script.module.chardet v5.1.0</div>
+                </div>
+                
+                <div class="addon-gallery">
+                    <img src="https://raw.githubusercontent.com/mr-evil1/kodi-media-repo/refs/heads/main/_generated_assets/script.module.chardet/fanart.jpg" alt="Fanart">
+                    <img src="https://raw.githubusercontent.com/mr-evil1/kodi-media-repo/refs/heads/main/_generated_assets/script.module.chardet/icon.png" alt="Icon" style="object-fit: contain; background: rgba(0,0,0,0.4); padding: 10px;">
+                </div>
+
+                <div class="window-content">
+                    <h2 class="addon-name">chardet</h2>
+                    <p class="addon-desc">The Universal Character Encoding Detector</p>
+                    <a href="https://github.com/mr-evil1/kodi-media-repo/raw/refs/heads/main/script.module.chardet/script.module.chardet-5.1.0.zip" class="mac-btn">Download ZIP (v5.1.0)</a>
+                </div>
+            </div>
+        
+            <div class="mac-window">
+                <div class="window-header">
+                    <div class="traffic-lights">
+                        <div class="dot red"></div>
+                        <div class="dot yellow"></div>
+                        <div class="dot green"></div>
+                    </div>
+                    <div class="window-title">script.module.inputstreamhelper v0.8.4</div>
+                </div>
+                
+                <div class="addon-gallery">
+                    <img src="https://raw.githubusercontent.com/mr-evil1/kodi-media-repo/refs/heads/main/_generated_assets/script.module.inputstreamhelper/fanart.jpg" alt="Fanart">
+                    <img src="https://raw.githubusercontent.com/mr-evil1/kodi-media-repo/refs/heads/main/_generated_assets/script.module.inputstreamhelper/icon.png" alt="Icon" style="object-fit: contain; background: rgba(0,0,0,0.4); padding: 10px;">
+                </div>
+
+                <div class="window-content">
+                    <h2 class="addon-name">InputStream Helper</h2>
+                    <p class="addon-desc">Dieses einfache Kodi-Modul macht das Leben für Addon Entwickler einfacher, die auf InputStream basierte Addons und DRM Wiedergabe angewiesen sind.</p>
+                    <a href="https://github.com/mr-evil1/kodi-media-repo/raw/refs/heads/main/script.module.inputstreamhelper/script.module.inputstreamhelper-0.8.4.zip" class="mac-btn">Download ZIP (v0.8.4)</a>
+                </div>
+            </div>
+        
+            <div class="mac-window">
+                <div class="window-header">
+                    <div class="traffic-lights">
+                        <div class="dot red"></div>
+                        <div class="dot yellow"></div>
+                        <div class="dot green"></div>
+                    </div>
+                    <div class="window-title">plugin.video.lastship.reborn v2026.06.13w</div>
+                </div>
+                
+                <div class="addon-gallery">
+                    <img src="https://raw.githubusercontent.com/mr-evil1/kodi-media-repo/refs/heads/main/plugin.video.lastship.reborn/fanart.jpg" alt="Fanart">
+                    <img src="https://raw.githubusercontent.com/mr-evil1/kodi-media-repo/refs/heads/main/plugin.video.lastship.reborn/icon.png" alt="Icon" style="object-fit: contain; background: rgba(0,0,0,0.4); padding: 10px;">
+                </div>
+
+                <div class="window-content">
+                    <h2 class="addon-name">Lastship Reborn</h2>
+                    <p class="addon-desc">
+Mit diesem Addon kannst du auf alle angebotenen Streams verschiedenster deutscher Quellen zugreifen. 
+Beachte, dass Addon kein offizieller Teil des verwendeten Media Players ist, und daher nicht von den offiziellen Support-Kanälen abgedeckt wird. 
+Es handelt sich lediglich um eine Drittanbieter-Erweiterung, die dem System hinzugefügt wurde.
+        </p>
+                    <a href="https://github.com/mr-evil1/kodi-media-repo/raw/refs/heads/main/plugin.video.lastship.reborn/plugin.video.lastship.reborn-2026.06.13w.zip" class="mac-btn">Download ZIP (v2026.06.13w)</a>
+                </div>
+            </div>
+        
+            <div class="mac-window">
+                <div class="window-header">
+                    <div class="traffic-lights">
+                        <div class="dot red"></div>
+                        <div class="dot yellow"></div>
+                        <div class="dot green"></div>
+                    </div>
+                    <div class="window-title">plugin.video.stbplus v2026.03.22</div>
+                </div>
+                
+                <div class="addon-gallery">
+                    <img src="https://raw.githubusercontent.com/mr-evil1/kodi-media-repo/refs/heads/main/plugin.video.stbplus/fanart.jpg" alt="Fanart">
+                    <img src="https://raw.githubusercontent.com/mr-evil1/kodi-media-repo/refs/heads/main/plugin.video.stbplus/icon.png" alt="Icon" style="object-fit: contain; background: rgba(0,0,0,0.4); padding: 10px;">
+                </div>
+
+                <div class="window-content">
+                    <h2 class="addon-name">STB Plus TV</h2>
+                    <p class="addon-desc">STB Plus für den Zugriff auf Videos und Vod-Demand-Kanäle und -Serien<strong>Hinweis:</strong> Wir weisen darauf hin, dass die Nutzung von mancher Addons in bestimmten Ländern gegen geltendes Recht verstoßen kann und strafbar ist. Die Verantwortung für die Anwendung dieser Addons liegt ausschließlich beim jeweiligen Benutzer. Wir übernimmt daher keinerlei Haftung für etwaige rechtliche Konsequenzen. Eine Weitergabe der Addons an Dritte oder nicht autorisierte Personen ist strengstens untersagt. Vielen Dank für Ihr Verständnis!!!!</p>
+                    <a href="https://github.com/mr-evil1/kodi-media-repo/raw/refs/heads/main/plugin.video.stbplus/plugin.video.stbplus-2026.03.22.zip" class="mac-btn">Download ZIP (v2026.03.22)</a>
+                </div>
+            </div>
+        
+            <div class="mac-window">
+                <div class="window-header">
+                    <div class="traffic-lights">
+                        <div class="dot red"></div>
+                        <div class="dot yellow"></div>
+                        <div class="dot green"></div>
+                    </div>
+                    <div class="window-title">script.module.kodi-six v0.1.3.1</div>
+                </div>
+                
+                <div class="addon-gallery">
+                    <img src="https://raw.githubusercontent.com/mr-evil1/kodi-media-repo/refs/heads/main/_generated_assets/script.module.kodi-six/fanart.jpg" alt="Fanart">
+                    <img src="https://raw.githubusercontent.com/mr-evil1/kodi-media-repo/refs/heads/main/script.module.kodi-six/icon.png" alt="Icon" style="object-fit: contain; background: rgba(0,0,0,0.4); padding: 10px;">
+                </div>
+
+                <div class="window-content">
+                    <h2 class="addon-name">Kodi Six</h2>
+                    <p class="addon-desc">Wrappers around Kodi Python API that normalize handling of textual and byte strings in Python 2 and 3.</p>
+                    <a href="https://github.com/mr-evil1/kodi-media-repo/raw/refs/heads/main/script.module.kodi-six/script.module.kodi-six-0.1.3.1.zip" class="mac-btn">Download ZIP (v0.1.3.1)</a>
+                </div>
+            </div>
+        
+            <div class="mac-window">
+                <div class="window-header">
+                    <div class="traffic-lights">
+                        <div class="dot red"></div>
+                        <div class="dot yellow"></div>
+                        <div class="dot green"></div>
+                    </div>
+                    <div class="window-title">plugin.video.vav v2026.06.14</div>
+                </div>
+                
+                <div class="addon-gallery">
+                    <img src="https://raw.githubusercontent.com/mr-evil1/kodi-media-repo/refs/heads/main/_generated_assets/plugin.video.vav/fanart.jpg" alt="Fanart">
+                    <img src="https://raw.githubusercontent.com/mr-evil1/kodi-media-repo/refs/heads/main/plugin.video.vav/icon.png" alt="Icon" style="object-fit: contain; background: rgba(0,0,0,0.4); padding: 10px;">
+                </div>
+
+                <div class="window-content">
+                    <h2 class="addon-name">VAVOO Live 2</h2>
+                    <p class="addon-desc">Streamt Live-TV-Kanäle via VAVOO (mediahubmx API).</p>
+                    <a href="https://github.com/mr-evil1/kodi-media-repo/raw/refs/heads/main/plugin.video.vav/plugin.video.vav-2026.06.14.zip" class="mac-btn">Download ZIP (v2026.06.14)</a>
+                </div>
+            </div>
+        
+            <div class="mac-window">
+                <div class="window-header">
+                    <div class="traffic-lights">
+                        <div class="dot red"></div>
+                        <div class="dot yellow"></div>
+                        <div class="dot green"></div>
+                    </div>
+                    <div class="window-title">script.module.resolveurl v5.1.199</div>
+                </div>
+                
+                <div class="addon-gallery">
+                    <img src="https://raw.githubusercontent.com/mr-evil1/kodi-media-repo/refs/heads/main/script.module.resolveurl/fanart.jpg" alt="Fanart">
+                    <img src="https://raw.githubusercontent.com/mr-evil1/kodi-media-repo/refs/heads/main/script.module.resolveurl/icon.png" alt="Icon" style="object-fit: contain; background: rgba(0,0,0,0.4); padding: 10px;">
+                </div>
+
+                <div class="window-content">
+                    <h2 class="addon-name">ResolveURL</h2>
+                    <p class="addon-desc">Resolve common video host URL's to be playable in XBMC/Kodi, simplify addon development of video plugins requiring multi video hosts.</p>
+                    <a href="https://github.com/mr-evil1/kodi-media-repo/raw/refs/heads/main/script.module.resolveurl/script.module.resolveurl-5.1.199.zip" class="mac-btn">Download ZIP (v5.1.199)</a>
+                </div>
+            </div>
+        
+            <div class="mac-window">
+                <div class="window-header">
+                    <div class="traffic-lights">
+                        <div class="dot red"></div>
+                        <div class="dot yellow"></div>
+                        <div class="dot green"></div>
+                    </div>
+                    <div class="window-title">plugin.video.vav v2026.06.12</div>
+                </div>
+                
+                <div class="addon-gallery">
+                    <img src="https://raw.githubusercontent.com/mr-evil1/kodi-media-repo/refs/heads/main/_generated_assets/plugin.video.vav/fanart.jpg" alt="Fanart">
+                    <img src="https://raw.githubusercontent.com/mr-evil1/kodi-media-repo/refs/heads/main/plugin.video.vav/icon.png" alt="Icon" style="object-fit: contain; background: rgba(0,0,0,0.4); padding: 10px;">
+                </div>
+
+                <div class="window-content">
+                    <h2 class="addon-name">VAVOO Live 2</h2>
+                    <p class="addon-desc">Streamt Live-TV-Kanäle via VAVOO (mediahubmx API).</p>
+                    <a href="https://github.com/mr-evil1/kodi-media-repo/raw/refs/heads/main/plugin.video.vav/plugin.video.vav-2026.06.12.zip" class="mac-btn">Download ZIP (v2026.06.12)</a>
+                </div>
+            </div>
+        
+            <div class="mac-window">
+                <div class="window-header">
+                    <div class="traffic-lights">
+                        <div class="dot red"></div>
+                        <div class="dot yellow"></div>
+                        <div class="dot green"></div>
+                    </div>
+                    <div class="window-title">plugin.video.iptvmaster v2026.06.12</div>
+                </div>
+                
+                <div class="addon-gallery">
+                    <img src="https://raw.githubusercontent.com/mr-evil1/kodi-media-repo/refs/heads/main/plugin.video.iptvmaster/fanart.jpg" alt="Fanart">
+                    <img src="https://raw.githubusercontent.com/mr-evil1/kodi-media-repo/refs/heads/main/plugin.video.iptvmaster/icon.png" alt="Icon" style="object-fit: contain; background: rgba(0,0,0,0.4); padding: 10px;">
+                </div>
+
+                <div class="window-content">
+                    <h2 class="addon-name">TiViMate Kodi</h2>
+                    <p class="addon-desc">
+      A complete IPTV addon ported from TiViMate for Kodi 21.
+      Features: Multiple M3U playlists, Xtream Codes API (Live/VOD/Series),
+      XMLTV EPG, channel groups, favourites, search, catch-up, recordings,
+      reminders, sleep timer.
+    </p>
+                    <a href="https://github.com/mr-evil1/kodi-media-repo/raw/refs/heads/main/plugin.video.iptvmaster/plugin.video.iptvmaster-2026.06.12.zip" class="mac-btn">Download ZIP (v2026.06.12)</a>
+                </div>
+            </div>
+        
+            <div class="mac-window">
+                <div class="window-header">
+                    <div class="traffic-lights">
+                        <div class="dot red"></div>
+                        <div class="dot yellow"></div>
+                        <div class="dot green"></div>
+                    </div>
+                    <div class="window-title">plugin.video.alpenrammler v2026.05.28</div>
+                </div>
+                
+                <div class="addon-gallery">
+                    <img src="https://raw.githubusercontent.com/mr-evil1/kodi-media-repo/refs/heads/main/plugin.video.alpenrammler/fanart.jpg" alt="Fanart">
+                    <img src="https://raw.githubusercontent.com/mr-evil1/kodi-media-repo/refs/heads/main/plugin.video.alpenrammler/icon.png" alt="Icon" style="object-fit: contain; background: rgba(0,0,0,0.4); padding: 10px;">
+                </div>
+
+                <div class="window-content">
+                    <h2 class="addon-name">Alpenrammler</h2>
+                    <p class="addon-desc">Streame Videos und Sexgeschichten von Alpenrammler.com</p>
+                    <a href="https://github.com/mr-evil1/kodi-media-repo/raw/refs/heads/main/plugin.video.alpenrammler/plugin.video.alpenrammler-2026.05.28.zip" class="mac-btn">Download ZIP (v2026.05.28)</a>
+                </div>
+            </div>
+        
+            <div class="mac-window">
+                <div class="window-header">
+                    <div class="traffic-lights">
+                        <div class="dot red"></div>
+                        <div class="dot yellow"></div>
+                        <div class="dot green"></div>
+                    </div>
+                    <div class="window-title">plugin.video.vodkool v2.0.0w</div>
+                </div>
+                
+                <div class="addon-gallery">
+                    <img src="https://raw.githubusercontent.com/mr-evil1/kodi-media-repo/refs/heads/main/_generated_assets/plugin.video.vodkool/fanart.jpg" alt="Fanart">
+                    <img src="https://raw.githubusercontent.com/mr-evil1/kodi-media-repo/refs/heads/main/plugin.video.vodkool/icon.png" alt="Icon" style="object-fit: contain; background: rgba(0,0,0,0.4); padding: 10px;">
+                </div>
+
+                <div class="window-content">
+                    <h2 class="addon-name">KOOL.TO (Ultimate)</h2>
+                    <p class="addon-desc">Keine Beschreibung verfügbar.</p>
+                    <a href="https://github.com/mr-evil1/kodi-media-repo/raw/refs/heads/main/plugin.video.vodkool/plugin.video.vodkool-2.0.0w.zip" class="mac-btn">Download ZIP (v2.0.0w)</a>
+                </div>
+            </div>
+        
+            <div class="mac-window">
+                <div class="window-header">
+                    <div class="traffic-lights">
+                        <div class="dot red"></div>
+                        <div class="dot yellow"></div>
+                        <div class="dot green"></div>
+                    </div>
+                    <div class="window-title">script.module.urllib3 v2.2.3</div>
+                </div>
+                
+                <div class="addon-gallery">
+                    <img src="https://raw.githubusercontent.com/mr-evil1/kodi-media-repo/refs/heads/main/_generated_assets/script.module.urllib3/fanart.jpg" alt="Fanart">
+                    <img src="https://raw.githubusercontent.com/mr-evil1/kodi-media-repo/refs/heads/main/_generated_assets/script.module.urllib3/icon.png" alt="Icon" style="object-fit: contain; background: rgba(0,0,0,0.4); padding: 10px;">
+                </div>
+
+                <div class="window-content">
+                    <h2 class="addon-name">urllib3</h2>
+                    <p class="addon-desc">urllib3 is a powerful, user-friendly HTTP client for Python. Much of the Python ecosystem already uses urllib3 and you should too. urllib3 brings many critical features that are missing from the Python standard libraries</p>
+                    <a href="https://github.com/mr-evil1/kodi-media-repo/raw/refs/heads/main/script.module.urllib3/script.module.urllib3-2.2.3.zip" class="mac-btn">Download ZIP (v2.2.3)</a>
+                </div>
+            </div>
+        
+            <div class="mac-window">
+                <div class="window-header">
+                    <div class="traffic-lights">
+                        <div class="dot red"></div>
+                        <div class="dot yellow"></div>
+                        <div class="dot green"></div>
+                    </div>
+                    <div class="window-title">script.module.certifi v2023.5.7</div>
+                </div>
+                
+                <div class="addon-gallery">
+                    <img src="https://raw.githubusercontent.com/mr-evil1/kodi-media-repo/refs/heads/main/_generated_assets/script.module.certifi/fanart.jpg" alt="Fanart">
+                    <img src="https://raw.githubusercontent.com/mr-evil1/kodi-media-repo/refs/heads/main/_generated_assets/script.module.certifi/icon.png" alt="Icon" style="object-fit: contain; background: rgba(0,0,0,0.4); padding: 10px;">
+                </div>
+
+                <div class="window-content">
+                    <h2 class="addon-name">certifi</h2>
+                    <p class="addon-desc">Certifi is a carefully curated collection of Root Certificates for validating the trustworthiness of SSL certificates while verifying the identity of TLS hosts. It has been extracted from the Requests project.</p>
+                    <a href="https://github.com/mr-evil1/kodi-media-repo/raw/refs/heads/main/script.module.certifi/script.module.certifi-2023.5.7.zip" class="mac-btn">Download ZIP (v2023.5.7)</a>
+                </div>
+            </div>
+        
+            <div class="mac-window">
+                <div class="window-header">
+                    <div class="traffic-lights">
+                        <div class="dot red"></div>
+                        <div class="dot yellow"></div>
+                        <div class="dot green"></div>
+                    </div>
+                    <div class="window-title">plugin.video.stbplus v2026.03.22w</div>
+                </div>
+                
+                <div class="addon-gallery">
+                    <img src="https://raw.githubusercontent.com/mr-evil1/kodi-media-repo/refs/heads/main/plugin.video.stbplus/fanart.jpg" alt="Fanart">
+                    <img src="https://raw.githubusercontent.com/mr-evil1/kodi-media-repo/refs/heads/main/plugin.video.stbplus/icon.png" alt="Icon" style="object-fit: contain; background: rgba(0,0,0,0.4); padding: 10px;">
+                </div>
+
+                <div class="window-content">
+                    <h2 class="addon-name">STB Plus TV</h2>
+                    <p class="addon-desc">STB Plus für den Zugriff auf Videos und Vod-Demand-Kanäle und -Serien<strong>Hinweis:</strong> Wir weisen darauf hin, dass die Nutzung von mancher Addons in bestimmten Ländern gegen geltendes Recht verstoßen kann und strafbar ist. Die Verantwortung für die Anwendung dieser Addons liegt ausschließlich beim jeweiligen Benutzer. Wir übernimmt daher keinerlei Haftung für etwaige rechtliche Konsequenzen. Eine Weitergabe der Addons an Dritte oder nicht autorisierte Personen ist strengstens untersagt. Vielen Dank für Ihr Verständnis!!!!</p>
+                    <a href="https://github.com/mr-evil1/kodi-media-repo/raw/refs/heads/main/plugin.video.stbplus/plugin.video.stbplus-2026.03.22w.zip" class="mac-btn">Download ZIP (v2026.03.22w)</a>
+                </div>
+            </div>
+        
+            <div class="mac-window">
+                <div class="window-header">
+                    <div class="traffic-lights">
+                        <div class="dot red"></div>
+                        <div class="dot yellow"></div>
+                        <div class="dot green"></div>
+                    </div>
+                    <div class="window-title">script.module.requests v2.31.0</div>
+                </div>
+                
+                <div class="addon-gallery">
+                    <img src="https://raw.githubusercontent.com/mr-evil1/kodi-media-repo/refs/heads/main/_generated_assets/script.module.requests/fanart.jpg" alt="Fanart">
+                    <img src="https://raw.githubusercontent.com/mr-evil1/kodi-media-repo/refs/heads/main/_generated_assets/script.module.requests/icon.png" alt="Icon" style="object-fit: contain; background: rgba(0,0,0,0.4); padding: 10px;">
+                </div>
+
+                <div class="window-content">
+                    <h2 class="addon-name">requests</h2>
+                    <p class="addon-desc">Requests is an elegant and simple HTTP library for Python, built for human beings.</p>
+                    <a href="https://github.com/mr-evil1/kodi-media-repo/raw/refs/heads/main/script.module.requests/script.module.requests-2.31.0.zip" class="mac-btn">Download ZIP (v2.31.0)</a>
+                </div>
+            </div>
+        
+            <div class="mac-window">
+                <div class="window-header">
+                    <div class="traffic-lights">
+                        <div class="dot red"></div>
+                        <div class="dot yellow"></div>
+                        <div class="dot green"></div>
+                    </div>
+                    <div class="window-title">plugin.video.streams v2026.06.13w</div>
+                </div>
+                
+                <div class="addon-gallery">
+                    <img src="https://raw.githubusercontent.com/mr-evil1/kodi-media-repo/refs/heads/main/plugin.video.streams/fanart.jpg" alt="Fanart">
+                    <img src="https://raw.githubusercontent.com/mr-evil1/kodi-media-repo/refs/heads/main/plugin.video.streams/icon.png" alt="Icon" style="object-fit: contain; background: rgba(0,0,0,0.4); padding: 10px;">
+                </div>
+
+                <div class="window-content">
+                    <h2 class="addon-name">Streams</h2>
+                    <p class="addon-desc">
+Addon für DE Streaming-Seiten..
+        </p>
+                    <a href="https://github.com/mr-evil1/kodi-media-repo/raw/refs/heads/main/plugin.video.streams/plugin.video.streams-2026.06.13w.zip" class="mac-btn">Download ZIP (v2026.06.13w)</a>
+                </div>
+            </div>
+        
+            <div class="mac-window">
+                <div class="window-header">
+                    <div class="traffic-lights">
+                        <div class="dot red"></div>
+                        <div class="dot yellow"></div>
+                        <div class="dot green"></div>
+                    </div>
+                    <div class="window-title">script.module.httpx v0.28.1.0</div>
+                </div>
+                
+                <div class="addon-gallery">
+                    <img src="https://raw.githubusercontent.com/mr-evil1/kodi-media-repo/refs/heads/main/_generated_assets/script.module.httpx/fanart.jpg" alt="Fanart">
+                    <img src="https://raw.githubusercontent.com/mr-evil1/kodi-media-repo/refs/heads/main/_generated_assets/script.module.httpx/icon.png" alt="Icon" style="object-fit: contain; background: rgba(0,0,0,0.4); padding: 10px;">
+                </div>
+
+                <div class="window-content">
+                    <h2 class="addon-name">httpx</h2>
+                    <p class="addon-desc">
+      Full-featured HTTP client for Python 3, with sync and async APIs,
+      HTTP/1.1 and HTTP/2 support. Version 0.28.1.
+    </p>
+                    <a href="https://github.com/mr-evil1/kodi-media-repo/raw/refs/heads/main/script.module.httpx/script.module.httpx-0.28.1.0.zip" class="mac-btn">Download ZIP (v0.28.1.0)</a>
+                </div>
+            </div>
+        
+            <div class="mac-window">
+                <div class="window-header">
+                    <div class="traffic-lights">
+                        <div class="dot red"></div>
+                        <div class="dot yellow"></div>
+                        <div class="dot green"></div>
+                    </div>
+                    <div class="window-title">plugin.video.megakino v2.0.3</div>
+                </div>
+                
+                <div class="addon-gallery">
+                    <img src="https://raw.githubusercontent.com/mr-evil1/kodi-media-repo/refs/heads/main/plugin.video.megakino/fanart.jpg" alt="Fanart">
+                    <img src="https://raw.githubusercontent.com/mr-evil1/kodi-media-repo/refs/heads/main/plugin.video.megakino/icon.jpg" alt="Icon" style="object-fit: contain; background: rgba(0,0,0,0.4); padding: 10px;">
+                </div>
+
+                <div class="window-content">
+                    <h2 class="addon-name">Megakino</h2>
+                    <p class="addon-desc">Ein eigenständiges Addon für Megakino.</p>
+                    <a href="https://github.com/mr-evil1/kodi-media-repo/raw/refs/heads/main/plugin.video.megakino/plugin.video.megakino-2.0.3.zip" class="mac-btn">Download ZIP (v2.0.3)</a>
+                </div>
+            </div>
+        
+            <div class="mac-window">
+                <div class="window-header">
+                    <div class="traffic-lights">
+                        <div class="dot red"></div>
+                        <div class="dot yellow"></div>
+                        <div class="dot green"></div>
+                    </div>
+                    <div class="window-title">plugin.video.streams v2026.06.16</div>
+                </div>
+                
+                <div class="addon-gallery">
+                    <img src="https://raw.githubusercontent.com/mr-evil1/kodi-media-repo/refs/heads/main/plugin.video.streams/fanart.jpg" alt="Fanart">
+                    <img src="https://raw.githubusercontent.com/mr-evil1/kodi-media-repo/refs/heads/main/plugin.video.streams/icon.png" alt="Icon" style="object-fit: contain; background: rgba(0,0,0,0.4); padding: 10px;">
+                </div>
+
+                <div class="window-content">
+                    <h2 class="addon-name">Streams</h2>
+                    <p class="addon-desc">
+Addon für DE Streaming-Seiten..
+        </p>
+                    <a href="https://github.com/mr-evil1/kodi-media-repo/raw/refs/heads/main/plugin.video.streams/plugin.video.streams-2026.06.16.zip" class="mac-btn">Download ZIP (v2026.06.16)</a>
+                </div>
+            </div>
+        
+            <div class="mac-window">
+                <div class="window-header">
+                    <div class="traffic-lights">
+                        <div class="dot red"></div>
+                        <div class="dot yellow"></div>
+                        <div class="dot green"></div>
+                    </div>
+                    <div class="window-title">script.module.cloudrequest v1.0.2</div>
+                </div>
+                
+                <div class="addon-gallery">
+                    <img src="https://raw.githubusercontent.com/mr-evil1/kodi-media-repo/refs/heads/main/_generated_assets/script.module.cloudrequest/fanart.jpg" alt="Fanart">
+                    <img src="https://raw.githubusercontent.com/mr-evil1/kodi-media-repo/refs/heads/main/script.module.cloudrequest/icon.png" alt="Icon" style="object-fit: contain; background: rgba(0,0,0,0.4); padding: 10px;">
+                </div>
+
+                <div class="window-content">
+                    <h2 class="addon-name">CloudRequest</h2>
+                    <p class="addon-desc">Provides a CloudScraper session with automatic bypass for Cloudflare IUAM challenges.</p>
+                    <a href="https://github.com/mr-evil1/kodi-media-repo/raw/refs/heads/main/script.module.cloudrequest/script.module.cloudrequest-1.0.2.zip" class="mac-btn">Download ZIP (v1.0.2)</a>
+                </div>
+            </div>
+        
+            <div class="mac-window">
+                <div class="window-header">
+                    <div class="traffic-lights">
+                        <div class="dot red"></div>
+                        <div class="dot yellow"></div>
+                        <div class="dot green"></div>
+                    </div>
+                    <div class="window-title">script.module.idna v3.10.0</div>
+                </div>
+                
+                <div class="addon-gallery">
+                    <img src="https://raw.githubusercontent.com/mr-evil1/kodi-media-repo/refs/heads/main/_generated_assets/script.module.idna/fanart.jpg" alt="Fanart">
+                    <img src="https://raw.githubusercontent.com/mr-evil1/kodi-media-repo/refs/heads/main/_generated_assets/script.module.idna/icon.png" alt="Icon" style="object-fit: contain; background: rgba(0,0,0,0.4); padding: 10px;">
+                </div>
+
+                <div class="window-content">
+                    <h2 class="addon-name">idna</h2>
+                    <p class="addon-desc">Internationalized Domain Names for Python</p>
+                    <a href="https://github.com/mr-evil1/kodi-media-repo/raw/refs/heads/main/script.module.idna/script.module.idna-3.10.0.zip" class="mac-btn">Download ZIP (v3.10.0)</a>
+                </div>
+            </div>
+        
+        </div>
+    </main>
+
+</body>
+</html>
