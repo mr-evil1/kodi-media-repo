@@ -1,0 +1,49 @@
+name: Build Repo Index
+
+on:
+  workflow_run:
+    workflows: ["Update Kodi Repository"]
+    types: [completed]
+  workflow_dispatch: # Erlaubt manuelles Starten unter dem Reiter "Actions"
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    # Nur weiterlaufen, wenn der Update-Workflow erfolgreich war
+    if: ${{ github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success' }}
+
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v4
+      with:
+        # Holt den exakten Commit, den der Update-Workflow erzeugt hat
+        ref: ${{ github.event.workflow_run.head_sha || github.ref }}
+        fetch-depth: 0
+
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.x'
+
+    - name: Install dependencies
+      run: pip install Pillow
+
+    - name: Generate index.html
+      run: python gitevil.py
+
+    - name: Commit and Push changes
+      run: |
+        git config user.name "github-actions[bot]"
+        git config user.email "github-actions[bot]@users.noreply.github.com"
+
+        git add index.html _generated_assets
+
+        if git diff --staged --quiet; then
+          echo "Keine Änderungen festgestellt. Überspringe Commit."
+        else
+          git commit -m "chore: auto-update index.html und Platzhalterbilder [skip ci]"
+          git push origin HEAD:main
+        fi
