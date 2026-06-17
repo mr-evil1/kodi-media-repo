@@ -207,7 +207,7 @@ def generate_html():
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kodi Repository - macOS Edition</title>
+    <title>Kodi Media Repo</title>
     <style>
         :root {{
             --mac-bg: radial-gradient(circle at 0% 0%, #3b2d54, transparent 55%), 
@@ -348,7 +348,7 @@ def generate_html():
     </div>
 
     <header>
-        <h1>Kodi Expanded Repo</h1>
+        <h1>Kodi Media Repo</h1>
         <p style="color: var(--text-sub); margin-bottom: 0.5rem;">Füge diese Source in Kodi hinzu:</p>
         <div class="repo-url-box">
             <span>https://{REPO_USER}.github.io/{REPO_NAME}/</span>
