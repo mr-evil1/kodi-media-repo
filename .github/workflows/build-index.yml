@@ -2,7 +2,7 @@ name: Build Repo Index
 
 on:
   workflow_run:
-    workflows: ["Update Kodi Repository"]
+    workflows: ["Kodi Repo Builder"]
     types: [completed]
   workflow_dispatch: # Erlaubt manuelles Starten unter dem Reiter "Actions"
 
