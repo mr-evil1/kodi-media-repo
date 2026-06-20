@@ -1,4 +1,4 @@
-# Kodi Expanded Repo
+# Kodi Media Repo
 
 ![kodi-media](https://raw.githubusercontent.com/mr-evil1/kodi-media-repo/refs/heads/main/repository.kodi.expanded/fanart.jpg)
 
@@ -12,13 +12,13 @@
 
 ## 🚀 Installation in Kodi
 
-Füge diese Quelle in Kodi unter **Dateimanager ↄ1�7 Quelle hinzufügen** ein:
+Füge diese Quelle in Kodi unter **Dateimanager zur Quelle hinzufügen** ein:
 
 ```
 https://mr-evil1.github.io/kodi-media-repo/
 ```
 
-Anschließend kannst du das Repository über **Addons ↄ1�7 Aus ZIP-Datei installieren** einbinden und die enthaltenen Addons installieren.
+Anschließend kannst du das Repository über **Addons ↄ1�7 Aus ZIP-Datei installieren** einbinden und die enthaltenen Addons installieren.
 
 
 ## ℹ️ Hinweis
