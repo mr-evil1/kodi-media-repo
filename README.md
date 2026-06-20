@@ -1,6 +1,6 @@
 # Kodi Media Repo
 
-![kodi-media](https://raw.githubusercontent.com/mr-evil1/kodi-media-repo/refs/heads/main/repository.kodi.expanded/fanart.jpg)
+![kodi-media](https://raw.githubusercontent.com/mr-evil1/kodi-media-repo/refs/heads/main/repository.kodi.media/fanart.jpg)
 
 ---
 
