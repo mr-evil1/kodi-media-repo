@@ -666,6 +666,164 @@ Major Update:
     </assets>
   </extension>
 </addon>
+<addon id="plugin.video.multistream" name="Multistream" version="2026.06.27" provider-name="mr-evil1">
+  <requires>
+    <import addon="xbmc.python" version="3.0.0"/>
+    <import addon="script.module.requests" version="2.22.0"/>
+    <import addon="repository.kodi.media" version="1.0.0" optional="true"/>
+    <import addon="script.module.httpx" optional="true"/>
+  </requires>
+  <extension point="xbmc.python.pluginsource" library="addon.py">
+    <provides>video</provides>
+  </extension>
+  <extension point="xbmc.service" library="service.py" start="startup">
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <summary lang="de_DE">Multi-Provider IPTV &amp; Medien-Client für Kodi 21/22</summary>
+    <summary lang="en_GB">Multi-Provider IPTV &amp; Media Client for Kodi 21/22</summary>
+    <description lang="de_DE">
+Multistream ist ein leistungsstarker All-in-One IPTV- und Medien-Client für Kodi 21/22, der fünf Anbieter-Typen in einer einzigen Oberfläche vereint.
+
+■ UNTERSTÜTZTE ANBIETER-TYPEN
+• Xtream Codes API – Live TV, VOD-Filme, Serien
+• Stalker Portal (MAG, Ministra) – Live TV, VOD, Serien
+• Enigma2 – Dreambox, VuPlus, Formuler und andere Sat-Receiver
+• Jellyfin Mediaserver – Filme, Serien, persönliche Mediathek
+• M3U Playlist + XMLTV EPG – beliebige M3U-Quellen
+
+■ KERNFUNKTIONEN
+• Unbegrenzte Anbieter gleichzeitig verwaltbar
+• Auto-Erkennung des Anbieter-Typs per URL, M3U-Inhalt oder Zugangsdaten (Clipboard-Import)
+• Synchronisation aller Anbieter auf einmal oder einzeln
+• SQLite-Datenbank für schnellen Offline-Zugriff ohne erneuten API-Abruf
+• Qualitätsfilter: Kanäle nach Schlüsselwörtern ausblenden oder bevorzugen (z. B. FHD, 4K, SD)
+• Konfigurierbarer User-Agent pro Anbieter (80+ Presets: VLC, Kodi, TiviMate, Browser, Smart TV, STB usw.)
+• Backup &amp; Restore aller Anbieter-Konfigurationen als ZIP
+
+■ LIVE TV &amp; EPG
+• Kanalliste mit Kategorie-Navigation
+• EPG-Programm pro Kanal (jetzt / als nächstes)
+• EPG-Erinnerungen: geplante Benachrichtigung vor Sendungsbeginn
+• Catch-up / Zeitversatz: vergangene Sendungen abrufen (sofern Anbieter unterstützt)
+• Fuzzy EPG-Abgleich für Kanäle ohne exakte ID-Übereinstimmung
+
+■ AUFNAHMEN
+• Aufnahme direkt aus der Kanalliste starten
+• Aufnahme aus dem EPG planen (Start/Ende automatisch aus Programmdaten)
+• Timeraufnahme mit manueller Uhrzeit (von/bis) direkt aus der Kanalliste anlegen
+• Eigener Hauptmenü-Eintrag "Timer" mit Übersicht aller geplanten Aufnahmen, erscheint nur bei vorhandenen Timern
+• Timer bearbeiten (Titel, Start- und Endzeit) oder entfernen
+• Aufnahme über ein Overlay direkt im Player starten (optional aktivierbar)
+• Aufnahme per Tastatur-Taste "R" oder Fernbedienungs-Taste "Aufnahme" direkt im Player starten
+• Aufnahme vorzeitig stoppen oder geplante Aufnahme stornieren
+• ffmpeg-basierte Aufnahme in konfigurierbares Zielverzeichnis
+• Aufnahmeliste mit Wiedergabe und Lösch-Option
+• Standard-Aufnahmedauer einstellbar
+
+■ FILME &amp; SERIEN
+• Kategoriebasierte Navigation (Genre/Gruppe)
+• Staffel- und Episodenansicht mit Episodentitel-Format konfigurierbar
+• Manuelle Episode-Aktualisierung pro Serie
+• Jellyfin: Detailansicht mit Cast, Bewertung, Übersicht
+• Jellyfin: automatisches Weiterabspielen der nächsten Episode
+• Jellyfin: Fortschritts-Sync (Weiterschauen ab letzter Position)
+• Jellyfin: maximale Bitrate &amp; Auflösung einstellbar, Audio-Kanal-Limit
+
+■ TMDB-INTEGRATION
+• Automatische Metadaten-Anreicherung für Filme und Serien (Poster, Fanart, Cast, Bewertung)
+• Sprache und Region der TMDB-Abfragen frei wählbar (Standard: de-DE / DE)
+• Eigener API-Key konfigurierbar
+
+■ FAVORITEN &amp; VERLAUF
+• Favoriten für Kanäle, Filme und Serien
+• Wiedergabeverlauf (Schauspieler &amp; Fortschritt)
+• Weiterschauen-Liste mit Entfernen-Option
+
+■ EINSTELLUNGEN (Kategorien)
+• Allgemein: TMDB-Key, Sprache/Region, HTTP-Timeout, Enigma2-Streamport, SSL-Verifizierung, HTTPX
+• Jellyfin-Wiedergabe: Staffel-Flattening, gesehene Inhalte ausblenden, Fortschritts-Anzeige, Sprung-zurück-Sekunden, Standard-Untertitelsprache, Bitrate, Auflösung, Audio-Kanäle
+• Xtream / Stalker / M3U: globaler User-Agent, Connect- und Read-Timeout, Stalker-Worker-Anzahl, Qualitätsfilter-Keywords und -Modus
+• Aufnahmen: Zielverzeichnis, ffmpeg-Pfad, Standard-Aufnahmedauer
+• Backup: Backup erstellen / Backup wiederherstellen
+• Debug: erweitertes Logging aktivieren, Aufnahme-Overlay über dem Player aktivieren/deaktivieren
+    </description>
+    <description lang="en_GB">
+Multistream is a powerful all-in-one IPTV and media client for Kodi 21/22, combining five provider types in a single interface.
+
+■ SUPPORTED PROVIDER TYPES
+• Xtream Codes API – Live TV, VOD movies, series
+• Stalker Portal (MAG, Ministra) – Live TV, VOD, series
+• Enigma2 – Dreambox, VuPlus, Formuler and other satellite receivers
+• Jellyfin Media Server – movies, series, personal media library
+• M3U Playlist + XMLTV EPG – any M3U source
+
+■ CORE FEATURES
+• Unlimited providers manageable simultaneously
+• Auto-detection of provider type via URL, M3U content or credentials (clipboard import)
+• Sync all providers at once or individually
+• SQLite database for fast offline access without repeated API calls
+• Quality filter: hide or prefer channels by keywords (e.g. FHD, 4K, SD)
+• Configurable User-Agent per provider (80+ presets: VLC, Kodi, TiviMate, browsers, Smart TV, STB etc.)
+• Backup &amp; Restore of all provider configs as ZIP
+
+■ LIVE TV &amp; EPG
+• Channel list with category navigation
+• EPG program per channel (now / next)
+• EPG reminders: scheduled notification before programme start
+• Catch-up / time-shift: retrieve past broadcasts (if supported by provider)
+• Fuzzy EPG matching for channels without exact ID match
+
+■ RECORDINGS
+• Start recording directly from the channel list
+• Schedule recording from EPG (start/end taken from programme data automatically)
+• Create a timer recording with manual start/end time directly from the channel list
+• Dedicated "Timer" main menu entry listing all scheduled recordings, only shown when timers exist
+• Edit timer (title, start and end time) or remove it
+• Start recording via an on-screen overlay directly in the player (optional)
+• Start recording via the "R" keyboard key or the remote's "Record" button directly in the player
+• Stop recording early or cancel a scheduled recording
+• ffmpeg-based recording to a configurable target directory
+• Recording list with playback and delete option
+• Default recording duration configurable
+
+■ MOVIES &amp; SERIES
+• Category-based navigation (genre/group)
+• Season and episode view with configurable episode title format
+• Manual episode refresh per series
+• Jellyfin: detail view with cast, rating, overview
+• Jellyfin: automatic next-episode autoplay
+• Jellyfin: progress sync (resume from last position)
+• Jellyfin: max bitrate and resolution configurable, audio channel limit
+
+■ TMDB INTEGRATION
+• Automatic metadata enrichment for movies and series (poster, fanart, cast, rating)
+• TMDB query language and region freely selectable (default: de-DE / DE)
+• Custom API key configurable
+
+■ FAVOURITES &amp; HISTORY
+• Favourites for channels, movies and series
+• Watch history (progress tracking)
+• Continue-watching list with remove option
+
+■ SETTINGS (categories)
+• General: TMDB key, language/region, HTTP timeout, Enigma2 stream port, SSL verification, HTTPX
+• Jellyfin playback: season flattening, hide watched, progress display, jump-back seconds, default subtitle language, bitrate, resolution, audio channels
+• Xtream / Stalker / M3U: global user-agent, connect and read timeout, Stalker worker count, quality filter keywords and mode
+• Recordings: target directory, ffmpeg path, default recording duration
+• Backup: create backup / restore backup
+• Debug: enable extended logging, enable/disable in-player recording overlay
+    </description>
+    <platform>all</platform>
+    <license>MIT</license>
+    <forum/>
+    <website/>
+    <source/>
+    <assets>
+      <icon>resources/icon.png</icon>
+      <fanart>resources/fanart.jpg</fanart>
+    </assets>
+  </extension>
+</addon>
 <addon id="script.module.certifi" name="certifi" version="2023.5.7" provider-name="Certifi">
   <requires>
     <import addon="xbmc.python" version="3.0.0"/>
