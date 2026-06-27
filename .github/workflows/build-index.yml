@@ -19,8 +19,8 @@ jobs:
     - name: Checkout Code
       uses: actions/checkout@v4
       with:
-        # Holt den exakten Commit, den der Update-Workflow erzeugt hat
-        ref: ${{ github.event.workflow_run.head_sha || github.ref }}
+        # Holt immer den aktuellen Stand von main (inkl. evtl. addons.xml-Commit)
+        ref: main
         fetch-depth: 0
 
     - name: Set up Python
@@ -45,5 +45,6 @@ jobs:
           echo "Keine Änderungen festgestellt. Überspringe Commit."
         else
           git commit -m "chore: auto-update index.html und Platzhalterbilder [skip ci]"
+          git pull --rebase origin main
           git push origin HEAD:main
         fi
