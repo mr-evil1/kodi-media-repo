@@ -647,7 +647,7 @@ Major Update:
     </assets>
   </extension>
 </addon>
-<addon id="plugin.video.multistream" name="Multistream" version="2026.06.27" provider-name="mr-evil1">
+<addon id="plugin.video.multistream" name="Multistream" version="2026.06.28" provider-name="mr-evil1">
   <requires>
     <import addon="xbmc.python" version="3.0.0"/>
     <import addon="script.module.requests" version="2.22.0"/>
@@ -660,10 +660,10 @@ Major Update:
   <extension point="xbmc.service" library="service.py" start="startup">
   </extension>
   <extension point="xbmc.addon.metadata">
-    <summary lang="de_DE">Multi-Provider IPTV &amp; Medien-Client für Kodi 21/22</summary>
-    <summary lang="en_GB">Multi-Provider IPTV &amp; Media Client for Kodi 21/22</summary>
+    <summary lang="de_DE">Multi-Provider IPTV &amp; Medien-Client für Kodi 21</summary>
+    <summary lang="en_GB">Multi-Provider IPTV &amp; Media Client for Kodi 21</summary>
     <description lang="de_DE">
-Multistream ist ein leistungsstarker All-in-One IPTV- und Medien-Client für Kodi 21/22, der fünf Anbieter-Typen in einer einzigen Oberfläche vereint.
+Multistream ist ein leistungsstarker All-in-One IPTV- und Medien-Client für Kodi 21 (Omega), der fünf Anbieter-Typen in einer einzigen Oberfläche vereint.
 
 ■ UNTERSTÜTZTE ANBIETER-TYPEN
 • Xtream Codes API – Live TV, VOD-Filme, Serien
@@ -729,7 +729,7 @@ Multistream ist ein leistungsstarker All-in-One IPTV- und Medien-Client für Kod
 • Debug: erweitertes Logging aktivieren, Aufnahme-Overlay über dem Player aktivieren/deaktivieren
     </description>
     <description lang="en_GB">
-Multistream is a powerful all-in-one IPTV and media client for Kodi 21/22, combining five provider types in a single interface.
+Multistream is a powerful all-in-one IPTV and media client for Kodi 21 (Omega), combining five provider types in a single interface.
 
 ■ SUPPORTED PROVIDER TYPES
 • Xtream Codes API – Live TV, VOD movies, series
