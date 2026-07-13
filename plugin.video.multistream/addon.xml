@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<addon id="plugin.video.multistream" name="Multistream" version="2026.06.28.1" provider-name="mr-evil1">
+<addon id="plugin.video.multistream" name="Multistream" version="2026.07.13" provider-name="mr-evil1">
   <requires>
     <import addon="xbmc.python" version="3.0.0"/>
     <import addon="script.module.requests" version="2.22.0"/>
     <import addon="repository.kodi.media" version="1.0.0" optional="true"/>
     <import addon="script.module.httpx" optional="true"/>
+    <import addon="script.module.resolveurl" optional="true"/>
   </requires>
   <extension point="xbmc.python.pluginsource" library="addon.py">
     <provides>video</provides>
@@ -12,10 +13,10 @@
   <extension point="xbmc.service" library="service.py" start="startup">
   </extension>
   <extension point="xbmc.addon.metadata">
-    <summary lang="de_DE">Multi-Provider IPTV &amp; Medien-Client für Kodi 21</summary>
-    <summary lang="en_GB">Multi-Provider IPTV &amp; Media Client for Kodi 21</summary>
+    <summary lang="de_DE">Multi-Provider IPTV &amp; Medien-Client für Kodi 21/22</summary>
+    <summary lang="en_GB">Multi-Provider IPTV &amp; Media Client for Kodi 21/22</summary>
     <description lang="de_DE">
-Multistream ist ein leistungsstarker All-in-One IPTV- und Medien-Client für Kodi 21 (Omega), der fünf Anbieter-Typen in einer einzigen Oberfläche vereint.
+Multistream ist ein leistungsstarker All-in-One IPTV- und Medien-Client für Kodi 21 und 22, der fünf Anbieter-Typen in einer einzigen Oberfläche vereint.
 
 ■ UNTERSTÜTZTE ANBIETER-TYPEN
 • Xtream Codes API – Live TV, VOD-Filme, Serien
@@ -23,6 +24,17 @@ Multistream ist ein leistungsstarker All-in-One IPTV- und Medien-Client für Kod
 • Enigma2 – Dreambox, VuPlus, Formuler und andere Sat-Receiver
 • Jellyfin Mediaserver – Filme, Serien, persönliche Mediathek
 • M3U Playlist + XMLTV EPG – beliebige M3U-Quellen
+• VAVOO und mehr – Live TV, Filme &amp; Serien via MediaURL- und MediaHubMX-API
+  Unterstützte Portale: oha.to · huhu.to · kool.to · vavoo.to · vavoo.top · vavoo.net
+
+■ VAVOO UND MEHR
+• Live TV mit automatischer Kanalgruppierung (Germany, France, Turkey …)
+• Filme: Trending Heute, Trending Woche, Beliebt, A-Z, Nach Jahr, Genre-Filter, Jahr+Genre kombiniert
+• Serien: Trending Heute, Trending Woche, Beliebt, A-Z, Nach Jahr, Genre-Filter
+• Stream-Auflösung über mehrstufigen taskRequest-Loop (voe.sx, mixdrop, dood.yt, vidsonic …)
+• Fallback auf script.module.resolveurl für nicht direkt auflösbare Hoster
+• Automatische API-Erkennung: MediaURL (oha.to/huhu.to) und MediaHubMX (kool.to/vavoo.to) werden automatisch erkannt
+• Funktioniert mit beliebigen kompatiblen Portalen durch Auto-Detection
 
 ■ KERNFUNKTIONEN
 • Unbegrenzte Anbieter gleichzeitig verwaltbar
@@ -81,7 +93,7 @@ Multistream ist ein leistungsstarker All-in-One IPTV- und Medien-Client für Kod
 • Debug: erweitertes Logging aktivieren, Aufnahme-Overlay über dem Player aktivieren/deaktivieren
     </description>
     <description lang="en_GB">
-Multistream is a powerful all-in-one IPTV and media client for Kodi 21 (Omega), combining five provider types in a single interface.
+Multistream is a powerful all-in-one IPTV and media client for Kodi 21 and 22, combining five provider types in a single interface.
 
 ■ SUPPORTED PROVIDER TYPES
 • Xtream Codes API – Live TV, VOD movies, series
@@ -89,6 +101,17 @@ Multistream is a powerful all-in-one IPTV and media client for Kodi 21 (Omega), 
 • Enigma2 – Dreambox, VuPlus, Formuler and other satellite receivers
 • Jellyfin Media Server – movies, series, personal media library
 • M3U Playlist + XMLTV EPG – any M3U source
+• VAVOO und mehr – Live TV, movies &amp; series via MediaURL and MediaHubMX API
+  Supported portals: oha.to · huhu.to · kool.to · vavoo.to · vavoo.top · vavoo.net
+
+■ VAVOO UND MEHR
+• Live TV with automatic channel grouping (Germany, France, Turkey …)
+• Movies: Trending Today, Trending Week, Popular, A-Z, By Year, Genre filter, Year+Genre combined
+• Series: Trending Today, Trending Week, Popular, A-Z, By Year, Genre filter
+• Stream resolution via multi-step taskRequest loop (voe.sx, mixdrop, dood.yt, vidsonic …)
+• Fallback to script.module.resolveurl for hosters not directly resolvable
+• Automatic API detection: MediaURL (oha.to/huhu.to) and MediaHubMX (kool.to/vavoo.to) detected automatically
+• Works with any compatible portal via auto-detection
 
 ■ CORE FEATURES
 • Unlimited providers manageable simultaneously
