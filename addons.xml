@@ -604,39 +604,6 @@ Multistream is a powerful all-in-one IPTV and media client for Kodi 21 and 22, c
     </extension>
 
 </addon>
-<addon id="plugin.video.streams" version="2026.06.13w" name="Streams" provider-name="mr-evil1">
-    <requires>
-        <import addon="xbmc.python" version="3.0.0"/>
-        <import addon="script.module.requests"/>
-        <import addon="script.module.six"/>
-        <import addon="script.module.resolveurl"/>
-        <import addon="script.module.inputstreamhelper"/>
-        <import addon="script.module.cloudscraper" optional="true"/>
-        <import addon="script.module.cloudscraper2" optional="true"/>
-		<import addon="script.module.cloudrequest" optional="true"/>
-        <import addon="repository.kodi.media"/>
-    </requires>
-    <extension point="xbmc.python.pluginsource" library="default_run.py">
-        <provides>video</provides>
-    </extension>
-    <extension point="xbmc.service" library="service_run.py" start="startup"/>
-    <extension point="xbmc.addon.metadata">
-        <summary lang="de">Streams - Stream Seiten Addon</summary>
-        <description lang="de">
-Addon für DE Streaming-Seiten..
-        </description>
-        <disclaimer lang="de">[B][COLOR red]Die von diesem Addon dargestellten Inhalte werden von den Erstellern weder gehostet noch verbreitet.[/COLOR][/B]</disclaimer>
-        <license>GNU GPLv3</license>
-        <platform>windows</platform>
-        <assets>
-            <icon>icon.png</icon>
-            <fanart>fanart.jpg</fanart>
-        </assets>
-        <news>
-2026.02.25
-        </news>
-    </extension>
-</addon>
 <addon id="script.module.chardet" name="chardet" version="5.1.0" provider-name="Character Encoding Detector">
   <requires>
     <import addon="xbmc.python" version="3.0.0"/>
@@ -880,37 +847,5 @@ Major Update:
       <icon>resources/icon.png</icon>
     </assets>
   </extension>
-</addon>
-<addon id="plugin.video.streams" version="2026.06.16" name="Streams" provider-name="mr-evil1">
-    <requires>
-        <import addon="xbmc.python" version="3.0.0"/>
-        <import addon="script.module.requests"/>
-        <import addon="script.module.six"/>
-        <import addon="script.module.resolveurl"/>
-        <import addon="script.module.inputstreamhelper"/>
-        <import addon="script.module.cloudscraper"/>
-        <import addon="script.module.cloudscraper2" optional="true"/>
-        <import addon="repository.kodi.media"/>
-    </requires>
-    <extension point="xbmc.python.pluginsource" library="default_run.py">
-        <provides>video</provides>
-    </extension>
-    <extension point="xbmc.service" library="service_run.py" start="startup"/>
-    <extension point="xbmc.addon.metadata">
-        <summary lang="de">Streams - Stream Seiten Addon</summary>
-        <description lang="de">
-Addon für DE Streaming-Seiten..
-        </description>
-        <disclaimer lang="de">[B][COLOR red]Die von diesem Addon dargestellten Inhalte werden von den Erstellern weder gehostet noch verbreitet.[/COLOR][/B]</disclaimer>
-        <license>GNU GPLv3</license>
-        <platform>android</platform>
-        <assets>
-            <icon>icon.png</icon>
-            <fanart>fanart.jpg</fanart>
-        </assets>
-        <news>
-2026.02.25
-        </news>
-    </extension>
 </addon>
 </addons>
