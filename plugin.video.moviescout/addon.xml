@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<addon id="plugin.video.moviescout" version="2026.08.05" name="MovieScout" provider-name="mr-evil1,its possible-Team">
+<addon id="plugin.video.moviescout" version="2026.08.05.1" name="MovieScout" provider-name="mr-evil1,its possible-Team">
     <requires>
         <import addon="xbmc.python" version="3.0.0"/>
         <import addon="script.module.requests"/>
