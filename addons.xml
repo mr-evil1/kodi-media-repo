@@ -206,7 +206,7 @@ Major Update:
 </addon>
 <addon id="plugin.video.alpenrammler"
        name="Alpenrammler"
-       version="2026.05.28"
+       version="2026.09.04"
        provider-name="mr-evil1">
 
     <requires>
