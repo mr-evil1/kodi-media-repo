@@ -508,6 +508,25 @@ Major Update:
   </extension>
 
 </addon>
+<addon id="plugin.video.netzkino" name="Netzkino" version="2026.09.18" provider-name="zusatzmetall,mr-evil1">
+    <requires>
+        <import addon="xbmc.python" version="3.0.0"/>
+    </requires>
+    <extension point="xbmc.python.pluginsource" library="main.py">
+        <provides>video</provides>
+    </extension>
+    <extension point="xbmc.addon.metadata">
+        <summary lang="de">Netzkino (Mod)</summary>
+        <description lang="de">Spielfilme und Serien kostenlos und legal über Netzkino streamen.
+[CR]IT('s) Possible
+[CR]Scraper by mr-evil1
+[CR]Mod by zusatzmetall</description>
+        <platform>all</platform>
+        <assets>
+            <icon>icon.png</icon>
+        </assets>
+    </extension>
+</addon>
 <addon id="script.module.cloudscraper" name="CloudScraper2" version="1.2.60" provider-name="venomous">
   <requires>
     <!-- <import addon="xbmc.python" version="3.0.0"/> -->
