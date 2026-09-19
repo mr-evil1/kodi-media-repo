@@ -508,7 +508,7 @@ Major Update:
   </extension>
 
 </addon>
-<addon id="plugin.video.netzkino" name="Netzkino" version="2026.09.18.1" provider-name="zusatzmetall,mr-evil1">
+<addon id="plugin.video.netzkino" name="Netzkino" version="2026.09.19" provider-name="zusatzmetall, mr-evil1">
     <requires>
         <import addon="xbmc.python" version="3.0.0"/>
     </requires>
