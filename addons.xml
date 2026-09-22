@@ -49,7 +49,7 @@
       <icon>icon.png</icon>
     </assets>
   </extension>
-</addon><addon id="plugin.video.moviescout" version="2026.09.15" name="MovieScout" provider-name="mr-evil1,its possible-Team">
+</addon><addon id="plugin.video.moviescout" version="2026.09.22" name="MovieScout" provider-name="mr-evil1,its possible-Team">
     <requires>
         <import addon="xbmc.python" version="3.0.0"/>
         <import addon="script.module.requests"/>
