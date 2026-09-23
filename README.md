@@ -18,7 +18,7 @@ Füge diese Quelle in Kodi unter **Dateimanager zur Quelle hinzufügen** ein:
 https://mr-evil1.github.io/kodi-media-repo/
 ```
 
-Anschließend kannst du das Repository über **Addons ↄ1�7 Aus ZIP-Datei installieren** einbinden und die enthaltenen Addons installieren.
+Anschließend kannst du das Repository über **Addons Aus ZIP-Datei installieren** einbinden und die enthaltenen Addons installieren.
 
 
 ## ℹ️ Hinweis
