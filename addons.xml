@@ -915,13 +915,13 @@ v0.5.9 (2022-03-22)
 </addon>
 <addon id="plugin.video.iptvmaster"
        name="TiViMate Kodi"
-       version="2026.06.12"
+       version="2026.06.12.1"
        provider-name="mr-evil1">
 
   <requires>
     <import addon="xbmc.python" version="3.0.0"/>
     <import addon="script.module.requests" version="2.27.0" optional="true"/>
-    <import addon="repository.kodi.media" version="1.0.ü"/>
+    <import addon="repository.kodi.media" version="1.0.0"/>
 </requires>
 
   <extension point="xbmc.python.pluginsource" library="default.py">
