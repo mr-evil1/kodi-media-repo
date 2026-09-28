@@ -1,1 +1,24 @@
-
+<?xml version="1.0" encoding="UTF-8"?>
+<addon id="script.unlock.moviescout" version="2026.09.28" name="MovieScout Unlock" provider-name="mr-evil1,its possible-Team">
+    <requires>
+        <import addon="xbmc.python" version="3.0.0"/>
+        <import addon="plugin.video.moviescout"/>
+        <import addon="repository.kodi.media" version="1.0.0"/>
+    </requires>
+    <extension point="xbmc.python.script" library="default.py">
+        <provides>executable</provides>
+    </extension>
+    <extension point="xbmc.addon.metadata">
+        <summary lang="de">Schaltet nicht lizenzierte Streams für MovieScout frei</summary>
+        <summary lang="en">Unlocks non-licensed streams for MovieScout</summary>
+        <description lang="de">Dieses Script aktiviert den Zugang zu nicht lizenzierten Streams im MovieScout Addon. Nur für Regionen verwenden, in denen dies legal ist.</description>
+        <description lang="en">This script enables access to non-licensed streams in the MovieScout addon. Only use in regions where this is legal.</description>
+        <disclaimer lang="de">Nutzung auf eigene Gefahr. Der Autor übernimmt keine Haftung.</disclaimer>
+        <disclaimer lang="en">Use at your own risk. The author assumes no liability.</disclaimer>
+        <platform>all</platform>
+        <assets>
+            <icon>icon.png</icon>
+            <fanart>fanart.jpg</fanart>
+        </assets>
+    </extension>
+</addon>
