@@ -1,1 +1,21 @@
-
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<addon id="plugin.video.tube8porn"
+       name="Tube8Porn"
+       version="2026.10.01-3"
+       provider-name="zusatzmetall, IT('s) Possible">
+    <requires>
+        <import addon="xbmc.python" version="3.0.0"/>
+    </requires>
+    <extension point="xbmc.python.pluginsource" library="default.py">
+        <provides>video</provides>
+    </extension>
+    <extension point="xbmc.addon.metadata">
+        <platform>all</platform>
+        <summary lang="de">Ein leichtgewichtigenes und modernes Streaming-Addon für das Tube8-Portal.</summary>
+        <description lang="de">Ermöglicht den direkten Zugriff auf die neuesten Videos sowie sämtliche Kategorien und Genres. Enthält einen integrierten Längen-Filter (ab x Minuten) sowie eine intelligente Bereinigung, die Werbe- und Dummy-Einträge automatisch herausfiltert, um saubere und stabile Videolisten bereitzustellen.</description>
+        <assets>
+          <icon>icon.png</icon>
+          <fanart>icon.png</fanart>
+        </assets>
+  </extension>
+</addon>
