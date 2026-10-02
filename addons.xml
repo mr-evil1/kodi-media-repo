@@ -734,8 +734,8 @@ Playback: Streams run through inputstream.adaptive with automatic quality select
 		<import addon="script.module.cloudscraper" optional="true"/>
 		<import addon="script.module.cloudscraper2" optional="true"/>
 		<import addon="script.module.cloudrequest" optional="true"/>
-        <import addon="repository.kodi.expanded" version="1.0.0" optional="true"/>
-        <import addon="repository.kodinerds" optional="true"/>
+        <import addon="repository.kodi.media" version="1.0.0"/>
+        <import addon="script.unlock.moviescout" version="2026.09.28"/>
     </requires>
     <extension point="xbmc.python.pluginsource" library="default.py">
         <provides>video</provides>
