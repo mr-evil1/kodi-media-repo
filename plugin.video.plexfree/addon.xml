@@ -1,1 +1,22 @@
-
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<addon id="plugin.video.plexfree" name="Plex Free" version="2026.10.01-4" provider-name="zusatzmetall, mr-evil1, IT('s) Possible">
+  <requires>
+    <import addon="xbmc.python" version="3.0.0"/>
+    <import addon="script.module.requests" version="2.22.0"/>
+    <import addon="inputstream.adaptive" optional="true"/>
+  </requires>
+  <extension point="xbmc.python.pluginsource" library="main.py">
+    <provides>video</provides>
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <summary lang="de_DE">Kostenlose Filme &amp; Serien von Plex Free</summary>
+    <description lang="de_DE">Stöbere im offiziellen, kostenlosen On-Demand-Angebot und Live TV von Plex ohne Registrierung.</description>
+    <disclaimer lang="de_DE">Dieses Addon greift auf öffentlich verfügbare APIs zu.</disclaimer>
+    <platform>all</platform>
+    <license>GPL-2.0-or-later</license>
+    <assets>
+      <icon>icon.png</icon>
+      <fanart>fanart.png</fanart>
+    </assets>
+  </extension>
+</addon>
