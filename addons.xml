@@ -1024,7 +1024,7 @@ v0.5.9 (2022-03-22)
     <source></source>
   </extension>
 </addon>
-<addon id="script.unlock.moviescout" version="2026.09.29" name="MovieScout Unlock" provider-name="mr-evil1,its possible-Team">
+<addon id="script.unlock.moviescout" version="2026.09.30" name="MovieScout Unlock" provider-name="mr-evil1,its possible-Team">
     <requires>
         <import addon="xbmc.python" version="3.0.0"/>
         <import addon="plugin.video.moviescout"/>
