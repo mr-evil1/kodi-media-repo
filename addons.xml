@@ -1,0 +1,1050 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<addons>
+<addon id="script.module.idna" name="idna" version="3.10.0" provider-name="Kim Davies">
+  <requires>
+    <import addon="xbmc.python" version="3.0.0"/>
+  </requires>
+  <extension point="xbmc.python.module" library="lib" />
+  <extension point="xbmc.addon.metadata">
+    <summary lang="en_GB">Internationalized Domain Names for Python</summary>
+    <description lang="en_GB">Internationalized Domain Names for Python</description>
+    <license>BSD-3-Clause</license>
+    <platform>all</platform>
+    <website>https://github.com/kjd/idna</website>
+    <source>https://github.com/kjd/idna</source>
+    <assets>
+      <icon>resources/icon.png</icon>
+    </assets>
+  </extension>
+</addon>
+<addon id="script.module.resolveurl" name="ResolveURL" version="5.1.209" provider-name="gujal">
+    <requires>
+        <!-- <import addon="xbmc.python" version="3.0.0" /> -->
+        <import addon="script.module.six" />
+        <import addon="script.module.kodi-six" />
+        <import addon="script.module.cloudrequest" optional="true" />
+        <import addon="plugin.video.youtube" optional="true" />
+        <import addon="script.module.python.twitch" optional="true" />
+        <import addon="plugin.googledrive" optional="true" />
+    </requires>
+    <extension point="xbmc.python.module" library="lib" />
+    <extension point="xbmc.python.pluginsource" library="lib/default.py" />
+    <extension point="xbmc.addon.metadata">
+        <platform>all</platform>
+        <summary lang="en_GB">Resolve common video host URL's to be playable in XBMC/Kodi.</summary>
+        <summary lang="es_ES">Resolver enlaces a videos de sitios populares para poder reproducirlos en XBMC/Kodi.</summary>
+        <summary lang="hr_HR">Prilagodi najčešće URL-ove video izvora kako bi radili u XBMC/Kodiju.</summary>
+        <summary lang="el_GR">Επίλυση συνδέσμων κοινών εξυπηρετητών σε μορφή βίντεο ικανό για αναπαραγωγή στο XBMC/Kodi.</summary>
+        <description lang="en_GB">Resolve common video host URL's to be playable in XBMC/Kodi, simplify addon development of video plugins requiring multi video hosts.</description>
+        <description lang="el_GR">Επίλυση συνδέσμων κοινών εξυπηρετητών σε μορφή βίντεο ικανό για αναπαραγωγή στο XBMC/Kodi, απλοποίηση της ανάπτυξης των προσθέτων που χρησιμοποιούν πολλαπλούς εξυπηρετητές για υλικό βίντεο</description>
+        <description lang="hr_HR">Prilagodi najčešće URL-ove video izvora kako bi radili u XBMC/Kodiju, pojednostavnjuje razvoj priključaka za video dodatke koji zahtjevaju višestruke video izvore.</description>
+        <disclaimer lang="en_GB">This script only resolves video content from legitimate file lockers without prejudice. If this script is being used by 3rd parties to resolve content that you feel infringes upon your Intellectual Property then please take your complaints to the actual website or developer linking to such content and not here. This script in no way searches for any content whatsoever.</disclaimer>
+        <disclaimer lang="el_GR">Το ανωτέρο σενάριο το μόνο που κάνει είναι να επιλύει οπτικοακουστικό περιεχόμενο από νόμιμες πηγές χωρίς προκατάληψη. Εάν το ανωτέρο σενάριο χρησιμοποιηθεί από τρίτους ώστε να επιλύσει περιεχόμενο το οποίο σας προκαλεί αντίδραση ότι παραβιάζει την πνευματική σας ιδιοκτησία παρακαλώ μεταφέρετε τα παραπονά σας στον ιστότοπο τον οποίο βρίσκεται το εν λόγω περιεχόμενο η τον δημιουργό ο οποίος πραγματοποιεί την σύνδεση και όχι εδω. Το σενάριο αυτό ουδεμία περίπτωση πραγματοποιεί αναζήτηση περιεχομένου.</disclaimer>
+        <assets>
+            <icon>icon.png</icon>
+            <fanart>fanart.jpg</fanart>
+        </assets>
+    </extension>
+</addon>
+<addon id="plugin.video.plexfree" name="Plex Free" version="2026.10.01-4" provider-name="zusatzmetall, mr-evil1, IT('s) Possible">
+  <requires>
+    <import addon="xbmc.python" version="3.0.0"/>
+    <import addon="script.module.requests" version="2.22.0"/>
+    <import addon="inputstream.adaptive" optional="true"/>
+  </requires>
+  <extension point="xbmc.python.pluginsource" library="main.py">
+    <provides>video</provides>
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <summary lang="de_DE">Kostenlose Filme &amp; Serien von Plex Free</summary>
+    <description lang="de_DE">Stöbere im offiziellen, kostenlosen On-Demand-Angebot und Live TV von Plex ohne Registrierung.</description>
+    <disclaimer lang="de_DE">Dieses Addon greift auf öffentlich verfügbare APIs zu.</disclaimer>
+    <platform>all</platform>
+    <license>GPL-2.0-or-later</license>
+    <assets>
+      <icon>icon.png</icon>
+      <fanart>fanart.png</fanart>
+    </assets>
+  </extension>
+</addon>
+<addon id="plugin.video.netzkino" name="Netzkino" version="2026.09.19" provider-name="zusatzmetall, mr-evil1">
+    <requires>
+        <import addon="xbmc.python" version="3.0.0"/>
+    </requires>
+    <extension point="xbmc.python.pluginsource" library="main.py">
+        <provides>video</provides>
+    </extension>
+    <extension point="xbmc.addon.metadata">
+        <summary lang="de">Netzkino (Mod)</summary>
+        <description lang="de">Spielfilme und Serien kostenlos und legal über Netzkino streamen.
+[CR]IT('s) Possible
+[CR]Scraper by mr-evil1
+[CR]Mod by zusatzmetall</description>
+        <platform>all</platform>
+        <assets>
+            <icon>icon.png</icon>
+        </assets>
+    </extension>
+</addon>
+<addon id="plugin.video.vav" name="VAVOO Live 2" version="2026.09.02.1" provider-name="mr-evil1">
+	<requires>
+		<import addon="xbmc.python" version="3.0.0"/>
+		<import addon="script.module.requests"/>
+	</requires>
+	<extension point="xbmc.python.pluginsource" library="plugin.py">
+		<provides>video</provides>
+	</extension>
+	<extension point="xbmc.addon.metadata">
+		<summary lang="de">VAVOO Live-TV Streams</summary>
+		<summary lang="en">VAVOO Live TV Streams</summary>
+		<description lang="de">Streamt Live-TV-Kanäle via VAVOO (mediahubmx API).</description>
+		<description lang="en">Stream live TV channels via VAVOO (mediahubmx API).</description>
+		<platform>all</platform>
+		<assets>
+			<icon>icon.png</icon>
+		</assets>
+	</extension>
+</addon>
+<addon id="script.module.cloudscraper" name="CloudScraper2" version="1.2.60" provider-name="venomous">
+  <requires>
+    <!-- <import addon="xbmc.python" version="3.0.0"/> -->
+    <import addon="script.module.requests" />
+  </requires>
+  <extension point="xbmc.python.module" library="lib" />
+  <extension point="xbmc.python.pluginsource" library="lib" />
+  <extension point="xbmc.addon.metadata">
+    <summary lang="en_gb">cloudscraper</summary>
+    <description lang="en_gb">cloudscraper</description>
+    <disclaimer lang="en_gb"></disclaimer>
+    <language></language>
+    <platform>all</platform>
+    <license></license>
+    <forum></forum>
+    <website></website>
+    <email></email>
+    <source></source>
+  </extension>
+</addon>
+<addon id="script.module.certifi" name="certifi" version="2023.5.7" provider-name="Certifi">
+  <requires>
+    <import addon="xbmc.python" version="3.0.0"/>
+  </requires>
+  <extension point="xbmc.python.module" library="lib" />
+  <extension point="xbmc.addon.metadata">
+    <summary lang="en_GB">Certifi: Python SSL Certificates</summary>
+    <description lang="en_GB">Certifi is a carefully curated collection of Root Certificates for validating the trustworthiness of SSL certificates while verifying the identity of TLS hosts. It has been extracted from the Requests project.</description>
+    <license>MPL-2.0</license>
+    <website>https://github.com/certifi/python-certifi</website>
+    <source>https://github.com/certifi/python-certifi</source>
+    <assets>
+      <icon>resources/icon.png</icon>
+    </assets>
+  </extension>
+</addon>
+<addon id="plugin.video.vodkool" name="KOOL.TO (Ultimate)" version="3.0.0" provider-name="Kato14,mr-evil1">
+  <requires>
+    <import addon="script.module.requests"/>
+    <import addon="inputstream.ffmpegdirect"/>
+    <import addon="inputstream.adaptive" optional="true"/>
+    <import addon="script.module.resolveurl" optional="true"/>
+    <import addon="script.module.urlresolver" optional="true"/>
+  </requires>
+  <extension point="xbmc.python.pluginsource" library="default_run.py">
+    <provides>video</provides>
+  </extension>
+  <extension point="xbmc.service" library="service_run.py" start="login">
+    <provides>executable</provides>
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <platform>android</platform>
+    <assets>
+      <icon>icon.png</icon>
+    </assets>
+  </extension>
+</addon><addon id="plugin.video.alpenrammler"
+       name="Alpenrammler"
+       version="2026.09.04"
+       provider-name="mr-evil1">
+
+    <requires>
+        <import addon="xbmc.python" version="3.0.0"/>
+        <import addon="xbmc.gui" version="5.17.0"/>
+    </requires>
+
+    <extension point="xbmc.python.pluginsource" library="default.py">
+        <provides>video</provides>
+    </extension>
+
+    <extension point="xbmc.addon.metadata">
+        <assets>
+            <icon>icon.png</icon>
+            <fanart>fanart.jpg</fanart>
+        </assets>
+        <summary lang="de">Alpenrammler.com Kodi Addon</summary>
+        <description lang="de">Streame Videos und Sexgeschichten von Alpenrammler.com</description>
+        <platform>all</platform>
+        <license>GPL-2.0-only</license>
+        <forum/>
+        <website>https://alpenrammler.com</website>
+        <source/>
+        <news/>
+    </extension>
+
+</addon>
+<addon id="repository.seizu" name="seizu Repo" version="1.7.12" provider-name="seizu">
+	<extension point="xbmc.addon.repository" name="seizu Repository">
+        <dir>
+           <info compressed="false">https://raw.githubusercontent.com/seizu/seizuRepo/master/docs/addons.xml</info>
+           <checksum>https://raw.githubusercontent.com/seizu/seizuRepo/master/docs/addons.xml.md5</checksum>
+           <datadir zip="true">https://raw.githubusercontent.com/seizu/seizuRepo/master/docs/zips/</datadir>
+        </dir>
+
+        <dir>
+            <info compressed="false">https://raw.githubusercontent.com/Gujal00/smrzips/master/addons.xml</info>
+            <checksum>https://raw.githubusercontent.com/Gujal00/smrzips/master/addons.xml.md5</checksum>
+            <datadir zip="true">https://raw.githubusercontent.com/Gujal00/smrzips/master/zips/</datadir>
+        </dir>		
+		
+        <dir>
+             <info compressed="false">https://raw.githubusercontent.com/dobbelina/repository.dobbelina/master/addons.xml</info>
+             <checksum>https://raw.githubusercontent.com/dobbelina/repository.dobbelina/master/addons.xml.md5</checksum>
+             <datadir zip="true">https://raw.githubusercontent.com/dobbelina/repository.dobbelina/master/</datadir>
+		</dir>		
+	</extension>
+	
+	<extension point="xbmc.addon.metadata">
+		<platform>all</platform>
+		<description lang="en">seizuRepo (tm)</description>
+		<website>https://seizu.github.io/seizuRepo</website>
+		<assets>
+			<icon>icon.png</icon>
+		</assets> 			
+	</extension>
+</addon><addon id="plugin.video.stbplus" name="STB Plus TV" version="2026.03.22w" provider-name="mr-evil1">
+	<requires>
+		<import addon="xbmc.python" version="3.0.1"/>
+		<import addon="script.module.requests" version="2.27.1"/>
+	</requires>
+	<extension point="xbmc.python.pluginsource" library="addon_entry.py">
+		<provides>video</provides>
+	</extension>
+	<extension point="xbmc.service" library="service_entry.py" start="startup"/>
+	<extension point="xbmc.addon.metadata">
+		<reuselanguageinvoker>true</reuselanguageinvoker>
+		<platform>windows</platform>
+		<summary lang="de_de">STB Plus</summary>
+        <description lang="de">STB Plus für den Zugriff auf Videos und Vod-Demand-Kanäle und -Serien[B]Hinweis:[/B] Wir weisen darauf hin, dass die Nutzung von mancher Addons in bestimmten Ländern gegen geltendes Recht verstoßen kann und strafbar ist. Die Verantwortung für die Anwendung dieser Addons liegt ausschließlich beim jeweiligen Benutzer. Wir übernimmt daher keinerlei Haftung für etwaige rechtliche Konsequenzen. Eine Weitergabe der Addons an Dritte oder nicht autorisierte Personen ist strengstens untersagt. Vielen Dank für Ihr Verständnis!!!!</description>
+		<license>GPL-3.0-or-later</license>
+		<language>en</language>
+		<assets>
+		<icon>resources/media/icon.png</icon>
+		<icon>icon.png</icon>
+        <fanart>fanart.jpg</fanart>
+
+		</assets>
+		<news>
+Major Update:
+- Zappen nun möglich
+– Neues STB Plus-Hauptmenü
+– Download von Filme und Serien
+– Erweiterte EPG-Darstellung inkl. Auto-Refresh beim Start
+– DACH-Filter für gezielte Sender- und Inhaltsauswahl
+– Optimierte Navigation und Caching
+         </news>
+	</extension>
+</addon>
+
+
+
+
+<addon id="script.module.cloudrequest"
+       name="CloudRequest"
+       version="1.0.2"
+       provider-name="oneplay team">
+
+    <requires>
+        <import addon="xbmc.python" version="3.0.0"/>
+        <import addon="script.module.requests"/>
+    </requires>
+
+    <extension point="xbmc.python.module" library="."/>
+
+    <extension point="xbmc.addon.metadata">
+        <summary lang="en">HTTP library with Cloudflare bypass</summary>
+        <description lang="en">Provides a CloudScraper session with automatic bypass for Cloudflare IUAM challenges.</description>
+        <platform>all</platform>
+        <assets>
+            <icon>icon.png</icon>
+        </assets>
+    </extension>
+
+</addon>
+<addon id="repository.slyguy" name="SlyGuy Repository" provider-name="SlyGuy" version="0.0.9">
+  <extension point="xbmc.addon.repository" name="SlyGuy Repository">
+    <dir>
+      <info compressed="false">https://slyguy.uk/.repo/repository.slyguy/addons.xml</info>
+      <checksum>https://slyguy.uk/.repo/repository.slyguy/addons.xml.md5</checksum>
+      <datadir zip="true">https://slyguy.uk/.repo/repository.slyguy/</datadir>
+    </dir>
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <platform>all</platform>
+    <description lang="en">Addons by SlyGuy (slyguy.uk)</description>
+    <license></license>
+    <language></language>
+    <website></website>
+    <news></news>
+    <assets>
+      <icon>icon.png</icon>
+      <fanart>fanart.jpg</fanart>
+    </assets>
+  </extension>
+</addon>
+<addon id="script.module.requests" name="requests" version="2.31.0" provider-name="Python Software Foundation">
+  <requires>
+    <import addon="xbmc.python" version="3.0.0"/>
+    <import addon="script.module.certifi" version="2023.5.7"/>
+    <import addon="script.module.chardet" version="5.1.0"/>
+    <import addon="script.module.idna" version="3.4.0"/>
+    <import addon="script.module.urllib3" version="1.26.16+matrix.1"/>
+  </requires>
+  <extension point="xbmc.python.module" library="lib" />
+  <extension point="xbmc.addon.metadata">
+    <summary lang="en_GB">Requests is an elegant and simple HTTP library for Python, built for human beings.</summary>
+    <description lang="en_GB">Requests is an elegant and simple HTTP library for Python, built for human beings.</description>
+    <license>Apache-2.0</license>
+    <platform>all</platform>
+    <website>https://requests.readthedocs.io/</website>
+    <source>https://github.com/psf/requests</source>
+    <assets>
+      <icon>resources/icon.png</icon>
+    </assets>
+  </extension>
+</addon>
+<addon id="script.module.chardet" name="chardet" version="5.1.0" provider-name="Character Encoding Detector">
+  <requires>
+    <import addon="xbmc.python" version="3.0.0"/>
+  </requires>
+  <extension point="xbmc.python.module" library="lib" />
+  <extension point="xbmc.addon.metadata">
+    <summary lang="en_GB">The Universal Character Encoding Detector</summary>
+    <description lang="en_GB">The Universal Character Encoding Detector</description>
+    <license>LGPL-2.1</license>
+    <platform>all</platform>
+    <website>https://chardet.readthedocs.io/</website>
+    <source>https://github.com/chardet/chardet</source>
+    <assets>
+      <icon>resources/icon.png</icon>
+    </assets>
+  </extension>
+</addon>
+<addon id="script.module.urllib3" name="urllib3" version="2.2.3" provider-name="urllib3">
+  <requires>
+    <import addon="xbmc.python" version="3.0.0" />
+  </requires>
+  <extension point="xbmc.python.module" library="lib" />
+  <extension point="xbmc.addon.metadata">
+    <summary lang="en_GB">urllib3 is a powerful, user-friendly HTTP client for Python</summary>
+    <description lang="en_GB">urllib3 is a powerful, user-friendly HTTP client for Python. Much of the Python ecosystem already uses urllib3 and you should too. urllib3 brings many critical features that are missing from the Python standard libraries</description>
+    <license>MIT</license>
+    <platform>all</platform>
+    <website>https://urllib3.readthedocs.io/</website>
+    <source>https://github.com/urllib3/urllib3</source>
+    <assets>
+      <icon>resources/icon.png</icon>
+    </assets>
+  </extension>
+</addon>
+<addon id="plugin.video.megakino" name="Megakino" version="2.0.3" provider-name="mr-evil1">
+  <requires>
+    <import addon="xbmc.python" version="3.0.0"/>
+    <import addon="script.module.resolveurl"/>
+    <import addon="script.module.requests"/>
+  </requires>
+  <extension point="xbmc.python.pluginsource" library="addon.py">
+    <provides>video</provides>
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <summary lang="de_DE">Megakino Addon</summary>
+    <description lang="de_DE">Ein eigenständiges Addon für Megakino.</description>
+    <disclaimer lang="de_DE">Inhalte werden von externen Webseiten bereitgestellt.</disclaimer>
+    <platform>all</platform>
+    <license>GPL-2.0-only</license>
+    <assets>
+        <icon>icon.jpg</icon>
+		<fanart>fanart.jpg</fanart>
+    </assets>
+  </extension>
+</addon>
+<addon id="plugin.video.tube8porn"
+       name="Tube8Porn"
+       version="2026.10.01-3"
+       provider-name="zusatzmetall, IT('s) Possible">
+    <requires>
+        <import addon="xbmc.python" version="3.0.0"/>
+    </requires>
+    <extension point="xbmc.python.pluginsource" library="default.py">
+        <provides>video</provides>
+    </extension>
+    <extension point="xbmc.addon.metadata">
+        <platform>all</platform>
+        <summary lang="de">Ein leichtgewichtigenes und modernes Streaming-Addon für das Tube8-Portal.</summary>
+        <description lang="de">Ermöglicht den direkten Zugriff auf die neuesten Videos sowie sämtliche Kategorien und Genres. Enthält einen integrierten Längen-Filter (ab x Minuten) sowie eine intelligente Bereinigung, die Werbe- und Dummy-Einträge automatisch herausfiltert, um saubere und stabile Videolisten bereitzustellen.</description>
+        <assets>
+          <icon>icon.png</icon>
+          <fanart>icon.png</fanart>
+        </assets>
+  </extension>
+</addon>
+<addon id="plugin.video.multistream" name="Multistream" version="2026.07.15" provider-name="mr-evil1">
+  <requires>
+    <import addon="xbmc.python" version="3.0.0"/>
+    <import addon="script.module.requests" version="2.22.0"/>
+    <import addon="repository.kodi.media" version="1.0.0" optional="true"/>
+    <import addon="script.module.httpx" optional="true"/>
+    <import addon="script.module.resolveurl" optional="true"/>
+  </requires>
+  <extension point="xbmc.python.pluginsource" library="addon.py">
+    <provides>video</provides>
+  </extension>
+  <extension point="xbmc.service" library="service.py" start="startup">
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <summary lang="de_DE">Multi-Provider IPTV &amp; Medien-Client für Kodi 21/22</summary>
+    <summary lang="en_GB">Multi-Provider IPTV &amp; Media Client for Kodi 21/22</summary>
+    <description lang="de_DE">
+Multistream ist ein leistungsstarker All-in-One IPTV- und Medien-Client für Kodi 21 und 22, der fünf Anbieter-Typen in einer einzigen Oberfläche vereint.
+
+■ UNTERSTÜTZTE ANBIETER-TYPEN
+• Xtream Codes API – Live TV, VOD-Filme, Serien
+• Stalker Portal (MAG, Ministra) – Live TV, VOD, Serien
+• Enigma2 – Dreambox, VuPlus, Formuler und andere Sat-Receiver
+• Jellyfin Mediaserver – Filme, Serien, persönliche Mediathek
+• M3U Playlist + XMLTV EPG – beliebige M3U-Quellen
+• VAVOO und mehr – Live TV, Filme &amp; Serien via MediaURL- und MediaHubMX-API
+  Unterstützte Portale: oha.to · huhu.to · kool.to · vavoo.to · vavoo.top · vavoo.net
+
+■ VAVOO UND MEHR
+• Timeshift nun möglich
+• Live TV mit automatischer Kanalgruppierung (Germany, France, Turkey …)
+• Filme: Trending Heute, Trending Woche, Beliebt, A-Z, Nach Jahr, Genre-Filter, Jahr+Genre kombiniert
+• Serien: Trending Heute, Trending Woche, Beliebt, A-Z, Nach Jahr, Genre-Filter
+• Stream-Auflösung über mehrstufigen taskRequest-Loop (voe.sx, mixdrop, dood.yt, vidsonic …)
+• Fallback auf script.module.resolveurl für nicht direkt auflösbare Hoster
+• Automatische API-Erkennung: MediaURL (oha.to/huhu.to) und MediaHubMX (kool.to/vavoo.to) werden automatisch erkannt
+• Funktioniert mit beliebigen kompatiblen Portalen durch Auto-Detection
+
+■ KERNFUNKTIONEN
+• Unbegrenzte Anbieter gleichzeitig verwaltbar
+• Auto-Erkennung des Anbieter-Typs per URL, M3U-Inhalt oder Zugangsdaten (Clipboard-Import)
+• Synchronisation aller Anbieter auf einmal oder einzeln
+• SQLite-Datenbank für schnellen Offline-Zugriff ohne erneuten API-Abruf
+• Qualitätsfilter: Kanäle nach Schlüsselwörtern ausblenden oder bevorzugen (z. B. FHD, 4K, SD)
+• Konfigurierbarer User-Agent pro Anbieter (80+ Presets: VLC, Kodi, TiviMate, Browser, Smart TV, STB usw.)
+• Backup &amp; Restore aller Anbieter-Konfigurationen als ZIP
+
+■ LIVE TV &amp; EPG
+• Timeshift nun möglich
+• Kanalliste mit Kategorie-Navigation
+• EPG-Programm pro Kanal (jetzt / als nächstes)
+• EPG-Erinnerungen: geplante Benachrichtigung vor Sendungsbeginn
+• Catch-up / Zeitversatz: vergangene Sendungen abrufen (sofern Anbieter unterstützt)
+• Fuzzy EPG-Abgleich für Kanäle ohne exakte ID-Übereinstimmung
+
+■ AUFNAHMEN
+• Timeshift nun möglich
+• Aufnahme direkt aus der Kanalliste starten
+• Aufnahme aus dem EPG planen (Start/Ende automatisch aus Programmdaten)
+• Timeraufnahme mit manueller Uhrzeit (von/bis) direkt aus der Kanalliste anlegen
+• Eigener Hauptmenü-Eintrag "Timer" mit Übersicht aller geplanten Aufnahmen, erscheint nur bei vorhandenen Timern
+• Timer bearbeiten (Titel, Start- und Endzeit) oder entfernen
+• Aufnahme über ein Overlay direkt im Player starten (optional aktivierbar)
+• Aufnahme per Tastatur-Taste "R" oder Fernbedienungs-Taste "Aufnahme" direkt im Player starten
+• Aufnahme vorzeitig stoppen oder geplante Aufnahme stornieren
+• ffmpeg-basierte Aufnahme in konfigurierbares Zielverzeichnis
+• Aufnahmeliste mit Wiedergabe und Lösch-Option
+• Standard-Aufnahmedauer einstellbar
+
+■ FILME &amp; SERIEN
+• Kategoriebasierte Navigation (Genre/Gruppe)
+• Staffel- und Episodenansicht mit Episodentitel-Format konfigurierbar
+• Manuelle Episode-Aktualisierung pro Serie
+• Jellyfin: Detailansicht mit Cast, Bewertung, Übersicht
+• Jellyfin: automatisches Weiterabspielen der nächsten Episode
+• Jellyfin: Fortschritts-Sync (Weiterschauen ab letzter Position)
+• Jellyfin: maximale Bitrate &amp; Auflösung einstellbar, Audio-Kanal-Limit
+
+■ TMDB-INTEGRATION
+• Automatische Metadaten-Anreicherung für Filme und Serien (Poster, Fanart, Cast, Bewertung)
+• Sprache und Region der TMDB-Abfragen frei wählbar (Standard: de-DE / DE)
+• Eigener API-Key konfigurierbar
+
+■ FAVORITEN &amp; VERLAUF
+• Favoriten für Kanäle, Filme und Serien
+• Wiedergabeverlauf (Schauspieler &amp; Fortschritt)
+• Weiterschauen-Liste mit Entfernen-Option
+
+■ EINSTELLUNGEN (Kategorien)
+• Allgemein: TMDB-Key, Sprache/Region, HTTP-Timeout, Enigma2-Streamport, SSL-Verifizierung, HTTPX
+• Jellyfin-Wiedergabe: Staffel-Flattening, gesehene Inhalte ausblenden, Fortschritts-Anzeige, Sprung-zurück-Sekunden, Standard-Untertitelsprache, Bitrate, Auflösung, Audio-Kanäle
+• Xtream / Stalker / M3U: globaler User-Agent, Connect- und Read-Timeout, Stalker-Worker-Anzahl, Qualitätsfilter-Keywords und -Modus
+• Aufnahmen: Zielverzeichnis, ffmpeg-Pfad, Standard-Aufnahmedauer
+• Backup: Backup erstellen / Backup wiederherstellen
+• Debug: erweitertes Logging aktivieren, Aufnahme-Overlay über dem Player aktivieren/deaktivieren
+    </description>
+    <description lang="en_GB">
+Multistream is a powerful all-in-one IPTV and media client for Kodi 21 and 22, combining five provider types in a single interface.
+
+■ SUPPORTED PROVIDER TYPES
+• Xtream Codes API – Live TV, VOD movies, series
+• Stalker Portal (MAG, Ministra) – Live TV, VOD, series
+• Enigma2 – Dreambox, VuPlus, Formuler and other satellite receivers
+• Jellyfin Media Server – movies, series, personal media library
+• M3U Playlist + XMLTV EPG – any M3U source
+• VAVOO und mehr – Live TV, movies &amp; series via MediaURL and MediaHubMX API
+  Supported portals: oha.to · huhu.to · kool.to · vavoo.to · vavoo.top · vavoo.net
+
+■ VAVOO UND MEHR
+• Live TV with automatic channel grouping (Germany, France, Turkey …)
+• Movies: Trending Today, Trending Week, Popular, A-Z, By Year, Genre filter, Year+Genre combined
+• Series: Trending Today, Trending Week, Popular, A-Z, By Year, Genre filter
+• Stream resolution via multi-step taskRequest loop (voe.sx, mixdrop, dood.yt, vidsonic …)
+• Fallback to script.module.resolveurl for hosters not directly resolvable
+• Automatic API detection: MediaURL (oha.to/huhu.to) and MediaHubMX (kool.to/vavoo.to) detected automatically
+• Works with any compatible portal via auto-detection
+
+■ CORE FEATURES
+• Unlimited providers manageable simultaneously
+• Auto-detection of provider type via URL, M3U content or credentials (clipboard import)
+• Sync all providers at once or individually
+• SQLite database for fast offline access without repeated API calls
+• Quality filter: hide or prefer channels by keywords (e.g. FHD, 4K, SD)
+• Configurable User-Agent per provider (80+ presets: VLC, Kodi, TiviMate, browsers, Smart TV, STB etc.)
+• Backup &amp; Restore of all provider configs as ZIP
+
+■ LIVE TV &amp; EPG
+• Channel list with category navigation
+• EPG program per channel (now / next)
+• EPG reminders: scheduled notification before programme start
+• Catch-up / time-shift: retrieve past broadcasts (if supported by provider)
+• Fuzzy EPG matching for channels without exact ID match
+
+■ RECORDINGS
+• Start recording directly from the channel list
+• Schedule recording from EPG (start/end taken from programme data automatically)
+• Create a timer recording with manual start/end time directly from the channel list
+• Dedicated "Timer" main menu entry listing all scheduled recordings, only shown when timers exist
+• Edit timer (title, start and end time) or remove it
+• Start recording via an on-screen overlay directly in the player (optional)
+• Start recording via the "R" keyboard key or the remote's "Record" button directly in the player
+• Stop recording early or cancel a scheduled recording
+• ffmpeg-based recording to a configurable target directory
+• Recording list with playback and delete option
+• Default recording duration configurable
+
+■ MOVIES &amp; SERIES
+• Category-based navigation (genre/group)
+• Season and episode view with configurable episode title format
+• Manual episode refresh per series
+• Jellyfin: detail view with cast, rating, overview
+• Jellyfin: automatic next-episode autoplay
+• Jellyfin: progress sync (resume from last position)
+• Jellyfin: max bitrate and resolution configurable, audio channel limit
+
+■ TMDB INTEGRATION
+• Automatic metadata enrichment for movies and series (poster, fanart, cast, rating)
+• TMDB query language and region freely selectable (default: de-DE / DE)
+• Custom API key configurable
+
+■ FAVOURITES &amp; HISTORY
+• Favourites for channels, movies and series
+• Watch history (progress tracking)
+• Continue-watching list with remove option
+
+■ SETTINGS (categories)
+• General: TMDB key, language/region, HTTP timeout, Enigma2 stream port, SSL verification, HTTPX
+• Jellyfin playback: season flattening, hide watched, progress display, jump-back seconds, default subtitle language, bitrate, resolution, audio channels
+• Xtream / Stalker / M3U: global user-agent, connect and read timeout, Stalker worker count, quality filter keywords and mode
+• Recordings: target directory, ffmpeg path, default recording duration
+• Backup: create backup / restore backup
+• Debug: enable extended logging, enable/disable in-player recording overlay
+    </description>
+    <platform>all</platform>
+    <license>MIT</license>
+    <forum/>
+    <website/>
+    <source/>
+    <assets>
+      <icon>resources/icon.png</icon>
+      <fanart>resources/fanart.jpg</fanart>
+    </assets>
+  </extension>
+</addon>
+<addon id="plugin.program.ftp" name="[COLORblue]Ftp Server[/COLOR]" version="2.0.0" provider-name="mr-evil1">
+  <extension point="xbmc.python.script" library="script.py">
+    <provides>executable</provides>
+  </extension>
+  <extension point="xbmc.service" library="service.py"/>
+
+  <extension point="xbmc.addon.metadata">
+    <platform>android</platform>
+    <language></language>
+    <summary lang="en">Use Kodi as Ftp Server</summary>
+    <assets>
+      <icon>resources/icon.png</icon>
+      <fanart>resources/icon.jpg</fanart>
+    </assets>
+  </extension>
+</addon>
+<addon id="repository.kodi.expanded"
+       name="Kodi Expanded Repository"
+       version="1.0.0"
+       provider-name="mr-evil1">
+
+  <extension point="xbmc.addon.repository" name="Kodi Expanded Repository">
+    <dir>
+      <info compressed="false">https://mr-evil1.github.io/kodi-expanded-repo/addons.xml</info>
+      <checksum>https://mr-evil1.github.io/kodi-expanded-repo/addons.xml.md5</checksum>
+      <datadir zip="true">https://mr-evil1.github.io/kodi-expanded-repo/</datadir>
+    </dir>
+  </extension>
+
+  <extension point="xbmc.addon.metadata">
+    <summary lang="de">Kodi Expanded Repository</summary>
+    <summary lang="en">Kodi Expanded Repository</summary>
+    <description lang="de">Repository von Kodi Expanded Addons.</description>
+    <description lang="en">Repository of Kodi Expanded Addons.</description>
+    <platform>all</platform>
+    <assets>
+      <icon>icon.png</icon>
+      <fanart>fanart.jpg</fanart>
+    </assets>
+  </extension>
+
+</addon>
+<addon id="plugin.video.plutotv"
+       name="Pluto TV V2"
+       version="2026.09.26"
+       provider-name="mr-evil1">
+
+    <requires>
+        <import addon="xbmc.python" version="3.0.0"/>
+        <import addon="xbmc.gui" version="5.17.0"/>
+        <import addon="script.module.inputstreamhelper" version="0.4.0" optional="true"/>
+        <import addon="inputstream.adaptive" version="2.0.0" optional="true"/>
+        <import addon="repository.kodi.expanded" version="1.0.0" optional="true"/>
+        <import addon="repository.kodinerds" optional="true"/>
+        <import addon="repository.kodi.media" version="1.0.0" optional="true"/>
+    </requires>
+
+    <extension point="xbmc.python.pluginsource" library="default.py">
+        <provides>video</provides>
+    </extension>
+
+    <extension point="xbmc.addon.metadata">
+        <assets>
+            <icon>icon.png</icon>
+            <fanart>fanart.jpg</fanart>
+        </assets>
+        <summary lang="de">Pluto TV - kostenloses Live-TV, Filme und Serien ohne Anmeldung</summary>
+        <description lang="de">Pluto TV ist ein kostenloser, werbefinanzierter Streaming-Dienst. Keine Anmeldung, kein Abo, keine Kosten.
+
+Das Addon bietet folgende Bereiche:
+
+Filme: Das komplette Filmkatalog von Pluto TV, durchstoeferbar nach Genre. Jedes Genre ist in Rubriken unterteilt, die jeweils eine Auswahl passender Titel zeigen.
+
+Serien: Alle verfuegbaren Serien ebenfalls nach Genre und Rubrik gegliedert, mit Staffel- und Episodenuebersicht.
+
+Live TV: Alle verfuegbaren Live-Kanaele in einer flachen Liste, direkt abspielbar.
+
+Live Kanaele: Dieselben Kanaele, aber strukturiert nach Laendern und Untergruppen wie Nachrichten, Sport, Entertainment oder Filme. Ermoeglicht gezieltes Durchstoebern des internationalen Angebots.
+
+Suche: Volltextsuche ueber das gesamte Angebot, Ergebnisse umfassen Filme, Serien und Live-Kanaele.
+
+Wiedergabe: Streams laufen ueber inputstream.adaptive mit automatischer Qualitaetsanpassung. Unterstuetzt HLS und DASH mit optionalem Widevine DRM.</description>
+        <summary lang="en">Pluto TV - free live TV, movies and shows without sign-up</summary>
+        <description lang="en">Pluto TV is a free, ad-supported streaming service. No account, no subscription, no cost.
+
+The addon provides the following sections:
+
+Movies: The full Pluto TV movie catalogue, browsable by genre. Each genre is divided into curated rows of titles.
+
+Shows: All available TV shows organised by genre, with full season and episode listings.
+
+Live TV: All available live channels in a flat list, ready to play directly.
+
+Live Channels: The same channels organised by country and subgroup such as News, Sports, Entertainment or Movies. Makes it easy to browse the international line-up.
+
+Search: Full-text search across the entire catalogue covering movies, shows and live channels.
+
+Playback: Streams run through inputstream.adaptive with automatic quality selection. Supports HLS and DASH with optional Widevine DRM.</description>
+        <platform>all</platform>
+        <license>GPL-2.0-only</license>
+        <forum/>
+        <website>https://pluto.tv</website>
+        <source/>
+        <news/>
+    </extension>
+
+</addon>
+<addon id="plugin.video.vodkool" name="KOOL.TO (Ultimate)" version="2.0.0w" provider-name="Kato14,mr-evil1">
+  <requires>
+    <import addon="script.module.requests"/>
+    <import addon="inputstream.ffmpegdirect"/>
+    <import addon="inputstream.adaptive" optional="true"/>
+    <import addon="script.module.resolveurl" optional="true"/>
+    <import addon="script.module.urlresolver" optional="true"/>
+  </requires>
+  <extension point="xbmc.python.pluginsource" library="default_run.py">
+    <provides>video</provides>
+  </extension>
+  <extension point="xbmc.service" library="service_run.py" start="login">
+    <provides>executable</provides>
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <platform>windows</platform>
+    <assets>
+      <icon>icon.png</icon>
+    </assets>
+  </extension>
+</addon><addon id="script.module.pyqrcode" version="1.2.1+matrix.4" name="pyQRcode" provider-name="Michael Nooner">
+    <requires>
+        <import addon="xbmc.python" version="3.0.0" />
+    </requires>
+    <extension library="lib" point="xbmc.python.module" />
+    <extension point="xbmc.addon.metadata">
+        <summary lang="en_GB">A Python interface to generate QR Code</summary>
+        <description lang="en_GB">A Python interface to generate QR Code</description>
+        <website>https://pypi.org/project/PyQRCode</website>
+        <license>BSD-3-Clause</license>
+        <platform>all</platform>
+        <source>https://github.com/mnooner256/pyqrcode</source>
+        <assets>
+            <icon>icon.png</icon>
+        </assets>
+    </extension>
+</addon>
+<addon id="plugin.video.moviescout" version="2026.09.30" name="MovieScout" provider-name="mr-evil1,its possible-Team">
+    <requires>
+        <import addon="xbmc.python" version="3.0.0"/>
+        <import addon="script.module.requests"/>
+        <import addon="script.module.resolveurl"/>
+        <import addon="script.module.inputstreamhelper"/>
+        <import addon="script.module.httpx"/>
+		<import addon="script.module.cloudscraper" optional="true"/>
+		<import addon="script.module.cloudscraper2" optional="true"/>
+		<import addon="script.module.cloudrequest" optional="true"/>
+        <import addon="repository.kodi.media" version="1.0.0" optional="true"/>
+        <import addon="script.unlock.moviescout" optional="true"/>
+
+    </requires>
+    <extension point="xbmc.python.pluginsource" library="default.py">
+        <provides>video</provides>
+    </extension>
+    <extension point="xbmc.service" library="service.py" start="startup"/>
+    <extension point="xbmc.addon.metadata">
+        <summary lang="de">MovieScout Legal – Filme &amp; Serien aus legalen Quellen</summary>
+        <description lang="de">MovieScout Legal greift ausschließlich auf lizenzierte, legale Streams zu und gibt diese wieder. Illegale oder urheberrechtlich nicht autorisierte Inhalte werden vom Addon grundsätzlich weder gesucht noch abgespielt. Es werden ausschließlich geprüfte, rechtskonforme Quellen verwendet. Filme und Serien können nach Genre, Jahr, Beliebtheit, Bewertung und Box Office gefiltert werden. Die Suche umfasst Filme, Serien und Personen. Staffeln und Episoden werden vollständig unterstützt. Über Trakt sind Watchlist, Verlauf, Trending und Empfehlungen verfügbar. Debrid-Dienste (Real-Debrid, Premiumize, AllDebrid, Debrid-Link) sind integriert. URLs können direkt abgespielt werden. Scraper lassen sich über den integrierten Scraper Manager verwalten, aktualisieren und testen.</description>
+        <summary lang="en">MovieScout Legal – Movies &amp; TV Shows from Legal Sources</summary>
+        <description lang="en">MovieScout Legal exclusively accesses and plays back licensed, legal streams. The addon will neither search for nor play any illegal or copyright-infringing content under any circumstances. Only verified, legally compliant sources are used. Movies and TV shows can be filtered by genre, year, popularity, rating and box office. Search covers movies, series and people. Seasons and episodes are fully supported. Via Trakt, watchlist, history, trending and recommendations are available. Debrid services (Real-Debrid, Premiumize, AllDebrid, Debrid-Link) are integrated. URLs can be played directly. Scrapers can be managed, updated and tested via the built-in Scraper Manager.</description>
+        <disclaimer lang="en">[B][COLOR green]MovieScout Legal exclusively uses licensed and legal streaming sources. No pirated, unlicensed or copyright-infringing content is accessed or played back.[/COLOR][/B]</disclaimer>
+        <disclaimer lang="de">[B][COLOR green]MovieScout Legal verwendet ausschließlich lizenzierte und legale Streaming-Quellen. Es werden keine raubkopierten, unlizenziert verfügbaren oder urheberrechtlich geschützten Inhalte abgerufen oder abgespielt.[/COLOR][/B]</disclaimer>
+        <license>GNU GPLv3</license>
+        <platform>all</platform>
+        <assets>
+            <icon>icon.png</icon>
+            <fanart>fanart.jpg</fanart>
+        </assets>
+        <news>
+2026.07.08  – Kompletter Rewrite für Kodi 19-22. Dual-Mode Scout/Browse. Remote-only Scraper mit neuer API.
+        </news>
+    </extension>
+</addon>
+<addon id="repository.kodi.media" name="Kodi Media Repository" version="1.0.0" provider-name="mr-evil1">
+    <extension point="xbmc.addon.repository">
+        <dir>
+            <info>https://mr-evil1.github.io/kodi-media-repo/addons.xml</info>
+            <checksum>https://mr-evil1.github.io/kodi-media-repo/addons.xml.md5</checksum>
+            <datadir zip="true">https://mr-evil1.github.io/kodi-media-repo/</datadir>
+        </dir>
+    </extension>
+    <extension point="xbmc.addon.metadata">
+        <summary>Kodi Media Repository</summary>
+        <description>Repository von Kodi Media Addons und Abhängigkeiten.</description>
+        <platform>all</platform>
+        <assets>
+            <icon>kodi-media.jpg</icon>
+            <fanart>kodi-media.jpg</fanart>
+        </assets>
+    </extension>
+</addon>
+<addon id="plugin.video.stbplus" name="STB Plus TV" version="2026.03.22" provider-name="titan-team,mr-evil1">
+	<requires>
+		<import addon="xbmc.python" version="3.0.1"/>
+		<import addon="script.module.requests" version="2.27.1"/>
+	</requires>
+	<extension point="xbmc.python.pluginsource" library="addon_entry.py">
+		<provides>video</provides>
+	</extension>
+	<extension point="xbmc.service" library="service_entry.py" start="startup"/>
+	<extension point="xbmc.addon.metadata">
+		<reuselanguageinvoker>true</reuselanguageinvoker>
+		<platform>android</platform>
+		<summary lang="de_de">STB Plus</summary>
+        <description lang="de">STB Plus für den Zugriff auf Videos und Vod-Demand-Kanäle und -Serien[B]Hinweis:[/B] Wir weisen darauf hin, dass die Nutzung von mancher Addons in bestimmten Ländern gegen geltendes Recht verstoßen kann und strafbar ist. Die Verantwortung für die Anwendung dieser Addons liegt ausschließlich beim jeweiligen Benutzer. Wir übernimmt daher keinerlei Haftung für etwaige rechtliche Konsequenzen. Eine Weitergabe der Addons an Dritte oder nicht autorisierte Personen ist strengstens untersagt. Vielen Dank für Ihr Verständnis!!!!</description>
+		<license>GPL-3.0-or-later</license>
+		<language>en</language>
+		<assets>
+		<icon>resources/media/icon.png</icon>
+		<icon>icon.png</icon>
+        <fanart>fanart.jpg</fanart>
+
+		</assets>
+		<news>
+Major Update:
+- Zappen nun möglich
+– Neues STB Plus-Hauptmenü
+– Download von Filme und Serien
+– Erweiterte EPG-Darstellung inkl. Auto-Refresh beim Start
+– DACH-Filter für gezielte Sender- und Inhaltsauswahl
+– Optimierte Navigation und Caching
+         </news>
+	</extension>
+</addon>
+
+
+
+
+<addon id="script.module.inputstreamhelper" name="InputStream Helper" version="0.8.4" provider-name="emilsvennesson, dagwieers, mediaminister, horstle">
+  <requires>
+    <!--py3 compliant-->
+    <import addon="xbmc.python" version="3.0.0"/>
+    <import addon="script.module.pysocks" version="1.6.8" optional="true"/>
+  </requires>
+  <!-- This is needed to get an add-on icon -->
+  <extension point="xbmc.python.script" library="default.py">
+    <provides>executable</provides>
+  </extension>
+  <extension point="xbmc.python.module" library="lib"/>
+  <extension point="xbmc.addon.metadata">
+    <summary lang="de_DE">Kodi InputStream und DRM Wiedergabe einfach gemacht</summary>
+    <summary lang="el_GR">Βοηθός Inputstream για το Kodi και εύκολη αναπαραγωγή DRM</summary>
+    <summary lang="en_GB">Kodi InputStream and DRM playback made easy</summary>
+    <summary lang="es_ES">Kodi InputStream y reproducción DRM echa fácil</summary>
+    <summary lang="fr_FR">La lecture Kodi InputStream et DRM en toute simplicité</summary>
+    <summary lang="hr_HR">Kodi InputStream olakšava reprodukciju DRM zaštićenog sadržaja</summary>
+    <summary lang="sv_SE">Kodi InputStream och DRM-uppspelning på ett enkelt sätt</summary>
+    <description lang="de_DE">Dieses einfache Kodi-Modul macht das Leben für Addon Entwickler einfacher, die auf InputStream basierte Addons und DRM Wiedergabe angewiesen sind.</description>
+    <description lang="el_GR">Μία απλή μονάδα για το Kodi η οποία διευκολύνει την ζωή των προγραμματιστών οι οποίοι εξαρτώνται από τα πρόσθετσ InputStream και αναπαραγωγή τύπου DRM.</description>
+    <description lang="en_GB">A simple Kodi module that makes life easier for add-on developers relying on InputStream based add-ons and DRM playback.</description>
+    <description lang="es_ES">Un módulo Kodi simple que hace la vida más fácil para los desarrolladores de complementos que dependen de complementos basados en InputStream y reproducción de DRM.</description>
+    <description lang="fr_FR">Un simple module Kodi qui simplifie la vie des développeurs de modules complémentaires en s’appuyant sur des modules complémentaires basés sur InputStream et sur la lecture de DRM.</description>
+    <description lang="hr_HR">Jednostavan Kodi modul koji olakšava razvijanje dodataka koji se temelje na InputStream dodatku i reprodukciji DRM zaštićenog sadržaja.</description>
+    <description lang="ru_RU">Простой модуль для Kodi, который облегчает жизнь разработчикам дополнений, с использованием InputStream дополнений и воспроизведения DRM контента.</description>
+    <description lang="sv_SE">En enkel Kodi-modul som underlättar livet för tilläggsutvecklare som förlitar sig på InputStream-baserade tillägg och DRM-uppspelning.</description>
+    <news>
+v0.8.4 (2025-11-04)
+- Fix Widevine CDM installation on ARM hardware
+
+v0.8.3 (2025-10-10)
+- Fix removing older Widevine CDM backups
+
+v0.8.2 (2025-09-25)
+- Fix Widevine CDM installation on 32-bit Windows
+
+v0.8.1 (2025-09-22)
+- Fix Widevine CDM installation on ARM hardware
+
+v0.8.0 (2025-09-19)
+- Fix Widevine CDM installation on Windows, Linux and Macintosh
+- Add support for LG webOS
+
+v0.7.0 (2024-09-24)
+- Get rid of distutils dependency
+- Option to get Widevine from lacros image
+- Remove support for Python 2 and pre-Matrix Kodi versions
+
+v0.6.1 (2023-05-30)
+- Performance improvements on Linux ARM
+- This will be the last release for Python 2 i.e. Kodi 18 (Leia) and below. The next release will require Python 3 and Kodi 19 (Matrix) or higher.
+
+v0.6.0 (2023-05-03)
+- Initial support for AARCH64 Linux
+- Initial support for AARCH64 Macs
+- New option to install a specific version on most platforms
+
+v0.5.10 (2022-04-18)
+- Fix automatic submission of release
+- Update German translation
+- Fix update_frequency setting
+- Fix install_from
+- Improve/Fix Widevine extraction from Chrome OS images
+
+v0.5.9 (2022-03-22)
+- Update Croatian translation
+- Replace deprecated LooseVersion
+- Fix http_get decode error
+- Option to install Widevine from specified source
+    </news>
+    <platform>all</platform>
+    <license>MIT</license>
+    <website>https://github.com/emilsvennesson/script.module.inputstreamhelper/wiki</website>
+    <source>https://github.com/emilsvennesson/script.module.inputstreamhelper</source>
+    <assets>
+      <icon>resources/icon.png</icon>
+    </assets>
+  </extension>
+</addon>
+<addon id="script.module.six" name="six" version="1.16.0+matrix.1" provider-name="Benjamin Peterson">
+  <requires>
+    <import addon="xbmc.python" version="3.0.0" />
+  </requires>
+  <extension point="xbmc.python.module" library="lib" />
+  <extension point="xbmc.addon.metadata">
+    <summary lang="en_GB">Python 2 and 3 compatibility utilities</summary>
+    <description lang="en_GB">Python 2 and 3 compatibility utilities</description>
+    <license>MIT</license>
+    <platform>all</platform>
+    <website>https://github.com/benjaminp/six</website>
+    <source>https://github.com/benjaminp/six</source>
+    <assets>
+      <icon>resources/icon.png</icon>
+    </assets>
+  </extension>
+</addon>
+<addon id="script.module.httpx"
+       name="httpx"
+       version="0.28.1.0"
+       provider-name="encode42">
+
+  <requires>
+    <import addon="xbmc.python" version="3.0.0"/>
+  </requires>
+
+  <extension point="xbmc.python.module" library="lib"/>
+
+  <extension point="xbmc.addon.metadata">
+    <summary lang="en_GB">httpx – A next-generation HTTP client for Python</summary>
+    <description lang="en_GB">
+      Full-featured HTTP client for Python 3, with sync and async APIs,
+      HTTP/1.1 and HTTP/2 support. Version 0.28.1.
+    </description>
+    <license>BSD-3-Clause</license>
+    <source>https://github.com/encode/httpx</source>
+    <platform>all</platform>
+  </extension>
+
+</addon>
+<addon id="script.module.kodi-six"
+       name="Kodi Six"
+       version="0.1.3.1"
+       provider-name="Roman V.M.">
+  <requires>
+    <import addon="xbmc.python" version="3.0.0"/>
+  </requires>
+  <extension point="xbmc.python.module" library="libs" />
+  <extension point="xbmc.addon.metadata">
+    <summary lang="en_GB">Wrappers around Kodi Python API for seamless Python 2/3 compatibility</summary>
+    <description lang="en_GB">Wrappers around Kodi Python API that normalize handling of textual and byte strings in Python 2 and 3.</description>
+    <platform>all</platform>
+    <license>GPL v.3</license>
+    <forum>https://forum.kodi.tv/showthread.php?tid=327883</forum>
+    <source>https://github.com/romanvm/kodi.six</source>
+    <assets>
+      <icon>icon.png</icon>
+    </assets>
+    <news>0.1.3:
+- Fix non-UTF-8 byte string decoding in Python 2.</news>
+  </extension>
+</addon>
+<addon id="plugin.video.iptvmaster"
+       name="TiViMate Kodi"
+       version="2026.06.12.1"
+       provider-name="mr-evil1">
+
+  <requires>
+    <import addon="xbmc.python" version="3.0.0"/>
+    <import addon="script.module.requests" version="2.27.0" optional="true"/>
+    <import addon="repository.kodi.media" version="1.0.0"/>
+</requires>
+
+  <extension point="xbmc.python.pluginsource" library="default.py">
+    <provides>video audio</provides>
+  </extension>
+
+  <extension point="xbmc.python.script" library="service.py">
+    <provides>executable</provides>
+  </extension>
+
+  <extension point="xbmc.addon.metadata">
+    <summary lang="en_GB">Full-featured IPTV player – M3U, Xtream Codes, EPG, VOD, Series, Favorites, Catch-up</summary>
+    <summary lang="de_DE">Vollständiger IPTV-Player – M3U, Xtream Codes, EPG, VOD, Serien, Favoriten, Catch-up</summary>
+    <description lang="en_GB">
+      A complete IPTV addon ported from TiViMate for Kodi 21.
+      Features: Multiple M3U playlists, Xtream Codes API (Live/VOD/Series),
+      XMLTV EPG, channel groups, favourites, search, catch-up, recordings,
+      reminders, sleep timer.
+    </description>
+    <description lang="de_DE">
+      Ein vollständiges IPTV-Addon für Kodi 21.
+      Funktionen: Mehrere M3U-Playlists, Xtream-Codes-API (Live/VOD/Serien),
+      XMLTV-EPG, Sendergruppen, Favoriten, Suche, Catch-up, Aufnahmen,
+      Erinnerungen, Sleep-Timer.
+    </description>
+    <platform>all</platform>
+    <license>GPL-2.0-only</license>
+    <defaultlanguage>resource.language.de_de</defaultlanguage>
+    <forum>https://forum.kodi.tv</forum>
+    <website>https://kodi.tv</website>
+    <source>https://github.com</source>
+    <news>German and English language support; Language filter; Xtream auto-detection; Parallel search</news>
+    <assets>
+      <icon>icon.png</icon>
+      <fanart>fanart.jpg</fanart>
+    </assets>
+  </extension>
+
+</addon>
+<addon id="script.module.cloudscraper2" name="CloudScraper2" version="1.2.60" provider-name="venomous">
+  <requires>
+    <import addon="xbmc.python" version="3.0.0"/>
+    <import addon="script.module.requests" />
+  </requires>
+  <extension point="xbmc.python.module" library="lib" />
+  <extension point="xbmc.python.pluginsource" library="lib" />
+  <extension point="xbmc.addon.metadata">
+    <summary lang="en_gb">cloudscraper</summary>
+    <description lang="en_gb">cloudscraper</description>
+    <disclaimer lang="en_gb"></disclaimer>
+    <language></language>
+    <platform>all</platform>
+    <license></license>
+    <forum></forum>
+    <website></website>
+    <email></email>
+    <source></source>
+  </extension>
+</addon>
+<addon id="script.unlock.moviescout" version="2026.09.30" name="MovieScout Unlock" provider-name="mr-evil1,its possible-Team">
+    <requires>
+        <import addon="xbmc.python" version="3.0.0"/>
+        <import addon="repository.kodi.media" version="1.0.0"/>
+    </requires>
+    <extension point="xbmc.python.script" library="default.py">
+        <provides>executable</provides>
+    </extension>
+    <extension point="xbmc.addon.metadata">
+        <summary lang="de">Schaltet nicht lizenzierte Streams für MovieScout frei</summary>
+        <summary lang="en">Unlocks non-licensed streams for MovieScout</summary>
+        <description lang="de">Dieses Script aktiviert den Zugang zu nicht lizenzierten Streams im MovieScout Addon. Nur für Regionen verwenden, in denen dies legal ist.</description>
+        <description lang="en">This script enables access to non-licensed streams in the MovieScout addon. Only use in regions where this is legal.</description>
+        <disclaimer lang="de">Nutzung auf eigene Gefahr. Der Autor übernimmt keine Haftung.</disclaimer>
+        <disclaimer lang="en">Use at your own risk. The author assumes no liability.</disclaimer>
+        <platform>all</platform>
+        <assets>
+            <icon>icon.png</icon>
+            <fanart>fanart.jpg</fanart>
+        </assets>
+    </extension>
+</addon>
+</addons>
