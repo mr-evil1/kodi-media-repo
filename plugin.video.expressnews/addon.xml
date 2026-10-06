@@ -1,1 +1,25 @@
-
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<addon id="plugin.video.expressnews" name="Express.de News" version="2026.10.06" provider-name="zusatzmetall, IT('s) Possible">
+    <requires>
+        <import addon="xbmc.python" version="3.0.0"/>
+        <import addon="script.module.requests"/>
+        <import addon="script.module.beautifulsoup4"/>
+    </requires>
+    <extension point="xbmc.python.pluginsource" library="addon.py">
+        <provides>video</provides>
+    </extension>
+    <extension point="xbmc.addon.metadata">
+        <platform>all</platform>
+        <license>GPL-2.0-only</license>
+        <forum></forum>
+        <source></source>
+        <assets>
+            <icon>icon.png</icon>
+            <fanart>fanart.jpg</fanart>
+            <screenshot>fanart.jpg</screenshot>
+        </assets>
+        <summary lang="de">Express.de – Nachrichten &amp; Videos</summary>
+        <description lang="de">Dein Kölner Nachrichtenportal für Kodi. Lese aktuelle Artikel aus allen Rubriken (1. FC Köln, Lokalnachrichten, Sport, Panorama u.v.m.) direkt im integrierten Textviewer und streame die neuesten Video-Beiträge werbefrei und in HD.</description>
+        <disclaimer lang="de">Dieses Add-on steht in keiner offiziellen Verbindung zu Express.de oder DuMont. Es nutzt öffentliche Webinhalte und APIs.</disclaimer>
+    </extension>
+</addon>
