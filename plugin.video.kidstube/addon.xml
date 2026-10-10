@@ -1,1 +1,31 @@
-
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<addon id="plugin.video.kidstube"
+    name="Kids Tube"
+    version="2026.10.10"
+    provider-name="mr-evil1">
+  <requires>
+    <import addon="xbmc.python" version="3.0.0"/>
+    <import addon="plugin.video.youtube" optional="true"/>
+    <import addon="plugin.video.kodi.newpipe" optional="true"/>
+  </requires>
+  <extension point="xbmc.python.pluginsource" library="default.py">
+    <provides>video</provides>
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <summary lang="de">[COLORyellow]Kids[/COLOR][COLORred]Tube[/COLOR] 2 – Kinder-Kanäle, Serien, Filme, Musik via NewPipe oder Youtube</summary>
+    <description lang="de">
+Kinder-Kanäle, Playlisten, Filme, Serien, Märchen, Hörbücher, Wissen und Musik.
+Erfordert Newpipe, oder Youtube.
+Kodi 21 kompatibel – nutzt getVideoInfoTag() API.
+    </description>
+    <language>de en</language>
+    <news>Kindersicherung per PIN, Favoriten, Einstellungen, Installationshilfe für fehlende Player-Addons.</news>
+    <platform>all</platform>
+    <source>https://mr-evil1.github.io/kodi-media-repo/</source>
+    <license>GNU GENERAL PUBLIC LICENSE. Version 3, June 2007</license>
+    <assets>
+      <icon>icon.png</icon>
+      <fanart>fanart.jpg</fanart>
+    </assets>
+  </extension>
+</addon>
