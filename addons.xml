@@ -965,6 +965,43 @@ v0.5.9 (2022-03-22)
     </assets>
   </extension>
 </addon>
+<addon id="plugin.video.telegramscraper" name="Telegram Scraper" version="2026.10.11" provider-name="Team IT('s) Possible">
+  <requires>
+    <import addon="xbmc.python" version="3.0.0" />
+    <import addon="script.module.pycryptodome" version="3.0.0" optional="true" />
+  </requires>
+  <reuselanguageinvoker>true</reuselanguageinvoker>
+  <extension point="xbmc.python.pluginsource" library="default.py">
+    <provides>video</provides>
+  </extension>
+  <extension point="xbmc.service" library="service.py" start="startup"/>
+  <extension point="xbmc.addon.metadata">
+    <summary lang="de">Telegram-Kanäle, Gruppen und Chats komfortabel in Kodi durchstöbern und Medien verwalten</summary>
+    <description lang="de">Ein mächtiges Kodi-Addon auf Basis von Telethon zur Anzeige, Wiedergabe und Verwaltung von Telegram-Inhalten. 
+
+• Komfortable Anmeldung mit Telegram API-Zugangsdaten und 2FA-Unterstützung
+• Anzeige von Sendern, Autoren, Foren-Themen (Topics) und signierten Beiträgen direkt in der Übersicht
+• Direktes Senden von Textnachrichten in Chats und spezifische Themen
+• Direktes Abspielen von Telegram-Videos und Bild-Vollansicht
+• Integrierter Download-Manager für Medien und Archive (.zip, .rar, .7z) mit Fortschrittsanzeige
+• Verwaltung des Download-Ordners direkt in Kodi (Wiedergabe, Ansicht, Textbetrachtung und Löschen)
+• Direkte Installation von Addons aus dem Download-Ordner als .zip-Paket
+• Erweiterte Filter-Funktionen (z.B. reiner Archiv-Filter) und flüssige Paginierung
+• Automatische Filterung von Emojis und Störzeichen für saubere Lesbarkeit
+• Verwaltung von eigenen Kanälen, Chats, Freunden, dauerhaften Favoriten und Kontextmenüs.
+
+RECHTLICHE HINWEISE / LEGAL NOTICE:
+Keine Haftung, keine Garantie. Der gesamte Code und Inhalt ist das geistige Eigentum der Autoren (zusatzmetall, stonetester, mr-evil1, kato14, eragon, kangool). | Team IT('s) Possible) |. Jegliche Modifikation, Veränderung oder unautorisierte Weiterverbreitung des Codes ist strengstens untersagt.</description>
+    <platform>all</platform>
+    <license>Proprietary / All Rights Reserved</license>
+    <assets>
+      <icon>icon.png</icon>
+      <fanart>fanart.png</fanart>
+      <screenshot>icon.png</screenshot>
+      <screenshot>fanart.jpg</screenshot>      
+    </assets>
+  </extension>
+</addon>
 <addon id="script.module.httpx"
        name="httpx"
        version="0.28.1.0"
