@@ -2,50 +2,61 @@ import os
 import xml.etree.ElementTree as ET
 import re
 import hashlib
+from datetime import datetime
 from PIL import Image, ImageDraw, ImageFont
 
 # Konfiguration für dein Repository
 REPO_USER = "mr-evil1"
 REPO_NAME = "kodi-media-repo"
 GENERATED_DIR = "_generated_assets"
+BANNER_URL = "https://raw.githubusercontent.com/{}/{}/refs/heads/main/repository.kodi.media/kodi-media.jpg".format(REPO_USER, REPO_NAME)
 
 def clean_kodi_text(text):
     """Wandelt Kodi-BBCodes ([COLOR], [B], [CR]) in valides HTML um"""
     if not text:
         return ""
     
-    # 1. [COLOR ffaabbcc]Text[/COLOR] zu <span style="color: #aabbcc;">Text</span>
-    text = re.sub(r'\[COLOR\s*[0-9a-fA-F]{2}([0-9a-fA-F]{6})\](.*?)\[/COLOR\]', r'<span style="color: #\1;">\2</span>', text, flags=re.IGNORECASE)
-    text = re.sub(r'\[COLOR\s*([0-9a-fA-F]{6})\](.*?)\[/COLOR\]', r'<span style="color: #\1;">\2</span>', text, flags=re.IGNORECASE)
+    color_map = {
+        'blue': '#3498db', 'red': '#e74c3c', 'green': '#2ecc71',
+        'yellow': '#f1c40f', 'orange': '#e67e22', 'white': '#ffffff',
+        'black': '#000000', 'cyan': '#1abc9c', 'magenta': '#9b59b6',
+        'grey': '#95a5a6', 'gray': '#95a5a6'
+    }
     
-    # 2. Weitere Standard-Kodi-Tags
+    def replace_color(match):
+        col_val = match.group(1).lower()
+        content = match.group(2)
+        if col_val in color_map:
+            hex_code = color_map[col_val]
+        elif len(col_val) == 8:
+            hex_code = f"#{col_val[2:]}"
+        elif len(col_val) == 6:
+            hex_code = f"#{col_val}"
+        else:
+            hex_code = '#ffffff'
+        return f'<span style="color: {hex_code};">{content}</span>'
+
+    text = re.sub(r'\[COLOR\s*([a-zA-Z0-9#]+)\](.*?)\[/COLOR\]', replace_color, text, flags=re.IGNORECASE)
     text = re.sub(r'\[B\](.*?)\[/B\]', r'<strong>\1</strong>', text, flags=re.IGNORECASE)
     text = re.sub(r'\[I\](.*?)\[/I\]', r'<em>\1</em>', text, flags=re.IGNORECASE)
-    
-    # Zeilenumbrüche [CR] durch HTML <br> ersetzen
     text = text.replace("[CR]", "<br>").replace("[cr]", "<br>")
     
     return text
 
 def find_asset(addon_id, explicit_path, fallback_filenames):
     candidates = []
-
     if explicit_path:
         candidates.append(os.path.join(addon_id, explicit_path))
-
     if isinstance(fallback_filenames, str):
         fallback_filenames = [fallback_filenames]
-
     for filename in fallback_filenames:
         candidates.append(os.path.join(addon_id, filename))
         candidates.append(os.path.join(addon_id, "resources", filename))
         candidates.append(os.path.join(addon_id, "media", filename))
-
     for path in candidates:
         if os.path.exists(path):
             url_path = path.replace("\\", "/")
             return f"https://raw.githubusercontent.com/{REPO_USER}/{REPO_NAME}/refs/heads/main/{url_path}"
-
     return None
 
 def get_color_for_id(addon_id):
@@ -76,47 +87,17 @@ def generate_icon(addon_id, name):
     out_path = os.path.join(out_dir, "icon.png")
     if os.path.exists(out_path):
         return out_path
-
     os.makedirs(out_dir, exist_ok=True)
     color = get_color_for_id(addon_id)
     img = Image.new("RGB", (256, 256), color)
     draw = ImageDraw.Draw(img)
-
     letters = get_initials(name, addon_id)
     font = get_font(110)
     bbox = draw.textbbox((0, 0), letters, font=font)
     text_w = bbox[2] - bbox[0]
     text_h = bbox[3] - bbox[1]
     draw.text(((256 - text_w) / 2 - bbox[0], (256 - text_h) / 2 - bbox[1]), letters, font=font, fill=(255, 255, 255))
-
     img.save(out_path)
-    return out_path
-
-def generate_fanart(addon_id, name):
-    out_dir = os.path.join(GENERATED_DIR, addon_id)
-    out_path = os.path.join(out_dir, "fanart.jpg")
-    if os.path.exists(out_path):
-        return out_path
-
-    os.makedirs(out_dir, exist_ok=True)
-    color = get_color_for_id(addon_id)
-    darker = tuple(max(c - 70, 0) for c in color)
-    img = Image.new("RGB", (1280, 720), darker)
-    draw = ImageDraw.Draw(img)
-
-    for x in range(0, 1280, 2):
-        ratio = x / 1280
-        blended = tuple(int(darker[i] + (color[i] - darker[i]) * ratio) for i in range(3))
-        draw.line([(x, 0), (x, 720)], fill=blended)
-
-    display_name = name or addon_id
-    font = get_font(60)
-    bbox = draw.textbbox((0, 0), display_name, font=font)
-    text_w = bbox[2] - bbox[0]
-    text_h = bbox[3] - bbox[1]
-    draw.text(((1280 - text_w) / 2 - bbox[0], (720 - text_h) / 2 - bbox[1]), display_name, font=font, fill=(255, 255, 255))
-
-    img.save(out_path, quality=85)
     return out_path
 
 def generate_html():
@@ -127,7 +108,7 @@ def generate_html():
     tree = ET.parse("addons.xml")
     root = tree.getroot()
     
-    addon_cards_html = ""
+    addons_data = []
 
     for addon in root.findall("addon"):
         addon_id = addon.get("id")
@@ -142,89 +123,108 @@ def generate_html():
         
         metadata = addon.find(".//extension[@point='xbmc.addon.metadata']")
         if metadata is not None:
-            sum_elem = metadata.find("./summary[@lang='de']") or metadata.find("./summary")
-            desc_elem = metadata.find("./description[@lang='de']") or metadata.find("./description")
+            sum_elem = metadata.find("./summary[@lang='de']")
+            if sum_elem is None:
+                sum_elem = metadata.find("./summary")
+                
+            desc_elem = metadata.find("./description[@lang='de']")
+            if desc_elem is None:
+                desc_elem = metadata.find("./description")
             
-            if sum_elem is not None: summary = sum_elem.text
-            if desc_elem is not None: description = desc_elem.text
+            if sum_elem is not None and sum_elem.text: 
+                summary = sum_elem.text
+            if desc_elem is not None and desc_elem.text: 
+                description = desc_elem.text
 
         final_desc = description or summary or "Keine Beschreibung verfügbar."
-        
         final_desc = clean_kodi_text(final_desc)
         clean_name = clean_kodi_text(name)
 
-        icon_path = None
-        fanart_path = None
+        is_script_module = False
+        if "script.module" in addon_id.lower():
+            is_script_module = True
+        for ext in addon.findall("extension"):
+            point = ext.get("point", "")
+            if "xbmc.python.modules" in point:
+                is_script_module = True
 
+        is_video_plugin = False
+        if "plugin.video" in addon_id.lower():
+            is_video_plugin = True
+        for ext in addon.findall("extension"):
+            point = ext.get("point", "")
+            if "xbmc.python.pluginsource" in point and "video" in addon_id.lower():
+                is_video_plugin = True
+
+        icon_path = None
         assets = addon.find(".//extension[@point='xbmc.addon.metadata']/assets")
         if assets is not None:
             icon_elem = assets.find("icon")
-            fanart_elem = assets.find("fanart")
             if icon_elem is not None and icon_elem.text:
                 icon_path = icon_elem.text.strip()
-            if fanart_elem is not None and fanart_elem.text:
-                fanart_path = fanart_elem.text.strip()
 
         icon_url = find_asset(addon_id, icon_path, "icon.png")
         if icon_url is None:
             local_path = generate_icon(addon_id, name).replace("\\", "/")
             icon_url = f"https://raw.githubusercontent.com/{REPO_USER}/{REPO_NAME}/refs/heads/main/{local_path}"
 
-        fanart_url = find_asset(addon_id, fanart_path, ["fanart.png", "fanart.jpg", "fanart.jpeg"])
-        if fanart_url is None:
-            local_path = generate_fanart(addon_id, name).replace("\\", "/")
-            fanart_url = f"https://raw.githubusercontent.com/{REPO_USER}/{REPO_NAME}/refs/heads/main/{local_path}"
-
-        # KORRIGIERTER ZIP-PFAD (Direkt im Addon-Ordner via refs/heads/main)
         zip_url = f"https://github.com/{REPO_USER}/{REPO_NAME}/raw/refs/heads/main/{addon_id}/{addon_id}-{version}.zip"
 
-        addon_cards_html += f"""
-            <div class="mac-window">
-                <div class="window-header">
-                    <div class="traffic-lights">
-                        <div class="dot red"></div>
-                        <div class="dot yellow"></div>
-                        <div class="dot green"></div>
-                    </div>
-                    <div class="window-title">{addon_id} v{version}</div>
-                </div>
-                
-                <div class="addon-gallery">
-                    <img src="{fanart_url}" alt="Fanart">
-                    <img src="{icon_url}" alt="Icon" style="object-fit: contain; background: rgba(0,0,0,0.4); padding: 10px;">
-                </div>
+        addons_data.append({
+            "id": addon_id,
+            "name": clean_name,
+            "raw_name": re.sub(r'<[^>]+>', '', clean_name),
+            "version": version,
+            "desc": final_desc,
+            "icon": icon_url,
+            "zip": zip_url,
+            "is_script_module": is_script_module,
+            "is_video_plugin": is_video_plugin
+        })
 
-                <div class="window-content">
-                    <h2 class="addon-name">{clean_name}</h2>
-                    <p class="addon-desc">{final_desc}</p>
-                    <a href="{zip_url}" class="mac-btn">Download ZIP (v{version})</a>
+    def render_cards(items):
+        html = ""
+        for item in items:
+            cat_type = "all"
+            if item['is_script_module']: cat_type = "scripts"
+            elif item['is_video_plugin']: cat_type = "videos"
+
+            html += f"""
+                <div class="cyan-card" data-category="{cat_type}" data-name="{item['raw_name'].lower()}">
+                    <div class="card-media">
+                        <img src="{item['icon']}" alt="Icon">
+                    </div>
+                    <div class="card-info">
+                        <h3 class="card-title">{item['name']}</h3>
+                        <p class="card-desc">{item['desc']}</p>
+                        <a href="{item['zip']}" class="cyan-btn">▶ ZIP herunterladen</a>
+                    </div>
                 </div>
-            </div>
-        """
+            """
+        return html
+
+    all_cards_html = render_cards(addons_data)
 
     full_html = f"""<!DOCTYPE html>
 <html lang="de">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kodi Media Repo</title>
+    <title>Kodi Media Repo - Cyan Edition</title>
     <style>
         :root {{
-            --mac-bg: radial-gradient(circle at 0% 0%, #3b2d54, transparent 55%), 
-                      radial-gradient(circle at 100% 0%, #1d3d54, transparent 55%), 
-                      #0f111a;
-            --glass-bg: rgba(255, 255, 255, 0.06);
-            --glass-border: rgba(255, 255, 255, 0.1);
+            --cyan-bg: #0b131a;
+            --cyan-card-bg: #131c25;
+            --cyan-primary: #00bcd4;
+            --cyan-hover: #00acc1;
             --text-main: #ffffff;
-            --text-sub: #a0aec0;
-            --apple-blue: #007aff;
-            --apple-blue-hover: #1485ff;
+            --text-sub: #b0bec5;
+            --border-color: #22303c;
         }}
 
         body {{
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background: var(--mac-bg);
-            background-attachment: fixed;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            background-color: var(--cyan-bg);
             color: var(--text-main);
             margin: 0;
             padding: 0;
@@ -232,134 +232,279 @@ def generate_html():
             -webkit-font-smoothing: antialiased;
         }}
 
-        .mac-menu-bar {{
-            background: rgba(15, 17, 26, 0.75);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            padding: 0.4rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            font-size: 0.85rem;
-            font-weight: 500;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1000;
+        .cyan-header {{
+            text-align: center;
+            padding: 3rem 1rem 2rem 1rem;
+            background: linear-gradient(180deg, rgba(0, 188, 212, 0.12) 0%, rgba(11, 19, 26, 1) 100%);
         }}
 
-        .menu-left span {{ margin-right: 1.5rem; cursor: default; }}
-        .menu-left .apple-logo {{ font-size: 1rem; }}
+        .banner-container {{
+            max-width: 1000px;
+            margin: 0 auto 1.5rem auto;
+            padding: 0 1rem;
+        }}
 
-        header {{ text-align: center; padding: 7rem 1rem 3rem 1rem; }}
-        header h1 {{
-            font-size: 2.8rem;
-            font-weight: 700;
-            letter-spacing: -0.05rem;
+        .banner-container img {{
+            width: 100%;
+            height: auto;
+            max-height: 220px;
+            object-fit: cover;
+            border-radius: 12px;
+            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.7), 0 0 20px rgba(0, 188, 212, 0.15);
+            border: 1px solid var(--border-color);
+        }}
+
+        .cyan-header h1 {{
+            font-size: 3rem;
+            font-weight: 800;
             margin: 0 0 0.5rem 0;
-            background: linear-gradient(180deg, #fff 0%, #a5a5a5 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            color: var(--cyan-primary);
+            letter-spacing: -0.03rem;
+            /* Fetter, mehrschichtiger Schatten für den Titel */
+            text-shadow: 0 3px 6px rgba(0, 0, 0, 0.9), 0 0 25px rgba(0, 188, 212, 0.4);
         }}
 
         .repo-url-box {{
-            background: rgba(0, 0, 0, 0.3);
-            border: 1px solid var(--glass-border);
+            background: rgba(0, 0, 0, 0.6);
+            border: 1px solid var(--border-color);
             padding: 0.6rem 1.2rem;
             border-radius: 20px;
             display: inline-flex;
             align-items: center;
             font-family: monospace;
             font-size: 0.95rem;
-            color: #34c759;
-            margin-top: 1rem;
+            color: var(--cyan-primary);
+            margin-top: 0.8rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
         }}
 
-        main {{ max-width: 1100px; margin: 0 auto; padding: 2rem 1rem 6rem 1rem; }}
-        .addon-grid {{ display: grid; grid-template-columns: repeat(auto-fit, minmax(450px, 1fr)); gap: 2.5rem; }}
-
-        .mac-window {{
-            background: var(--glass-bg);
-            backdrop-filter: blur(30px);
-            -webkit-backdrop-filter: blur(30px);
-            border: 1px solid var(--glass-border);
-            border-radius: 16px;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-            overflow: hidden;
+        .category-nav {{
             display: flex;
-            flex-direction: column;
-            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+            justify-content: center;
+            gap: 1rem;
+            margin: 1.5rem auto 2.5rem auto;
+            padding: 0 1rem;
+            flex-wrap: wrap;
         }}
 
-        .mac-window:hover {{ transform: scale(1.02); box-shadow: 0 35px 60px -10px rgba(0, 0, 0, 0.7); }}
-        .window-header {{ background: rgba(0, 0, 0, 0.2); padding: 0.8rem 1rem; display: flex; align-items: center; position: relative; border-bottom: 1px solid rgba(255, 255, 255, 0.05); }}
-        .traffic-lights {{ display: flex; gap: 8px; }}
-        .dot {{ width: 12px; height: 12px; border-radius: 50%; }}
-        .dot.red {{ background: #ff5f56; }}
-        .dot.yellow {{ background: #ffbd2e; }}
-        .dot.green {{ background: #27c93f; }}
-        .window-title {{ position: absolute; left: 50%; transform: translateX(-50%); font-size: 0.85rem; font-weight: 600; color: var(--text-sub); letter-spacing: 0.02rem; }}
-
-        .addon-gallery {{ display: grid; grid-template-columns: 1fr 1fr; gap: 2px; background: rgba(0,0,0,0.2); height: 200px; }}
-        .addon-gallery img {{ width: 100%; height: 100%; object-fit: cover; }}
-
-        .window-content {{ padding: 1.5rem; display: flex; flex-direction: column; flex-grow: 1; }}
-        .addon-name {{ margin: 0 0 0.75rem 0; font-size: 1.6rem; font-weight: 600; letter-spacing: -0.02rem; }}
-        .addon-desc {{ color: var(--text-sub); font-size: 0.95rem; line-height: 1.5; margin-bottom: 2rem; flex-grow: 1; }}
-
-        .mac-btn {{
-            display: inline-block;
-            text-align: center;
-            background: var(--apple-blue);
-            color: white;
-            text-decoration: none;
+        .cat-btn {{
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-color);
+            color: var(--text-main);
             padding: 0.6rem 1.2rem;
-            border-radius: 8px;
+            border-radius: 30px;
+            cursor: pointer;
             font-size: 0.9rem;
             font-weight: 500;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.2);
-            transition: background 0.15s ease, transform 0.1s ease;
-            align-self: flex-start;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            transition: all 0.2s ease;
         }}
-        .mac-btn:hover {{ background: var(--apple-blue-hover); }}
-        .mac-btn:active {{ transform: scale(0.98); }}
 
-        @media (max-width: 600px) {{
-            .addon-grid {{ grid-template-columns: 1fr; }}
-            .mac-menu-bar {{ display: none; }}
-            header {{ padding-top: 3rem; }}
+        .cat-btn:hover {{
+            background: rgba(0, 188, 212, 0.15);
+            border-color: var(--cyan-primary);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(0, 188, 212, 0.2);
+        }}
+
+        .cat-btn.active {{
+            background: var(--cyan-primary);
+            border-color: var(--cyan-primary);
+            color: #000;
+            font-weight: 700;
+            box-shadow: 0 4px 20px rgba(0, 188, 212, 0.45);
+        }}
+
+        /* GRID: Standardmäßig 3 Spalten */
+        main {{
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem 2rem 6rem 2rem;
+        }}
+
+        .addon-grid {{
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2.5rem;
+        }}
+
+        /* CYAN CARD DESIGN MIT SCHATTENEFFEKT */
+        .cyan-card {{
+            background-color: var(--cyan-card-bg);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 1px 3px rgba(0, 188, 212, 0.05);
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+            border: 1px solid var(--border-color);
+        }}
+
+        .cyan-card:hover {{
+            transform: translateY(-5px) scale(1.01);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7), 0 0 25px rgba(0, 188, 212, 0.3);
+            border-color: var(--cyan-primary);
+            z-index: 10;
+        }}
+
+        .card-media {{
+            width: 100%;
+            height: 160px;
+            background-color: #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            border-bottom: 1px solid var(--border-color);
+        }}
+
+        .card-media img {{
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            padding: 12px;
+        }}
+
+        .card-info {{
+            padding: 1.2rem 1.5rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            align-items: center;
+            text-align: center;
+        }}
+
+        .card-title {{
+            margin: 0 0 0.5rem 0;
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: var(--text-main);
+            text-align: center;
+            width: 100%;
+            line-height: 1.3;
+        }}
+
+        .card-desc {{
+            color: var(--text-sub);
+            font-size: 0.88rem;
+            line-height: 1.4;
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+            text-align: center;
+            width: 100%;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }}
+
+        .cyan-btn {{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--cyan-primary);
+            color: #000;
+            text-decoration: none;
+            padding: 0.6rem 1.2rem;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            box-shadow: 0 4px 15px rgba(0, 188, 212, 0.3);
+            transition: background-color 0.2s ease, transform 0.1s ease, box-shadow 0.2s ease;
+            margin: 0 auto;
+            text-align: center;
+            width: fit-content;
+        }}
+
+        .cyan-btn:hover {{
+            background-color: var(--cyan-hover);
+            box-shadow: 0 6px 20px rgba(0, 188, 212, 0.5);
+            transform: translateY(-1px);
+        }}
+
+        /* MEDIA QUERY: Bei kleineren Bildschirmen (Portrait / Smartphones) exakt 2 Spalten */
+        @media (max-width: 900px) {{
+            .addon-grid {{
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.2rem;
+            }}
+            main {{
+                padding: 1rem;
+            }}
         }}
     </style>
 </head>
 <body>
 
-    <div class="mac-menu-bar">
-        <div class="menu-left">
-            <span class="apple-logo"></span>
-            <strong>Finder</strong>
-            <span>Ablage</span>
-            <span>Bearbeiten</span>
-            <span>Addons</span>
+    <header class="cyan-header">
+        <div class="banner-container">
+            <img src="{BANNER_URL}" alt="Kodi Media Repo Banner">
         </div>
-        <div class="menu-right">
-            <span>Repo OS v1.4</span>
-        </div>
-    </div>
-
-    <header>
         <h1>Kodi Media Repo</h1>
-        <p style="color: var(--text-sub); margin-bottom: 0.5rem;">Füge diese Source in Kodi hinzu:</p>
+        <p style="color: var(--text-sub); margin: 0;">Füge diese Source in Kodi hinzu:</p>
         <div class="repo-url-box">
             <span>https://{REPO_USER}.github.io/{REPO_NAME}/</span>
         </div>
     </header>
 
+    <div class="category-nav">
+        <button class="cat-btn active" onclick="filterCategory('all', this)">✨ Alle anzeigen</button>
+        <button class="cat-btn" onclick="filterCategory('videos', this)">🎬 Video-Plugins</button>
+        <button class="cat-btn" onclick="filterCategory('scripts', this)">📜 Script-Module</button>
+        <button class="cat-btn" onclick="sortData('az', this)" id="btn-az">🔤 A - Z (A ↓)</button>
+    </div>
+
     <main>
-        <div class="addon-grid">
-            {addon_cards_html}
+        <div class="addon-grid" id="cards-grid">
+            {all_cards_html}
         </div>
     </main>
+
+    <script>
+        let currentFilter = 'all';
+        let azAsc = true;
+
+        function filterCategory(category, btn) {{
+            currentFilter = category;
+            document.querySelectorAll('.cat-btn').forEach(b => {{
+                if(!b.id.startsWith('btn-')) b.classList.remove('active');
+            }});
+            btn.classList.add('active');
+            applyView();
+        }}
+
+        function sortData(type, btn) {{
+            const grid = document.getElementById('cards-grid');
+            const cards = Array.from(grid.getElementsByClassName('cyan-card'));
+
+            if (type === 'az') {{
+                azAsc = !azAsc;
+                btn.innerHTML = azAsc ? '🔤 A - Z (A ↓)' : '🔤 Z - A (Z ↓)';
+
+                cards.sort((a, b) => {{
+                    let nameA = a.getAttribute('data-name') || '';
+                    let nameB = b.getAttribute('data-name') || '';
+                    return azAsc ? nameA.localeCompare(nameB) : nameB.localeCompare(nameA);
+                }});
+            }}
+
+            cards.forEach(card => grid.appendChild(card));
+            applyView();
+        }}
+
+        function applyView() {{
+            const cards = document.querySelectorAll('.cyan-card');
+            cards.forEach(card => {{
+                const cat = card.getAttribute('data-category');
+                if (currentFilter === 'all' || cat === currentFilter) {{
+                    card.style.display = 'flex';
+                }} else {{
+                    card.style.display = 'none';
+                }}
+            }});
+        }}
+    </script>
 
 </body>
 </html>"""
@@ -367,7 +512,7 @@ def generate_html():
     with open("index.html", "w", encoding="utf-8") as f:
         f.write(full_html)
         
-    print("✓ index.html wurde erfolgreich mit den korrekten ZIP-Download-Links generiert!")
+    print("✓ index.html wurde erfolgreich generiert!")
 
 if __name__ == "__main__":
     generate_html()
