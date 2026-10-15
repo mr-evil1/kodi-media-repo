@@ -444,7 +444,7 @@ def generate_html():
         <h1>Kodi Media Repo</h1>
         <p style="color: var(--text-sub); margin: 0;">Füge diese Source in Kodi hinzu:</p>
         <div class="repo-url-box">
-            <span>https://{REPO_USER}.github.io/{REPO_NAME}/</span>
+            <span>https://bu4s.short.gy/kodimedia/</span>
         </div>
     </header>
 
