@@ -7,7 +7,7 @@
 ## 📺 Addon-Übersicht
 
 👉 [Zur vollständigen Addon-Liste](
-https://bu4s.short.gy/kodimedia/)
+https://mr-evil1.github.io/kodi-media-repo/index.php)
 
 ---
 
@@ -16,7 +16,13 @@ https://bu4s.short.gy/kodimedia/)
 Füge diese Quelle in Kodi unter **Dateimanager zur Quelle hinzufügen** ein:
 
 ```
-https://mr-evil1.github.io/kodi-media-repo/
+
+
+https://bu4s.short.gy/kodimedia/
+
+
+
+
 ```
 
 Anschließend kannst du das Repository über **Addons → Aus ZIP-Datei installieren** einbinden und die enthaltenen Addons installieren.
