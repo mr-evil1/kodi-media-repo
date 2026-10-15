@@ -6,7 +6,8 @@
 
 ## 📺 Addon-Übersicht
 
-👉 [Zur vollständigen Addon-Liste](https://mr-evil1.github.io/kodi-media-repo/index.html)
+👉 [Zur vollständigen Addon-Liste](
+https://bu4s.short.gy/kodimedia/)
 
 ---
 
