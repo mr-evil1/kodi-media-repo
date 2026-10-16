@@ -1121,6 +1121,62 @@ Keine Haftung, keine Garantie. Der gesamte Code und Inhalt ist das geistige Eige
   </extension>
 
 </addon>
+<addon id="plugin.video.gitplayger" name="GitPlayGer" version="2026.10.16" provider-name="zusatzmetall | IT('s) Possible">
+    <requires>
+        <import addon="xbmc.python" version="3.0.0"/>
+        <import addon="script.module.requests" version="2.28.0"/>
+    </requires>
+    <extension point="xbmc.python.pluginsource" library="default.py">
+        <provides>video</provides>
+    </extension>
+    <extension point="xbmc.service" library="service.py"/>
+    <extension point="xbmc.addon.metadata">
+        <platform>all</platform>
+        <assets>
+            <icon>icon.png</icon>
+            <fanart>fanart.jpg</fanart>
+            <screenshot>fanart.jpg</screenshot>
+        </assets>
+        
+        <summary lang="de">GitPlayGer - Das ultimative IPTV-, EPG- &amp; Stalker-Portal Center</summary>
+        <description lang="de">GitPlayGer kombiniert automatisierte GitHub-Playlisten mit einer hocheffizienten Stalker-Portal &amp; MAC-Hunter Engine, um dir das ultimative IPTV-Erlebnis in Kodi zu bieten. 
+
+Highlights des Projekts:
+• Autonomer Stalker-Portal &amp; MAC-Hunter mit Turbo-Multi-Threading &amp; Session-Pooling
+• 6+ Monate MAC-Tresor: Automatische Speicherung und Verwaltung der besten Elite-Accounts (ab 6 Monaten Restlaufzeit)
+• Multi-Fallback Cloudflare &amp; Google DoH Resolver (umgeht DNS- und Netzwerksperren)
+• Intelligentes Caching &amp; Header-Randomisierung zur MAG-Gerätesimulation
+• Automatische GitHub-Suche nach aktuellen IPTV-Playlisten (.m3u)
+• Eigene M3U-Playlisten direkt einbinden und verwalten
+• Umfassende Länder- und präzise Qualitätsfilter (UHD/4K, FHD, HD, SD)
+• Konfigurierbare Blacklist &amp; automatisches Logo-Fallback
+• EPG-Integration (Online-URLs &amp; lokale XML/XMLTV-Dateien)
+• Integrierte Favoritenverwaltung, Themen-Ordner &amp; Stream-Verfügbarkeitstests</description>
+
+        <summary lang="en">GitPlayGer - Ultimate IPTV, EPG &amp; Stalker Portal Center</summary>
+        <description lang="en">GitPlayGer combines automated GitHub playlists with a high-performance Stalker Portal &amp; MAC Hunter engine for the ultimate IPTV experience in Kodi.
+
+Key Features:
+• Autonomous Stalker Portal &amp; MAC Hunter with Turbo Multi-Threading &amp; Session Pooling
+• 6+ Months MAC Vault: Automated storage and management of elite accounts (6+ months remaining)
+• Multi-Fallback Cloudflare &amp; Google DoH Resolver (bypasses DNS and network blocks)
+• Intelligent caching &amp; header randomization for MAG device simulation
+• Automated GitHub M3U discovery and custom playlist support
+• Advanced country &amp; quality filters (UHD/4K, FHD, HD, SD)
+• Configurable blacklist &amp; automatic logo fallback
+• Robust EPG integration &amp; stream availability testing</description>
+        <news lang="de">
+|   IT('s) Possible   |
+| © zusatzmetall  |
+        </news>        
+        <disclaimer lang="de">Der Autor übernimmt keine Verantwortung für die Verfügbarkeit oder die Inhalte externer Streams. Die Nutzung erfolgt auf eigene Verantwortung.</disclaimer>
+        <disclaimer lang="en">The author assumes no responsibility for the availability or content of external streams. Use at your own risk.</disclaimer>
+        
+        <language>de</language>
+        <license>MIT</license>
+        <source>zusatzmetall | IT('s) Possible</source>
+    </extension>
+</addon>
 <addon id="script.module.cloudscraper2" name="CloudScraper2" version="1.2.60" provider-name="venomous">
   <requires>
     <import addon="xbmc.python" version="3.0.0"/>
