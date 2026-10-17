@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<addon id="plugin.video.multistream" name="Multistream" version="2026.07.15" provider-name="mr-evil1">
+<addon id="plugin.video.multistream" name="Multistream" version="2026.10.15" provider-name="mr-evil1,IT('s) Possible">
   <requires>
     <import addon="xbmc.python" version="3.0.0"/>
     <import addon="script.module.requests" version="2.22.0"/>
@@ -24,6 +24,9 @@ Multistream ist ein leistungsstarker All-in-One IPTV- und Medien-Client für Kod
 • Enigma2 – Dreambox, VuPlus, Formuler und andere Sat-Receiver
 • Jellyfin Mediaserver – Filme, Serien, persönliche Mediathek
 • M3U Playlist + XMLTV EPG – beliebige M3U-Quellen
+• Telegram Hunter – Live TV, VOD-Filme, Serien aus Telegram-Kanälen
+  Automatisches Durchsuchen und Indizieren von Telegram-Kanälen nach M3U-, Xtream- und Stalker-Links;
+  gefundene Anbieter werden direkt in Multistream eingebunden und wie native Anbieter verwaltet
 • VAVOO und mehr – Live TV, Filme &amp; Serien via MediaURL- und MediaHubMX-API
   Unterstützte Portale: oha.to · huhu.to · kool.to · vavoo.to · vavoo.top · vavoo.net
 
@@ -104,6 +107,9 @@ Multistream is a powerful all-in-one IPTV and media client for Kodi 21 and 22, c
 • Enigma2 – Dreambox, VuPlus, Formuler and other satellite receivers
 • Jellyfin Media Server – movies, series, personal media library
 • M3U Playlist + XMLTV EPG – any M3U source
+• Telegram Hunter – Live TV, VOD movies, series sourced from Telegram channels
+  Automatically scans and indexes Telegram channels for M3U, Xtream and Stalker links;
+  discovered providers are integrated directly into Multistream and managed like native providers
 • VAVOO und mehr – Live TV, movies &amp; series via MediaURL and MediaHubMX API
   Supported portals: oha.to · huhu.to · kool.to · vavoo.to · vavoo.top · vavoo.net
 
