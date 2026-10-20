@@ -1,1 +1,16 @@
-
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<addon id="script.module.py7zr" name="py7zr" version="0.5.3" provider-name="Hiroshi Miura">
+    <requires>
+        <import addon="xbmc.python" version="3.0.0"/>
+    </requires>
+    <extension point="xbmc.python.module" library="lib"/>
+    <extension point="xbmc.addon.metadata">
+        <summary lang="en_GB">Pure Python 7-zip library</summary>
+        <description lang="en_GB">py7zr is a library and utility to support 7zip archive compression, decompression, encryption and decryption written by Python3.</description>
+        <license>LGPL-2.1-or-later</license>
+        <forum/>
+        <website>https://github.com/miurahr/py7zr</website>
+        <source>https://github.com/miurahr/py7zr</source>
+        <news>Version 0.5a3 packaged as Kodi module</news>
+    </extension>
+</addon>
