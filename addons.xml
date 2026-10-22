@@ -867,7 +867,7 @@ Key Features:
       <icon>icon.png</icon>
     </assets>
   </extension>
-</addon><addon id="service.htmlremote" name="Kodi Web Remote" version="2026.10.21-1" provider-name="zusatzmetall | IT('s) Possible">
+</addon><addon id="service.htmlremote" name="Kodi Web Remote" version="2026.10.21-5" provider-name="zusatzmetall | IT('s) Possible">
     <requires>
         <import addon="xbmc.python" version="3.0.0"/>
     </requires>
