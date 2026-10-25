@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<addon id="plugin.video.vodkool" name="KOOL.TO (Ultimate)" version="2.0.0w" provider-name="Kato14,mr-evil1">
+<addon id="plugin.video.vodkool" name="KOOL.TO (Ultimate)" version="2026.10.25" provider-name="Kato14,mr-evil1">
   <requires>
     <import addon="script.module.requests"/>
     <import addon="inputstream.ffmpegdirect"/>
@@ -14,7 +14,7 @@
     <provides>executable</provides>
   </extension>
   <extension point="xbmc.addon.metadata">
-    <platform>windows</platform>
+    <platform>android</platform>
     <assets>
       <icon>icon.png</icon>
     </assets>
