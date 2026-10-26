@@ -1,0 +1,12 @@
+{
+  "version": "1",
+  "addons": [
+    {
+      "id": "plugin.video.moviescout",
+      "name": "MovieScout",
+      "description": "Nicht lizenzierte Streams",
+      "key": "scraper.allow_unlicensed",
+      "unlock": "true"
+    }
+  ]
+}
