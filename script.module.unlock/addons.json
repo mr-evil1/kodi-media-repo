@@ -6,7 +6,8 @@
       "name": "MovieScout",
       "description": "Nicht lizenzierte Streams",
       "key": "scraper.allow_unlicensed",
-      "unlock": "true"
+      "unlock": "true",
+      "marker_files": [".disclaimer_asked"]
     }
   ]
 }
