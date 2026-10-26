@@ -1,1 +1,27 @@
-
+<?xml version="1.0" encoding="UTF-8"?>
+<addon id="plugin.video.deezer"
+       name="Deezer"
+       version="2026.10.26"
+       provider-name="mr-evil1 | IT('s) Possible">
+  <requires>
+    <import addon="xbmc.python" version="3.0.0"/>
+    <import addon="repository.kodi.media" version="1.0.0" optional="true"/>
+    <import addon="script.module.unlock" optional="true"/>
+  </requires>
+  <extension point="xbmc.python.pluginsource" library="default.py">
+    <provides>audio video</provides>
+  </extension>
+  <extension point="xbmc.service" library="service.py" start="startup"/>
+  <extension point="xbmc.addon.metadata">
+    <assets>
+        <icon>icon.png</icon>
+        <fanart>fanart.jpg</fanart>
+    </assets>
+    <summary lang="de">Deezer Musik-Streaming</summary>
+    <summary lang="en">Deezer Music Streaming</summary>
+    <description lang="de">Durchsuche und streame Deezer. Erfordert ARL-Token aus Deezer Cookie.</description>
+    <description lang="en">Browse and stream Deezer. Requires ARL token from Deezer cookie.</description>
+    <platform>all</platform>
+    <license>GPL-2.0-only</license>
+  </extension>
+</addon>
