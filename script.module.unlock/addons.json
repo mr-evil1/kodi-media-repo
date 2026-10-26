@@ -8,6 +8,14 @@
       "key": "scraper.allow_unlicensed",
       "unlock": "true",
       "marker_files": [".disclaimer_asked"]
+    },
+    {
+      "id": "plugin.video.deezer",
+      "name": "Deezer",
+      "description": "Premium Status",
+      "key": "deezer_stat",
+      "unlock": "true",
+      "marker_files": [".disclaimer_asked"]
     }
   ]
 }
