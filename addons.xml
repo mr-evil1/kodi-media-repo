@@ -113,7 +113,7 @@ Kodi 21 kompatibel – nutzt getVideoInfoTag() API.
   </extension>
 </addon><addon id="plugin.video.deezer"
        name="Deezer"
-       version="2026.10.26"
+       version="2026.10.27"
        provider-name="mr-evil1 | IT('s) Possible">
   <requires>
     <import addon="xbmc.python" version="3.0.0"/>
@@ -131,8 +131,8 @@ Kodi 21 kompatibel – nutzt getVideoInfoTag() API.
     </assets>
     <summary lang="de">Deezer Musik-Streaming</summary>
     <summary lang="en">Deezer Music Streaming</summary>
-    <description lang="de">Durchsuche und streame Deezer. Erfordert ARL-Token aus Deezer Cookie.</description>
-    <description lang="en">Browse and stream Deezer. Requires ARL token from Deezer cookie.</description>
+    <description lang="de">Durchsuche und streame Deezer. Erfordert Login oder ARL-Token aus Deezer Cookie.</description>
+    <description lang="en">Browse and stream Deezer. Requires Login or ARL token from Deezer cookie.</description>
     <platform>all</platform>
     <license>GPL-2.0-only</license>
   </extension>
