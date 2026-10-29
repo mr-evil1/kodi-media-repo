@@ -159,7 +159,7 @@ Features:
         </assets>
     </extension>
 </addon>
-<addon id="plugin.video.kodi.newpipe" name="NewPipe" version="2026.10.12" provider-name="mr-evil1,IT('s) Possible">
+<addon id="plugin.video.kodi.newpipe" name="NewPipe" version="2026.10.29" provider-name="mr-evil1,IT('s) Possible">
     <requires>
         <import addon="xbmc.python" version="3.0.0"/>
         <import addon="script.module.resolveurl"/>
