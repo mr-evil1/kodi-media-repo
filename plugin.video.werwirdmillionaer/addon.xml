@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<addon id="plugin.video.werwirdmillionaer"
+       name="Wer wird Millionär?"
+       version="2026.06.07"
+       provider-name="mr-evil1">
+
+    <requires>
+        <import addon="xbmc.python" version="3.0.0"/>
+        <import addon="repository.kodi.expanded" version="1.0.0"/>
+    </requires>
+
+    <extension point="xbmc.python.pluginsource" library="default.py">
+        <provides>video</provides>
+    </extension>
+
+    <extension point="xbmc.addon.metadata">
+        <summary lang="de">Wer wird Millionär?</summary>
+        <summary lang="en">Who Wants to Be a Millionaire?</summary>
+        <description lang="de">Wer wird Millionär? ist die bekannteste Quizshow Deutschlands, moderiert von Günther Jauch. Ziel ist es, durch das Beantworten von 15 Fragen mit steigendem Schwierigkeitsgrad bis zu einer Million Euro zu gewinnen. Als Hilfe stehen drei Joker zur Verfügung: Publikumsjoker, Telefonjoker und 50:50-Joker. Dieses Kodi-Addon ermöglicht es, mit echten Fragen aus der Sendung zu trainieren, Highscores zu vergleichen und den eigenen Wissensstand zu testen – direkt vom Sofa aus.</description>
+        <description lang="en">Who Wants to Be a Millionaire? is Germany's most iconic quiz show, hosted by Günther Jauch. The goal is to answer 15 increasingly difficult multiple-choice questions to win up to one million euros. Three lifelines are available: Ask the Audience, Phone a Friend, and 50:50. This Kodi add-on lets you practice with real questions from the show, compete on leaderboards, and test your knowledge – all from your couch.</description>
+        <platform>all</platform>
+      <assets>
+        <icon>icon.png</icon>
+        <fanart>fanart.jpg</fanart>
+      </assets>
+    </extension>
+
+</addon>

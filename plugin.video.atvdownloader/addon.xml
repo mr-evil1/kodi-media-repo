@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<addon id="plugin.video.atvdownloader"
+       name="Downloader ATV"
+       version="2026.06.20"
+       provider-name="mr-evil1">
+
+    <requires>
+        <import addon="xbmc.python" version="3.0.0"/>
+        <import addon="xbmc.gui" version="5.17.0"/>
+        <import addon="repository.kodi.expanded" version="1.0.0" optional="true"/>
+        <import addon="repository.kodinerds" optional="true"/>
+    </requires>
+
+    <extension point="xbmc.python.pluginsource"
+               library="addon.py">
+        <provides>video</provides>
+    </extension>
+
+    <extension point="xbmc.addon.metadata">
+        <summary lang="en_GB">Browser-based downloader and file manager for Kodi</summary>
+        <summary lang="de_DE">Browser-basierter Downloader und Dateimanager für Kodi</summary>
+        <description lang="en_GB">Downloader is a browser-based tool that lets you navigate to any URL, download files directly to your device, and manage your downloaded files. Supports APK installs, custom download folders, TV-mode navigation, bookmarks/favorites, and adjustable text zoom.</description>
+        <description lang="de_DE">Downloader ist ein browserbasiertes Tool, mit dem du jede beliebige URL aufrufen, Dateien direkt auf dein Gerät herunterladen und deine heruntergeladenen Dateien verwalten kannst. Unterstützt APK-Installationen, benutzerdefinierte Download-Ordner, TV-Modus-Navigation, Lesezeichen/Favoriten und einstellbaren Textzoom.</description>
+        <disclaimer lang="en_GB">Use responsibly. Only download content you have the right to access.</disclaimer>
+        <disclaimer lang="de_DE">Bitte verantwortungsbewusst nutzen. Lade nur Inhalte herunter, auf die du ein Zugriffsrecht hast.</disclaimer>
+        <platform>all</platform>
+        <language>en de</language>
+        <license>MIT</license>
+        <assets>
+			<icon>icon.png</icon>
+			<fanart>fanart.jpg</fanart>
+		</assets>
+        <forum/>
+        <website>https://go.aftvnews.com/</website>
+        <source/>
+        <news>
+1.5.3 - Initial Kodi port based on com.esaba.downloader APK
+        </news>
+    </extension>
+
+</addon>

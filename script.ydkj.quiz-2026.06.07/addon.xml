@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<addon id="script.ydkj.quiz" name = "[COLOR ff0088ff]Y[/COLOR][COLOR ff3399ff]o[/COLOR][COLOR ff66aaff]u[/COLOR] [COLOR ff88bbff]D[/COLOR][COLOR ffaaccff]o[/COLOR][COLOR ffbbddff]n[/COLOR][COLOR ffccddff]'[/COLOR][COLOR ffddeeff]t[/COLOR] [COLOR ffbbddff]K[/COLOR][COLOR ffaaeeff]n[/COLOR][COLOR ff88ddff]o[/COLOR][COLOR ff66ccff]w[/COLOR] [COLOR ff44bbff]J[/COLOR][COLOR ff22aaff]a[/COLOR][COLOR ff0099ff]c[/COLOR][COLOR ff0088ff]k[/COLOR] [COLOR ff0077ff]-[/COLOR] [COLOR ff0066ff]F[/COLOR][COLOR ff0055ff]a[/COLOR][COLOR ff0044ff]n[/COLOR] [COLOR ff0033ff]Q[/COLOR][COLOR ff0022ff]u[/COLOR][COLOR ff0011ff]i[/COLOR][COLOR ff0000ff]z[/COLOR]" version="2026.06.07" provider-name="zusatzmetall">
+    <requires>
+        <import addon="xbmc.python" version="3.0.0"/>
+    </requires>
+    <extension point="xbmc.python.script" library="default.py">
+        <provides>executable</provides>
+    </extension>
+    <extension point="xbmc.addon.metadata">
+        <platform>all</platform>
+        <license>GPL-2.0-only</license>
+        <summary lang="de">Das ultimative, sarkastische Quiz-Event für bis zu 3 Spieler!</summary>
+        <description lang="de">Willkommen beim Fan-Quiz! Teste dein Allgemeinwissen in knallharten Runden, aber Vorsicht: Unser virtueller Moderator ist absolut gnadenlos. Mit dem speziellen „Nagel-Feature“ kannst du deine Mitspieler gezielt in die Falle locken und sie zu einer Antwort zwingen – doch pass auf, dass der Schuss nicht nach hinten losgeht! Wer zu feige ist oder falsch liegt, wird nicht nur mit Punktabzug bestraft, sondern muss sich auch noch einen der vielen beißend sarkastischen Kommentare anhören. Bist du bereit, dich verbal zerlegen zu lassen, oder knackst du den Highscore?</description>
+        <assets>
+            <icon>resources/media/icon.png</icon>
+            <fanart>resources/media/fanart.png</fanart>
+			<banner>resources/media/fanart.png</banner>
+			<clearlogo>resources/media/icon.png</clearlogo>
+			<screenshot>resources/media/fanart.png</screenshot>          
+        </assets>
+    </extension>
+</addon>
