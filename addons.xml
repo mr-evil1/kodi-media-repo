@@ -591,6 +591,26 @@ Key Features:
     <source></source>
   </extension>
 </addon>
+<addon id="script.itspossible.tool" name="Its Possible Tool" version="1.0.65" provider-name="IT('s) Possible">
+	<requires>
+		<import addon="xbmc.python" version="3.0.0"/>
+	</requires>
+	<extension point="xbmc.python.script" library="default.py"/>
+	<extension point="xbmc.python.pluginsource" library="plugin.py">
+		<provides>video</provides>
+	</extension>
+	<extension point="xbmc.service" library="service.py" start="login"/>
+	<extension point="xbmc.addon.metadata">
+		<summary lang="en_GB">Its Possible Tool</summary>
+		<description lang="en_GB">One script for the Its Possible skin: helper actions, toolbox features, widgets and Skin Shortcuts. Copyright © 2026 IT('s) Possible. All rights reserved.</description>
+		<platform>all</platform>
+		<license>All rights reserved</license>
+		<assets>
+			<icon>icon.png</icon>
+			<fanart>fanart.jpg</fanart>
+		</assets>
+	</extension>
+</addon>
 <addon id="script.module.cloudrequest"
        name="CloudRequest"
        version="1.0.2"
