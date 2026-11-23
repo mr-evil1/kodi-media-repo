@@ -1289,11 +1289,11 @@ Key Features:
         </assets>
     </extension>
 </addon>
-<addon id="skin.its.possible" version="2026.11.23" name="Its Possible" provider-name="mr-evil1,IT('s) Possible">
+<addon id="skin.its.possible" version="2026.11.26" name="Its Possible" provider-name="mr-evil1,IT('s) Possible">
 	<requires>
-		<import version="5.18.0" addon="xbmc.gui"/>
+		<import version="5.17.0" addon="xbmc.gui"/>
 		<import addon="xbmc.python" version="3.0.0"/>
-		<import addon="script.itspossible.tool" version="1.0.0"/>
+		<import addon="script.itspossible.tool" version="1.0.65"/>
 		<import addon="script.skinshortcuts" version="3.0.5"/>
 	</requires>
 	<extension debugging="false" defaultthemename="Textures.xbt" effectslowdown="1" point="xbmc.gui.skin">
@@ -1309,8 +1309,8 @@ Key Features:
 		<forum></forum>
 		<source></source>
 		<assets>
-			<icon>resources/icon.png</icon>
-			<fanart>resources/fanart.jpg</fanart>
+			<icon>icon.png</icon>
+			<fanart>fanart.jpg</fanart>
 		</assets>
 	</extension>
 </addon>
