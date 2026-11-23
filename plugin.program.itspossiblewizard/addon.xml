@@ -1,1 +1,22 @@
-
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<addon id="plugin.program.itspossiblewizard" name="It('s)-Possible Wizard" version="2026.11.11" provider-name="mr-evil1,It('s)-Possible">
+  <requires>
+    <import addon="xbmc.python" version="3.0.0"/>
+  </requires>
+  <extension point="xbmc.python.script" library="default.py">
+    <provides>executable</provides>
+  </extension>
+  <extension point="xbmc.service" library="service.py" start="startup"/>
+  <extension point="xbmc.addon.metadata">
+    <summary lang="de_DE">Der vielseitige Einrichtungsassistent für Kodi 19,20,21,22</summary>
+    <summary lang="en_GB">The versatile setup wizard for Kodi 19,20,21,22</summary>
+    <description lang="de_DE">IT'S-POSSIBLE WIZARD: moderner Einrichtungs- und Verwaltungsassistent für Kodi. Verwaltet beliebige Repository-, Addon- und Build-Quellen, installiert und erstellt Builds, installiert Addons, zeigt Vorschaubilder und Updates und bietet Werkzeuge für Sicherung, Cache, Datenbanken, System und Netzwerk sowie einen FTP-Server und eine interaktive HTML-Anleitung unter Wartung.</description>
+    <description lang="en_GB">IT'S-POSSIBLE WIZARD: a modern setup and management assistant for Kodi. Manages arbitrary repository, addon and build sources, installs and creates builds, installs addons, shows artwork and updates, and provides tools for backups, cache, databases, system and network, plus an FTP server and an interactive HTML guide under maintenance.</description>
+    <platform>all</platform>
+    <license>GPL-2.0-only</license>
+    <assets>
+      <icon>icon.png</icon>
+      <fanart>fanart.jpg</fanart>
+    </assets>
+  </extension>
+</addon>
