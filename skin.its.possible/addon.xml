@@ -1,1 +1,26 @@
-
+<?xml version="1.0" encoding="utf-8"?>
+<addon id="skin.its.possible" version="2026.11.23" name="Its Possible" provider-name="mr-evil1,IT('s) Possible">
+	<requires>
+		<import version="5.18.0" addon="xbmc.gui"/>
+		<import addon="xbmc.python" version="3.0.0"/>
+		<import addon="script.itspossible.tool" version="1.0.0"/>
+		<import addon="script.skinshortcuts" version="3.0.5"/>
+	</requires>
+	<extension debugging="false" defaultthemename="Textures.xbt" effectslowdown="1" point="xbmc.gui.skin">
+        <res aspect="16:9" default="true" folder="1080i" height="1080" width="1920" />
+    </extension>
+	<extension point="xbmc.addon.metadata">
+		<summary lang="en_GB">Kodi skin with a Multi look.</summary>
+		<summary lang="de_DE">Kodi skin mit einem Multi look.</summary>
+		<description lang="en_GB">Kodi skin with a Multi look. Copyright © 2026 IT('s) Possible. All rights reserved.</description>
+		<description lang="de_DE">Kodi skin mit einem Multi look. Copyright © 2026 IT('s) Possible. Alle Rechte vorbehalten.</description>
+		<platform>all</platform>
+		<license>All rights reserved</license>
+		<forum></forum>
+		<source></source>
+		<assets>
+			<icon>resources/icon.png</icon>
+			<fanart>resources/fanart.jpg</fanart>
+		</assets>
+	</extension>
+</addon>
